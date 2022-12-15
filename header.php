@@ -37,7 +37,7 @@ if (isset($_SESSION['user'])) {
           height: 40px;
         }
       </style>
-      
+
       <div class="header-content clearfix"><img src="images/logo.jpg" alt="" class="logo"><a class="logo" href="index.php"> PDCMS</a>
         <nav class="navigation" role="navigation">
           <ul class="primary-nav">

@@ -47,16 +47,16 @@ DROP TABLE IF EXISTS `tbl_appointment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_appointment` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `patient_id` int(11) DEFAULT NULL,
   `clinic_id` int(11) DEFAULT NULL,
   `appointment_date` date DEFAULT NULL,
   `remarks` text DEFAULT NULL,
   `date_created` date DEFAULT NULL,
   `status_id` int(11) DEFAULT 1,
-  `paid_flag` int(11) DEFAULT 0,
+  `paid_id` int(11) DEFAULT 1,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +65,7 @@ CREATE TABLE `tbl_appointment` (
 
 LOCK TABLES `tbl_appointment` WRITE;
 /*!40000 ALTER TABLE `tbl_appointment` DISABLE KEYS */;
+INSERT INTO `tbl_appointment` VALUES (1,5,2,'2022-12-15','please add early slot','2022-12-15',2,2),(2,5,2,'2022-12-30','','2022-12-15',3,2),(3,5,2,'2022-12-24','','2022-12-15',4,1),(4,5,2,'2022-12-30','','2022-12-15',1,1),(5,5,2,'2022-12-30','','2022-12-15',1,1),(6,5,2,'2022-12-30','','2022-12-15',1,1),(7,5,2,'2022-12-29','','2022-12-15',4,1),(8,5,2,'2022-12-30','','2022-12-15',4,1),(9,5,3,'2022-12-29','','2022-12-15',4,1),(10,5,2,'2022-12-11','','2022-12-15',4,1),(11,5,2,'2022-12-05','','2022-12-15',1,1);
 /*!40000 ALTER TABLE `tbl_appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,7 +83,7 @@ CREATE TABLE `tbl_appointment_items` (
   `qty` int(11) DEFAULT NULL,
   `price` decimal(13,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +92,32 @@ CREATE TABLE `tbl_appointment_items` (
 
 LOCK TABLES `tbl_appointment_items` WRITE;
 /*!40000 ALTER TABLE `tbl_appointment_items` DISABLE KEYS */;
+INSERT INTO `tbl_appointment_items` VALUES (1,1,2,2,400.00),(2,1,3,1,123.00),(3,2,3,1,123.00),(4,2,8,1,343434.00),(5,3,1,1,50000.00),(6,4,1,1,50000.00),(7,8,1,1,50000.00),(8,9,13,1,23232.00),(9,9,14,1,2323.00),(10,10,6,1,3434.00),(11,11,6,1,3434.00);
 /*!40000 ALTER TABLE `tbl_appointment_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_appointment_paid_status`
+--
+
+DROP TABLE IF EXISTS `tbl_appointment_paid_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_appointment_paid_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_appointment_paid_status`
+--
+
+LOCK TABLES `tbl_appointment_paid_status` WRITE;
+/*!40000 ALTER TABLE `tbl_appointment_paid_status` DISABLE KEYS */;
+INSERT INTO `tbl_appointment_paid_status` VALUES (1,'UNPAID'),(2,'PAID');
+/*!40000 ALTER TABLE `tbl_appointment_paid_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -105,7 +131,7 @@ CREATE TABLE `tbl_appointment_status` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,7 +140,7 @@ CREATE TABLE `tbl_appointment_status` (
 
 LOCK TABLES `tbl_appointment_status` WRITE;
 /*!40000 ALTER TABLE `tbl_appointment_status` DISABLE KEYS */;
-INSERT INTO `tbl_appointment_status` VALUES (1,'PENDING'),(2,'ACCEPTED'),(3,'REJECTED');
+INSERT INTO `tbl_appointment_status` VALUES (1,'PENDING'),(2,'ACCEPTED'),(3,'REJECTED'),(4,'CANCELLED');
 /*!40000 ALTER TABLE `tbl_appointment_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -273,7 +299,7 @@ CREATE TABLE `tbl_user` (
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
-INSERT INTO `tbl_user` VALUES (1,1,'admin','123',1),(2,2,'clinic2','123456aA',2),(3,3,'dentist2','123456aA',2),(4,2,'clinic3','123456aA',3),(5,5,'user','123',NULL),(6,2,'resident','Aa13213213',4);
+INSERT INTO `tbl_user` VALUES (1,1,'admin','123',1),(2,2,'clinic2','123456aA',2),(3,3,'dental_admin','123',2),(4,2,'clinic3','123456aA',3),(5,5,'user','123',NULL),(6,2,'resident','Aa13213213',4);
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,4 +341,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-14 18:59:18
+-- Dump completed on 2022-12-15 13:41:41

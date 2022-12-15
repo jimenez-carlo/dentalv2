@@ -149,6 +149,13 @@
                       <input type="file" class="form-control" name="image_koto" required accept=".jpeg,.png">
                     </div>
                   </div>
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description</label>
+                    <div class="col-sm-9">
+                      <textarea class="form-control" name="description" required></textarea>
+                    </div>
+                  </div>
                 </div>
 
               </div>

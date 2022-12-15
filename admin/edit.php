@@ -27,7 +27,7 @@
             <div class="modal-body">
               <div class="card-body">
                 <?php $id = $_GET['id']; ?>
-                <?php $default = get_one("select u.id,c.clinic_id,c.image,c.name,ui.municipality,ui.barangay,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
+                <?php $default = get_one("select u.id,c.clinic_id,c.image,c.name,ui.municipality,ui.barangay,c.description,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
                 <input type="hidden" name="id" value="<?= $default->id ?>">
                 <input type="hidden" name="clinic_id" value="<?= $default->clinic_id ?>">
                 <div class="form-group row">
@@ -85,6 +85,12 @@
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic Logo</label>
                   <div class="col-sm-9">
                     <input type="file" class="form-control" name="image_koto" accept=".jpeg,.png">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description</label>
+                  <div class="col-sm-9">
+                    <textarea class="form-control" name="description" required><?= $default->description ?></textarea>
                   </div>
                 </div>
               </div>

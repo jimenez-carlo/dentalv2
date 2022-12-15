@@ -13,7 +13,7 @@ cms
 ✓patient
  ✓clinics
   ✓service
-   add to cart/checkout
+   ✓add to cart/checkout
  appointment
 
 

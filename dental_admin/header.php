@@ -116,7 +116,7 @@
             if (isset($_SESSION['user'])) {
               if ($_SESSION['user']->access_id == 2) {
                 echo "<li class='sidebar-item'>
-                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='register.php' aria-expanded='false'><i class='mdi mdi-account-multiple-plus'></i><span class='hide-menu'>Manage Staff</span></a>
+                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='clinics.php' aria-expanded='false'><i class='mdi mdi-account-multiple-plus'></i><span class='hide-menu'>Manage Staff</span></a>
                 </li>
                 <li class='sidebar-item'>
                 <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='appointments.php' aria-expanded='false'><i class='mdi mdi-calendar-today'></i><span class='hide-menu'>Appointments</span></a>
@@ -134,7 +134,7 @@
               } else if ($_SESSION['user']->access_id == 3) {
                 echo "
                 <li class='sidebar-item'>
-                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='settings.php' aria-expanded='false'><i class='mdi mdi-calendar-today'></i><span class='hide-menu'>Appointments</span></a>
+                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='appointments.php' aria-expanded='false'><i class='mdi mdi-calendar-today'></i><span class='hide-menu'>Appointments</span></a>
                 </li>
                 <li class='sidebar-item'>
                 <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='services.php' aria-expanded='false'><i class='mdi mdi-source-branch'></i><span class='hide-menu'>Services</span></a>
@@ -146,7 +146,7 @@
               } else if ($_SESSION['user']->access_id == 4) {
                 echo "
                 <li class='sidebar-item'>
-                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='settings.php' aria-expanded='false'><i class='mdi mdi-calendar-today'></i><span class='hide-menu'>Appointments</span></a>
+                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='appointments.php' aria-expanded='false'><i class='mdi mdi-calendar-today'></i><span class='hide-menu'>Appointments</span></a>
                 </li>
                 <li class='sidebar-item'>
                 <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='services.php' aria-expanded='false'><i class='mdi mdi-source-branch'></i><span class='hide-menu'>Services</span></a>

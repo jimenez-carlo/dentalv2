@@ -82,7 +82,7 @@ function registerClinic($data)
         $file_name = "$file_name";
     }
 
-    $clinic_id = get_inserted_id("INSERT INTO `tbl_clinic` (name, image) values('$clinic_name', '$file_name')");
+    $clinic_id = get_inserted_id("INSERT INTO `tbl_clinic` (name, image, description) values('$clinic_name', '$file_name','$description')");
     $id = get_inserted_id("INSERT INTO `tbl_user` (access_id, username, password, clinic_id) values('2', '$username', '$password','$clinic_id')");
     query("INSERT INTO `tbl_userinfo` (id, municipality, barangay, email, contact) values($id, '$municipality', '$barangay', '$email', '$contact')");
     return success_message();
@@ -105,7 +105,7 @@ function editClinic($data)
 
     query("UPDATE `tbl_user` set  username ='$username', password = '$password' where id = $id");
     query("UPDATE `tbl_userinfo` set  municipality ='$municipality', barangay = '$barangay',email='$email',contact='$contact' where id = $id");
-    query("UPDATE `tbl_clinic` set name = '$clinic_name', image ='$file_name' where clinic_id = $clinic_id");
+    query("UPDATE `tbl_clinic` set name = '$clinic_name', image ='$file_name',description = '$description' where clinic_id = $clinic_id");
     return success_message("Clinic #$clinic_id Updated Successfully!");
 }
 
@@ -182,7 +182,134 @@ function addService($data)
     return success_message();
 }
 
+function add_to_cart($data)
+{
+    extract($data);
+    if (!isset($_SESSION['clinic_id'])) {
+        $_SESSION['clinic_id'] = $clinic_id;
+    } else {
+        if ($_SESSION['clinic_id'] != $clinic_id) {
+            $_SESSION['cart'] = null;
+            $_SESSION['clinic_id'] = $clinic_id;
+        };
+    }
 
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'][$service_id] = array('price' => $price, 'qty' => $qty, 'name' => $name);
+    } else {
+        if (!isset($_SESSION['cart'][$service_id])) {
+            $_SESSION['cart'][$service_id] = array('price' => $price, 'qty' => $qty, 'name' => $name);
+        } else {
+            $_SESSION['cart'][$service_id]['qty'] = $_SESSION['cart'][$service_id]['qty'] + $qty;
+        }
+    }
+    return success_message("Service Added Successfully!");
+}
+
+function get_clinic($id = 0)
+{
+    return !empty($id)  ? get_one("SELECT c.*,ui.*,b.name as `barangay`, cc.name as `municipality`, concat(ui.first_name,' ', ui.last_name) as `fullname` from tbl_clinic c inner join tbl_user u on u.clinic_id = c.clinic_id and u.access_id = 2 inner join tbl_userinfo ui on ui.id = u.id inner join tbl_city cc on cc.id = ui.municipality inner join tbl_barangay b on b.id = ui.barangay where c.clinic_id = $id limit 1") : null;
+}
+
+function get_patient($id = 0)
+{
+    return !empty($id) ? get_one("SELECT * from tbl_userinfo where id = $id") : '';
+}
+
+function get_barangay($id = 0)
+{
+    return !empty($id) ? get_one("SELECT name from tbl_barangay where id = $id")->name : '';
+}
+
+function get_municipality($id = 0)
+{
+    return !empty($id) ? get_one("SELECT name from tbl_city where id = $id")->name : '';
+}
+
+
+function get_paid_status($id = 0)
+{
+    return !empty($id) ? get_one("SELECT name from tbl_appointment_paid_status where id = $id")->name : '';
+}
+
+
+function get_appointment_status($id = 0)
+{
+    return !empty($id) ? get_one("SELECT name from tbl_appointment_status where id = $id")->name : '';
+}
+
+
+function update_cart($data)
+{
+    extract($data);
+    if (empty($qty)) {
+        return error_message("Error Cart Is Empty!");
+    }
+    foreach ($qty as $key => $res) {
+        if ($res <= 0) {
+            unset($_SESSION['cart'][$key]);
+        } else {
+            $_SESSION['cart'][$key]['qty'] = $res;
+        }
+    }
+    if (empty($_SESSION['cart'])) {
+        unset($_SESSION['clinic_id']);
+    }
+    return success_message("Cart Updated Successfully!");
+}
+
+function remove_cart_item($id)
+{
+    unset($_SESSION['cart'][$id]);
+    if (empty($_SESSION['cart'])) {
+        unset($_SESSION['clinic_id']);
+    }
+    return success_message("Cart Item Removed Successfully!");
+}
+
+function checkout($data)
+{
+    extract($data);
+    if (!isset($clinic_id) || !isset($cart)) {
+        return error_message("Error Cart Is Empty!");
+    }
+    $actual_appointment_date = DateTime::createFromFormat("m-d-Y", $appointment_date)->format('Y-m-d');
+    $tmp = get_one("SELECT count(appointment_date) as result from tbl_appointment where clinic_id = $clinic_id and appointment_date = '$actual_appointment_date' and status_id = 1 group by appointment_date limit 1");
+    $is_slot_available = $tmp->result ?? 0;
+    if ((int)$is_slot_available >= 5) {
+        return error_message("Appoinment Date Slot Is Full Already!");
+    }
+    $date_created = date("Y-m-d");
+    $id = get_inserted_id("INSERT INTO tbl_appointment (patient_id,clinic_id,appointment_date,remarks,date_created) VALUES($user->id,$clinic_id,'$actual_appointment_date','$remarks','$date_created')");
+    foreach ($cart as $key => $res) {
+        $qty = $res['qty'];
+        $price = $res['price'];
+        query("INSERT INTO tbl_appointment_items (appointment_id,service_id,qty,price) VALUES($id,$key,'$qty','$price')");
+    }
+    unset($_SESSION['cart'], $_SESSION['clinic_id']);
+    return success_message("Checkout Successfully");
+}
+
+function cancel_appointment($id)
+{
+    query("UPDATE `tbl_appointment` set status_id = 4 where id = '$id'");
+    return success_message("Appointment Cancelled Successfully!");
+}
+function accept_appointment($id)
+{
+    query("UPDATE `tbl_appointment` set status_id = 2 where id = $id");
+    return success_message("Appointment Accepted Successfully!");
+}
+function reject_appointment($id)
+{
+    query("UPDATE `tbl_appointment` set status_id = 3 where id = $id");
+    return success_message("Appointment Rejected Successfully!");
+}
+function paid_appointment($id)
+{
+    query("UPDATE `tbl_appointment` set paid_id = 2 where id = $id");
+    return success_message("Appointment Paid Successfully!");
+}
 // SELECT x.first_name,x.last_name,c.name,b.name `barangay` FROM tbl_userinfo x inner join tbl_city c on c.id = x.municipality inner join tbl_barangay b on b.id = x.barangay;
 
 

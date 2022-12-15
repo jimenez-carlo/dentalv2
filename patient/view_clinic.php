@@ -11,16 +11,20 @@
   <!-- ============================================================== -->
   <div class="page-breadcrumb">
     <div class="row">
-      <div class="col-12 d-flex no-block align-items-center">
+      <div class="col-12 d-flex no-block align-items-center" style="margin-bottom: 6px;">
         <h4 class="page-title">Provincial Dental Clinic</h4>
 
-        <div class="ms-auto text-end">
-          <a href="clinics.php" class="btn btn-info col-12" type="button">Back To Clinic List</a>
+        <div class="ms-auto text-end" style="margin-left: 48.8vw!important">
+          <div class="d-flex">
+            <a href="clinics.php" class="btn btn-info col-12" type="button" style="margin-right: 4px;">Back To Clinic List</a>
+            <a href="view_cart.php" class="btn btn-info col-12" type="button">Checkout</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="container-fluid">
+    <?= (isset($_POST['service_id'])) ? add_to_cart($_POST) : ''; ?>
     <div class="row">
       <?php $clinic_id = $_GET['clinic_id']; ?>
       <?php $clinic = get_one("SELECT c.`image`,c.description,c.name as `clinic_name`,m.name as `municipality`,b.name as `barangay`,ui.email,ui.contact,u.id,u.clinic_id,concat(ui.first_name,' ',ui.last_name) as fullname from tbl_user u inner join tbl_userinfo ui on ui.id = u.id inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_city m on m.id = ui.municipality inner join tbl_barangay b on b.id = ui.barangay where u.clinic_id = $clinic_id") ?>
@@ -64,7 +68,7 @@
       <?php if (!empty($products)) { ?>
         <div class="row">
           <div class="col-12">
-            <h4 class="page-title text-center">Products</h4>
+            <h4 class="page-title text-center" style="margin-bottom:14px">Products</h4>
           </div>
         </div>
         <div class="row d-flex flex-row flex-nowrap" style="overflow-y: auto; ">
@@ -87,7 +91,7 @@
       <?php if (!empty($services)) { ?>
         <div class="row">
           <div class="col-12">
-            <h4 class="page-title text-center">Services</h4>
+            <h4 class="page-title text-center" style="margin-bottom:14px">Services</h4>
           </div>
         </div>
         <div class="row">
@@ -95,8 +99,8 @@
             <div class="col-md-3">
               <div class="card">
                 <div class="d-flex" style="justify-content: space-between;padding:10px 20px">
-                  <h4 class="card-title"><?= strtoupper($res['srvc_name']) ?></h4>
-                  <h4 class="card-title" style="font-weight: bold;"><?= number_format($res['srvc_price'], 2); ?></h4>
+                  <h4 class="card-title" style="margin-bottom: 0px;"><?= strtoupper($res['srvc_name']) ?></h4>
+                  <h4 class="card-title" style="font-weight: bold; margin-bottom: 0px;"><?= number_format($res['srvc_price'], 2); ?></h4>
                 </div>
                 <div class="card-body border-top">
                   <p>
@@ -105,12 +109,17 @@
                 </div>
                 <div class="border-top">
                   <div class="card-body">
-                    <div class="input-group">
-                      <input type="number" class="form-control" name="amount_<?= $res['id'] ?>" value="1">
-                      <div class="input-group-append">
-                        <button type="submit" class="btn btn-info">Add To Cart</button>
+                    <form method="post">
+                      <div class="input-group">
+                        <input type="number" class="form-control" name="qty" value="1">
+                        <input type="hidden" name="price" value="<?= $res['srvc_price'] ?>">
+                        <input type="hidden" name="clinic_id" value="<?= $res['clinic_id'] ?>">
+                        <input type="hidden" name="name" value="<?= $res['srvc_name'] ?>">
+                        <div class="input-group-append">
+                          <button type="submit" class="btn btn-info" name="service_id" value="<?= $res['id'] ?>">Add To Cart</button>
+                        </div>
                       </div>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -128,10 +137,10 @@
   <!-- ============================================================== -->
   <!-- End footer -->
   <!-- ============================================================== -->
-</div>
-<!-- ============================================================== -->
-<!-- End Page wrapper  -->
-<!-- ============================================================== -->
+
+  <!-- ============================================================== -->
+  <!-- End Page wrapper  -->
+  <!-- ============================================================== -->
 </div>
 
 <?php include 'footer.php'; ?>
