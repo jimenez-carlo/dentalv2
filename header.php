@@ -14,6 +14,8 @@ if (isset($_SESSION['user'])) {
 
 <head>
   <!-- <meta charset="utf-8"> -->
+  <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet" />
+  <link href="dist/css/style.min.css" rel="stylesheet" />
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PDCMS</title>
@@ -26,6 +28,9 @@ if (isset($_SESSION['user'])) {
   <link rel="stylesheet" href="css/font-icon.css">
   <link rel="stylesheet" href="css/animate.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+
 </head>
 
 <body>

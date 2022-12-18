@@ -91,7 +91,7 @@ function registerClinic($data)
 function editClinic($data)
 {
     extract($data);
-    if (!empty(get_one("select * from tbl_clinic where name = '$clinic_name' and clinic_id <> '$clinic_id'"))) {
+    if (!empty(get_one("select * from tbl_clinic where name = '$clinic_name' and clinic_id <> '$clinic_id' "))) {
         return error_message("Clinic Name Already Exist");
     }
 
