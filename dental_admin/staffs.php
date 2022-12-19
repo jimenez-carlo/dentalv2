@@ -20,6 +20,8 @@
     </div>
   </div>
   <div class="container-fluid">
+  <?= (isset($_POST['registerstaff'])) ? registerStaff($_POST) : ''; ?>
+  <?= (isset($_POST['deletestaff'])) ? deleteStaff($_POST['deletestaff']) : ''; ?>
     <div class="row">
       <div class="col-4">
         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -46,17 +48,19 @@
               <tbody>
                 <?php $cid = $_SESSION['user']->clinic_id ?>
                 <?php $aid = $_SESSION['user']->access_id ?>
+                <?php ?>
                 <?php foreach (get_list("SELECT a.name as `usertype`,ui.email,ui.contact,u.id,ui.first_name,ui.last_name,u.clinic_id from tbl_user u inner join tbl_userinfo ui on ui.id = u.id inner join tbl_access a on u.access_id = a.id where u.clinic_id=$cid and not u.access_id =$aid") as $res) { ?>
                   <tr>
-                    <td><?= $res['clinic_id'] ?></td>
+                    <td><?= $res['id'] ?></td>
                     <td><?= $res['usertype'] ?></td>
                     <td><?= $res['first_name'] ?></td>
                     <td><?= $res['last_name'] ?></td>
                     <td><?= $res['email'] ?></td>
+                    <td><?= $res['contact'] ?></td>
                     <td style="width: 0.1%;display:flex">
-                      <a href="edit.php?id=<?= $res['id'] ?>" class="btn btn-success me-1" type="button">Edit </a>
+                      <a href="edit_staff.php?id=<?= $res['id'] ?>" class="btn btn-success me-1" type="button">Edit </a>
                       <form method="post" onsubmit="return confirm('Are you sure?');">
-                        <button class="btn btn-danger" type="submit" name="delete" value="<?= $res['clinic_id'] ?>">Delete </button>
+                        <button class="btn btn-danger" type="submit" name="deletestaff" value="<?= $res['id'] ?>">Delete </button>
                       </form>
                     </td>
                   </tr>

@@ -91,7 +91,7 @@ function registerClinic($data)
 function editClinic($data)
 {
     extract($data);
-    if (!empty(get_one("select * from tbl_clinic where name = '$clinic_name' and clinic_id <> '$clinic_id'"))) {
+    if (!empty(get_one("select * from tbl_clinic where name = '$clinic_name' and clinic_id <> '$clinic_id' "))) {
         return error_message("Clinic Name Already Exist");
     }
 
@@ -109,7 +109,49 @@ function editClinic($data)
     return success_message("Clinic #$clinic_id Updated Successfully!");
 }
 
-function editClinicDentalAdmin($data)
+function editStaff($data)
+{
+    extract($data);
+    if (!empty(get_one("select * from tbl_user where username = '$username' and id <> '$id'"))) {
+        return error_message("Name Already Exist");
+    }
+
+    query("UPDATE `tbl_user` set  username ='$username', password = '$password' where id = $id");
+    query("UPDATE `tbl_userinfo` set  first_name ='$first_name', last_name = '$last_name',email='$email',contact='$contact' where id = $id");
+    return success_message("Staff Updated Successfully!");
+}
+
+function editServices($data)
+{
+    extract($data);
+    if (!empty(get_one("select * from tbl_service where srvc_name = '$srvc_name' and id <> '$id'"))) {
+        return error_message("Name Already Exist");
+    }
+
+    query("UPDATE `tbl_service` set  srvc_name ='$srvc_name', srvc_desc = '$srvc_desc', srvc_price = '$srvc_price' where id = $id");
+    return success_message("Service Updated Successfully!");
+}
+
+function editProducts($data)
+{
+    extract($data);
+    if (!empty(get_one("select * from tbl_product where prod_name = '$prod_name' and id <> '$id'"))) {
+        return error_message("Name Already Exist");
+    }
+
+    $file_name = get_one("select * from tbl_product where id = $id")->image;
+    if (isset($image_koto) && !empty($image_koto['name'])) {
+        $ext = explode(".", $image_koto["name"]);
+        $file_name = 'file_' . date('YmdHis') . "." . end($ext);
+        move_uploaded_file($image_koto['tmp_name'], "../images/products/" . $file_name);
+        $file_name = "$file_name";
+    }
+
+    query("UPDATE `tbl_product` set  prod_name ='$prod_name', prod_desc = '$prod_desc', prod_price = '$prod_price', image ='$file_name' where id = $id");
+    return success_message("Product Updated Successfully!");
+}
+
+function editClinicDetails($data)
 {
     extract($data);
     if (!empty(get_one("select * from tbl_clinic where name = '$clinic_name' and clinic_id <> '$clinic_id'"))) {
@@ -134,6 +176,25 @@ function deleteClinic($id)
     query("DELETE from `tbl_clinic` where clinic_id = $id");
     query("DELETE from `tbl_user` where clinic_id = $id");
     return success_message("Clinic Deleted Successfully!");
+}
+
+function deleteStaff($id)
+{
+    query("DELETE from `tbl_user` where id = $id");
+    query("DELETE from `tbl_userinfo` where id = $id");
+    return success_message("Staff Deleted Successfully!");
+}
+
+function deleteService($id)
+{
+    query("DELETE from `tbl_service` where id = $id");
+    return success_message("Service Deleted Successfully!");
+}
+
+function deleteProduct($id)
+{
+    query("DELETE from `tbl_product` where id = $id");
+    return success_message("Product Deleted Successfully!");
 }
 
 function registerStaff($data)
@@ -277,7 +338,7 @@ function checkout($data)
     $tmp = get_one("SELECT count(appointment_date) as result from tbl_appointment where clinic_id = $clinic_id and appointment_date = '$actual_appointment_date' and status_id = 1 group by appointment_date limit 1");
     $is_slot_available = $tmp->result ?? 0;
     if ((int)$is_slot_available >= 5) {
-        return error_message("Appoinment Date Slot Is Full Already!");
+        return error_message("Appointment Date Slot Is Full Already!");
     }
     $date_created = date("Y-m-d");
     $id = get_inserted_id("INSERT INTO tbl_appointment (patient_id,clinic_id,appointment_date,remarks,date_created) VALUES($user->id,$clinic_id,'$actual_appointment_date','$remarks','$date_created')");

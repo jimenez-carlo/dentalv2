@@ -75,30 +75,18 @@
           <!-- ============================================================== -->
           <!-- toggle and nav items -->
           <!-- ============================================================== -->
-          <ul class="navbar-nav ">
+          <ul class="navbar-nav float-start me-auto">
+              <!-- <li class="nav-item">
+              <a class="nav-link waves-effect waves-dark sidebar-link " href="../logout.php" aria-expanded="false"><i class="mdi mdi-power"></i><span class="hide-menu">Log Out</span></a>
+              </li> -->
+            </ul>
+          <ul class="navbar-nav float-end">
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->
-            <li class="nav-item dropdown">
-              <a class="
-                    nav-link
-                    dropdown-toggle
-                    text-muted
-                    waves-effect waves-dark
-                    pro-pic
-                  " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31" />
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-settings me-1 ms-1"></i> Account
-                  Setting</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="../logout.php"><i class="fa fa-power-off me-1 ms-1"></i>Logout</a>
-                <div class="dropdown-divider"></div>
-              </ul>
-            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect waves-dark sidebar-link " href="../logout.php" aria-expanded="false"><i class="mdi mdi-power"></i><span class="hide-menu">Log Out</span></a>
+              </li>
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->
@@ -127,7 +115,7 @@
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="clinics.php" aria-expanded="false"><i class="mdi mdi-tooth"></i><span class="hide-menu">Manage Clinics</span></a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="settings.php" aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu">Settings</span></a>
+              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="settings.php" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Edit Requirements</span></a>
             </li>
           </ul>
         </nav>

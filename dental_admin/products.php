@@ -14,6 +14,7 @@
       <div class="col-12 d-flex no-block align-items-center">
 
         <h4 class="page-title">Manage Clinic Products</h4>
+
         <div class="ms-auto text-end">
         </div>
       </div>
@@ -30,6 +31,8 @@
       <br>
       <div class="card">
         <div class="card-body">
+        <?= (isset($_POST['addproduct'])) ? addProduct(array_merge($_POST, $_FILES)) : ''; ?>
+        <?= (isset($_POST['deleteproduct'])) ? deleteProduct($_POST['deleteproduct']) : ''; ?>
           <div class="table-responsive">
             <table id="table_eto" class="table table-bordered">
               <thead>
@@ -44,7 +47,7 @@
               </thead>
               <tbody>
                 <?php $cid = $_SESSION['user']->clinic_id ?>
-                <?php foreach (get_list("SELECT p.id,p.prod_name,p.prod_desc,p.prod_price,image from tbl_user u inner join tbl_product p on p.clinic_id = u.clinic_id where p.clinic_id=$cid") as $res) { ?>
+                <?php foreach (get_list("SELECT p.id,p.prod_name,p.prod_desc,p.prod_price,p.image from tbl_clinic u inner join tbl_product p on p.clinic_id = u.clinic_id where p.clinic_id=$cid") as $res) { ?>
                   <tr>
                     <td><?= $res['id'] ?></td>
                     <td><img src="../images/products/<?= $res['image'] ?>" alt="" width="30px" height="30px"></td>
@@ -52,8 +55,10 @@
                     <td><?= $res['prod_desc'] ?></td>
                     <td><?= $res['prod_price'] ?></td>
                     <td style="width: 0.1%;display:flex">
-                      <button class="btn btn-success me-1" type="button">Edit </button>
-                      <button class="btn btn-danger" type="button">Delete </button>
+                    <a href="edit_products.php?id=<?= $res['id'] ?>" class="btn btn-success me-1" type="button">Edit </a>
+                      <form method="post" onsubmit="return confirm('Are you sure?');">
+                        <button class="btn btn-danger" type="submit" name="deleteproduct" value="<?= $res['id'] ?>">Delete </button>
+                      </form>
                     </td>
                   </tr>
                 <?php } ?>
@@ -81,7 +86,6 @@
                   </div>
                   <div class="modal-body">
                     <div class="card-body">
-                      <?= (isset($_POST['addproduct'])) ? addProduct(array_merge($_POST, $_FILES)) : ''; ?>
                       <h4 class="card-title">Product Information Entry</h4>
                       <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Product Name</label>

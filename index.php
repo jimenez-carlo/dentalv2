@@ -2,10 +2,10 @@
   <!-- banner text --> 
     <div class="banner" id="banner"> 
 	<div class="slider-banner">
-            <div data-lazy-background="images/slides/banner.jpg"> 
-                <h3 data-pos="['68%', '-40%', '60%', '12%']" data-duration="700" data-effect="move">
+            <div data-lazy-background="images/slides/ban.jpg"> 
+                <h1 data-pos="['68%', '-40%', '60%', '12%']" data-duration="700" data-effect="move">
                     Provincial Dental Clinic Management System
-                </h3> <br>
+                </h1> <br>
                 <p data-pos="['75%', '110%', '75%', '12%']" data-duration="700" data-effect="move">
                   Provincial Dental Clinic Management System
                 </p> 
@@ -131,10 +131,10 @@
   <div class="container-fluid">
     <div class="section-header">
                 <h2 class="wow fadeInDown animated">Gallery</h2>
-                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+                <!-- <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p> -->
             </div>
     <div class="row no-gutter">
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/01.jpg" class="work-box"> <img src="images/portfolio/01.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c1.jpg" class="work-box"> <img src="images/portfolio/c1.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
              <p><span class="icon icon-magnifying-glass"></span></p>
@@ -142,7 +142,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/02.jpg" class="work-box"> <img src="images/portfolio/02.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c2.jpg" class="work-box"> <img src="images/portfolio/c2.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -150,7 +150,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/03.jpg" class="work-box"> <img src="images/portfolio/03.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c3.jpg" class="work-box"> <img src="images/portfolio/c3.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -158,7 +158,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/04.jpg" class="work-box"> <img src="images/portfolio/04.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c4.jpg" class="work-box"> <img src="images/portfolio/c4.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption"> 
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -166,7 +166,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/05.jpg" class="work-box"> <img src="images/portfolio/05.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c5.jpg" class="work-box"> <img src="images/portfolio/c5.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -174,7 +174,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/06.jpg" class="work-box"> <img src="images/portfolio/06.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c6.jpg" class="work-box"> <img src="images/portfolio/c6.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -182,7 +182,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/07.jpg" class="work-box"> <img src="images/portfolio/07.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c7.jpg" class="work-box"> <img src="images/portfolio/c7.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -190,7 +190,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/08.jpg" class="work-box"> <img src="images/portfolio/08.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c8.jpg" class="work-box"> <img src="images/portfolio/c8.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
              <p><span class="icon icon-magnifying-glass"></span></p>
@@ -388,21 +388,95 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
 <section id="contact" class="section">
   <div class="container">
       <div class="section-header">
-                <h2 class="wow fadeInDown animated">Contact Us</h2>
-                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+                <h2 class="wow fadeInDown animated">Want to have your own Dental Clinic Account?</h2>
+                <p class="wow fadeInDown animated">Here at PDCMS you can now register your own Clinic online! <br> The requirements needed are listed down below</p>
             </div>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 conForm">       
-        <div id="message"></div>
-        <form method="post" action="php/contact.php" name="cform" id="cform">
-          <input name="name" id="name" type="text" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Your name..." >
-          <input name="email" id="email" type="email" class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 noMarr" placeholder="Email Address..." >
-          <textarea name="comments" id="comments" cols="" rows="" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Message..."></textarea>
-          <input type="submit" id="submit" name="send" class="submitBnt" value="Send">
-          <div id="simple-msg"></div>
-        </form>
-      </div>
-    </div>
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title mb-0">Contact Us </h4>
+                  <br>
+                  <p>PDCMS.register@gmail.com || (+63) 999 9999 999</p>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Requirements to send:</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Business Permit</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Dentists ID</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Dentist License</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Drivers License</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Transcript of Record</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Washing Machine</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Water Dispenser</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
   </div>
 </section>
 

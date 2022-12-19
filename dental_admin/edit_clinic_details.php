@@ -12,14 +12,14 @@
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Editing Clinic</h4>
+        <h4 class="page-title">Editing Clinic Details</h4>
         <div class="ms-auto text-end">
         </div>
       </div>
     </div>
   </div>
   <div class="container-fluid">
-    <?= (isset($_POST['edit'])) ? editClinicDentalAdmin(array_merge($_POST, $_FILES)) : ''; ?>
+    <?= (isset($_POST['edit'])) ? editClinicDetails(array_merge($_POST, $_FILES)) : ''; ?>
     <div class="row">
       <div class="card">
         <div class="card-body">

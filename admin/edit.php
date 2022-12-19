@@ -12,7 +12,7 @@
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Editing Clinic ID#<?= $_GET['id'] ?></h4>
+        <h4 class="page-title">Editing Clinic | ID - <?= $_GET['id'] ?></h4>
         <div class="ms-auto text-end">
         </div>
       </div>
@@ -97,7 +97,7 @@
 
             </div>
             <div class="modal-footer">
-              <a href="register.php" type="button" class="btn btn-secondary">Back to List</a>
+              <a href="clinics.php" type="button" class="btn btn-secondary">Back to List</a>
               <button type="submit" class="btn btn-info" name="edit">Update</button>
             </div>
           </form>

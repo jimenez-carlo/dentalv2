@@ -31,6 +31,8 @@
       <div class="card">
         <div class="card-body">
           <?= (isset($_POST['addservice'])) ? addService($_POST) : ''; ?>
+          <?= (isset($_POST['deleteservice'])) ? deleteService($_POST['deleteservice']) : ''; ?>
+
           <div class="table-responsive">
             <table id="table_eto" class="table table-bordered">
               <thead>
@@ -51,8 +53,10 @@
                     <td><?= $res['srvc_desc'] ?></td>
                     <td><?= $res['srvc_price'] ?></td>
                     <td style="width: 0.1%;display:flex">
-                      <button class="btn btn-success me-1" type="button">Edit </button>
-                      <button class="btn btn-danger" type="button">Delete </button>
+                    <a href="edit_services.php?id=<?= $res['id'] ?>" class="btn btn-success me-1" type="button">Edit </a>
+                      <form method="post" onsubmit="return confirm('Are you sure?');">
+                        <button class="btn btn-danger" type="submit" name="deleteservice" value="<?= $res['id'] ?>">Delete</button>
+                      </form>
                     </td>
                   </tr>
                 <?php } ?>
