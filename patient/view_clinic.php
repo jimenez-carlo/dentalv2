@@ -24,6 +24,7 @@
     </div>
   </div>
   <div class="container-fluid">
+
     <?= (isset($_POST['service_id'])) ? add_to_cart($_POST) : ''; ?>
     <div class="row">
       <?php $clinic_id = $_GET['clinic_id']; ?>

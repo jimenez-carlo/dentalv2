@@ -2,10 +2,10 @@
   <!-- banner text --> 
     <div class="banner" id="banner"> 
 	<div class="slider-banner">
-            <div data-lazy-background="images/slides/banner.jpg"> 
-                <h3 data-pos="['68%', '-40%', '60%', '12%']" data-duration="700" data-effect="move">
+            <div data-lazy-background="images/slides/ban.jpg"> 
+                <h1 data-pos="['68%', '-40%', '60%', '12%']" data-duration="700" data-effect="move">
                     Provincial Dental Clinic Management System
-                </h3> <br>
+                </h1> <br>
                 <p data-pos="['75%', '110%', '75%', '12%']" data-duration="700" data-effect="move">
                   Provincial Dental Clinic Management System
                 </p> 
@@ -158,7 +158,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c1.jpg" class="work-box"> <img src="images/portfolio/c1.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c4.jpg" class="work-box"> <img src="images/portfolio/c4.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption"> 
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -166,7 +166,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/05.jpg" class="work-box"> <img src="images/portfolio/05.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c5.jpg" class="work-box"> <img src="images/portfolio/c5.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -174,7 +174,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/06.jpg" class="work-box"> <img src="images/portfolio/06.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c6.jpg" class="work-box"> <img src="images/portfolio/c6.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -182,7 +182,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/07.jpg" class="work-box"> <img src="images/portfolio/07.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c7.jpg" class="work-box"> <img src="images/portfolio/c7.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -190,7 +190,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/08.jpg" class="work-box"> <img src="images/portfolio/08.jpg" alt="">
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c8.jpg" class="work-box"> <img src="images/portfolio/c8.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
              <p><span class="icon icon-magnifying-glass"></span></p>

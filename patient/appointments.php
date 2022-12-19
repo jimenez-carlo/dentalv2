@@ -53,9 +53,9 @@
                     <td style="width: 0.1%;display:flex">
                       <a href="view_appointment.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
                       <?php if ((int)$res['status_id'] > 1) { ?>
-                        <button class="btn btn-info" type="button" disabled>Cancel </button>
+                        <button class="btn btn-danger" type="button" disabled>Cancel </button>
                       <?php } else { ?>
-                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-info" type="submit" name="cancel" value="<?= $res['id'] ?>">Cancel </button></form>
+                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-danger" type="submit" name="cancel" value="<?= $res['id'] ?>">Cancel </button></form>
                       <?php } ?>
 
                     </td>

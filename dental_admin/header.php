@@ -12,7 +12,7 @@
   <meta name="robots" content="noindex,nofollow" />
   <title>PDCMS</title>
   <!-- Favicon icon -->
-  <link rel="icon" type="../image/png" sizes="16x16" href="images/logo.jpg" />
+  <link rel="icon" type="../image/png" sizes="16x16" href="../images/logo.jpg" />
 
   <!-- Custom CSS -->
   <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet" />
@@ -90,7 +90,7 @@
       <!-- Sidebar scroll-->
       <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
-        <nav class="sidebar-nav">
+        <nav class="sidebar-nav ">
           <ul id="sidebarnav" class="pt-4">
             <li class="sidebar-item">
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="index.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
@@ -99,7 +99,7 @@
             if (isset($_SESSION['user'])) {
               if ($_SESSION['user']->access_id == 2) {
                 echo "<li class='sidebar-item'>
-                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='clinics.php' aria-expanded='false'><i class='mdi mdi-account-multiple-plus'></i><span class='hide-menu'>Manage Staff</span></a>
+                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='staffs.php' aria-expanded='false'><i class='mdi mdi-account-multiple-plus'></i><span class='hide-menu'>Manage Staff</span></a>
                 </li>
                 <li class='sidebar-item'>
                 <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='appointments.php' aria-expanded='false'><i class='mdi mdi-calendar-today'></i><span class='hide-menu'>Appointments</span></a>
@@ -111,7 +111,7 @@
                 <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='products.php' aria-expanded='false'><i class='mdi mdi-store'></i><span class='hide-menu'>Products</span></a>
                 </li>
                 <li class='sidebar-item'>
-                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='edit_clinic.php?id=" . $_SESSION['user']->clinic_id . "' aria-expanded='false'><i class='mdi mdi-pencil'></i><span class='hide-menu'>Clinic</span></a>
+                <a class='sidebar-link waves-effect waves-dark sidebar-link bg-dark' href='edit_clinic_details.php?id=" . $_SESSION['user']->clinic_id . "' aria-expanded='false'><i class='mdi mdi-pencil'></i><span class='hide-menu'>Edit Clinic Details</span></a>
                 </li>
                 ";
               } else if ($_SESSION['user']->access_id == 3) {
@@ -141,9 +141,6 @@
               }
             }
             ?>
-            <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="settings.php" aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu">Settings</span></a>
-            </li>
           </ul>
         </nav>
         <!-- End Sidebar navigation -->
