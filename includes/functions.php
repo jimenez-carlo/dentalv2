@@ -171,6 +171,18 @@ function editClinicDetails($data)
     return success_message("Clinic Updated Successfully!");
 }
 
+function editUserDetails($data)
+{
+    extract($data);
+    if (!empty(get_one("select * from tbl_user where username = '$username' and id <> '$id'"))) {
+        return error_message("Username Name Already Exist");
+    }
+
+    query("UPDATE `tbl_userinfo` set  first_name ='$first_name', last_name ='$last_name', municipality ='$municipality', barangay = '$barangay',email='$email',contact='$contact' where id = $id");
+    query("UPDATE `tbl_user` set username = '$username', password ='$password' where id = $id");
+    return success_message("Details Updated Successfully!");
+}
+
 function deleteClinic($id)
 {
     query("DELETE from `tbl_clinic` where clinic_id = $id");
