@@ -80,6 +80,12 @@ function registerClinic($data)
         $file_name = 'file_' . date('YmdHis') . "." . end($ext);
         move_uploaded_file($image_koto['tmp_name'], "../images/clinic/" . $file_name);
         $file_name = "$file_name";
+
+
+        $imageFileType = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            return error_message("File Type Not Supported");
+        }
     }
 
     $clinic_id = get_inserted_id("INSERT INTO `tbl_clinic` (name, image, description) values('$clinic_name', '$file_name','$description')");

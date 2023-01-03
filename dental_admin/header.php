@@ -27,6 +27,14 @@
   <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
 
 </head>
+<style>
+  #navbarSupportedContent,
+  nav.navbar-dark,
+  header.topbar,
+  a.navbar-brand {
+    background: #2255a4 !important;
+  }
+</style>
 
 <body>
   <!-- ============================================================== -->
@@ -72,9 +80,9 @@
             <!-- ============================================================== -->
           </ul>
           <ul class="navbar-nav float-end">
-          <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link waves-effect waves-dark sidebar-link " href="../logout.php" aria-expanded="false"><i class="mdi mdi-power"></i><span class="hide-menu">Log Out</span></a>
-              </li>
+            </li>
           </ul>
 
         </div>

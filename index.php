@@ -1,20 +1,26 @@
-<?php  include 'header.php'; ?>
-  <!-- banner text --> 
-    <div class="banner" id="banner"> 
-	<div class="slider-banner">
-            <div data-lazy-background="images/slides/ban.jpg"> 
-                <h1 class="banner1" data-pos="['68%', '-40%', '50%', '12%']" data-duration="700" data-effect="move">
-                    Provincial Dental Clinic Management System
-                </h1> <br>
-                <p class="banner1" data-pos="['75%', '110%', '75%', '12%']" data-duration="700" data-effect="move">
-                  Provincial Dental Clinic Management System
-                </p> 
-            </div>            
-        </div>
-      <!-- banner text --> 
-    </div> 
+<?php include 'header.php'; ?>
+<style>
+  .work {
+    background: #fff !important;
+    padding: 32px;
+  }
+</style>
+<!-- banner text -->
+<div class="banner" id="banner">
+  <div class="slider-banner">
+    <div data-lazy-background="images/slides/ban.jpg">
+      <h1 class="banner1" data-pos="['68%', '-40%', '50%', '12%']" data-duration="700" data-effect="move">
+        Provincial Dental Clinic Management System
+      </h1> <br>
+      <p class="banner1" data-pos="['75%', '110%', '75%', '12%']" data-duration="700" data-effect="move">
+        Provincial Dental Clinic Management System
+      </p>
+    </div>
+  </div>
+  <!-- banner text -->
+</div>
 </section>
-<!-- header section --> 
+<!-- header section -->
 <!-- intro section -->
 <!-- <section id="intro" class="section intro">
   <div class="container">
@@ -28,8 +34,8 @@
    </div>
   </div>
 </section> -->
-<!-- intro section --> 
-<!-- services section --> 
+<!-- intro section -->
+<!-- services section -->
 <!-- <section id="services" class="services service-section">
   <div class="container">
   <div class="section-header">
@@ -78,89 +84,89 @@
 </section> -->
 <section id="contact" class="section">
   <div class="container">
-      <div class="section-header">
-                <h2 class="wow fadeInDown animated">Want to have your own Dental Clinic Account?</h2>
-                <p class="wow fadeInDown animated">Here at PDCMS you can now register your own Clinic online! <br> The requirements needed are listed down below</p>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title mb-0">Contact Us </h4>
-                  <br>
-                  <p>PDCMS.register@gmail.com || (+63) 999 9999 999</p>
-                </div>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Requirements to send:</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Business Permit</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Dentists ID</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Dentist License</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
+    <div class="section-header">
+      <h2 class="wow fadeInDown animated">Want to have your own Dental Clinic Account?</h2>
+      <p class="wow fadeInDown animated">Here at PDCMS you can now register your own Clinic online! <br> The requirements needed are listed down below</p>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title mb-0">Contact Us </h4>
+        <br>
+        <p>PDCMS.register@gmail.com || (+63) 999 9999 999</p>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Requirements to send:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Business Permit</td>
+            <td>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                <i class="mdi mdi-check"></i>
+              </a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Dentists ID</td>
+            <td>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                <i class="mdi mdi-check"></i>
+              </a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Dentist License</td>
+            <td>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                <i class="mdi mdi-check"></i>
+              </a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+              </a>
+            </td>
+          </tr>
 
-                  </tbody>
-                </table>
-              </div>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 <!-- services section  -->
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
-	<div class="image-container col-sm-6 col-xs-12 pull-left">
-		<div class="background-image-holder">
+  <div class="image-container col-sm-6 col-xs-12 pull-left">
+    <div class="background-image-holder">
 
-		</div>
-	</div>
+    </div>
+  </div>
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-6 col-sm-offset-6 col-xs-12 content">
-				<div class="editContent">
-					<h3>About Us</h3>
-				</div>
-				<div class="editContent">
-				<strong>Personalized Care</strong>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-					<strong>Specialist Driven</strong>
-					<p>Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-				</div>
-				<a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
-			</div>
-		</div><!-- /.row-->
-	</div><!-- /.container -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-6 col-xs-12 content">
+        <div class="editContent">
+          <h3>About Us</h3>
+        </div>
+        <div class="editContent">
+          <strong>Personalized Care</strong>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <strong>Specialist Driven</strong>
+          <p>Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        </div>
+        <a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
+      </div>
+    </div><!-- /.row-->
+  </div><!-- /.container -->
 </section>
 
 
 <!-- package section -->
-  <!-- <section class="video-section">
+<!-- <section class="video-section">
     <div class="container"> 
       <div class="row">  
               <div id="content24" data-section="content-24" class="data-section"> 
@@ -179,68 +185,68 @@
         </div>  
     </div>
   </section> -->
-<!-- package section --> 
+<!-- package section -->
 
 <!-- gallery section -->
 <section id="gallery" class="gallery section">
   <div class="container-fluid">
     <div class="section-header">
-                <h2 class="wow fadeInDown animated">Gallery</h2>
-                <!-- <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p> -->
-            </div>
+      <h2 class="wow fadeInDown animated">Gallery</h2>
+      <!-- <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p> -->
+    </div>
     <div class="row m-5 p-5">
       <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c1.jpg" class="work-box"> <img src="images/portfolio/c1.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-             <p><span class="icon icon-magnifying-glass"></span></p>
+          <div class="overlay">
+            <div class="overlay-caption">
+              <p><span class="icon icon-magnifying-glass"></span></p>
+            </div>
           </div>
-        </div>
-        <!-- overlay --> 
+          <!-- overlay -->
         </a> </div>
       <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c2.jpg" class="work-box"> <img src="images/portfolio/c2.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
+          <div class="overlay">
+            <div class="overlay-caption">
+              <p><span class="icon icon-magnifying-glass"></span></p>
+            </div>
           </div>
-        </div>
-        <!-- overlay --> 
+          <!-- overlay -->
         </a> </div>
       <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c3.jpg" class="work-box"> <img src="images/portfolio/c3.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
+          <div class="overlay">
+            <div class="overlay-caption">
+              <p><span class="icon icon-magnifying-glass"></span></p>
+            </div>
           </div>
-        </div>
-        <!-- overlay --> 
+          <!-- overlay -->
         </a> </div>
       <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c4.jpg" class="work-box"> <img src="images/portfolio/c4.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption"> 
-            <p><span class="icon icon-magnifying-glass"></span></p>
+          <div class="overlay">
+            <div class="overlay-caption">
+              <p><span class="icon icon-magnifying-glass"></span></p>
+            </div>
           </div>
-        </div>
-        <!-- overlay --> 
+          <!-- overlay -->
         </a> </div>
       <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c5.jpg" class="work-box"> <img src="images/portfolio/c5.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
+          <div class="overlay">
+            <div class="overlay-caption">
+              <p><span class="icon icon-magnifying-glass"></span></p>
+            </div>
           </div>
-        </div>
-        <!-- overlay --> 
+          <!-- overlay -->
         </a> </div>
       <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c6.jpg" class="work-box"> <img src="images/portfolio/c6.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
+          <div class="overlay">
+            <div class="overlay-caption">
+              <p><span class="icon icon-magnifying-glass"></span></p>
+            </div>
           </div>
-        </div>
-        <!-- overlay --> 
+          <!-- overlay -->
         </a> </div>
     </div>
   </div>
 </section>
-<!-- gallery section --> 
+<!-- gallery section -->
 <!-- our team section -->
 <!-- <section id="teams" class="section teams">
   <div class="container">
@@ -308,7 +314,7 @@
     </div>
   </div>
 </section> -->
-<!-- our team section --> 
+<!-- our team section -->
 <!-- <section id="pricing5" data-section="pricing-5" class="data-section">
     <div class="container">
           <div class="section-header">
@@ -421,10 +427,10 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
     </div>
   </div>
 </section> -->
-<!-- Testimonials section --> 
+<!-- Testimonials section -->
 
 <!-- contact section -->
 
 
-<!-- contact section --> 
-<?php  include 'footer.php'; ?>
+<!-- contact section -->
+<?php include 'footer.php'; ?>
