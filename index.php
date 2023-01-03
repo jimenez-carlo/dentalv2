@@ -3,10 +3,10 @@
     <div class="banner" id="banner"> 
 	<div class="slider-banner">
             <div data-lazy-background="images/slides/ban.jpg"> 
-                <h1 data-pos="['68%', '-40%', '60%', '12%']" data-duration="700" data-effect="move">
+                <h1 class="banner1" data-pos="['68%', '-40%', '50%', '12%']" data-duration="700" data-effect="move">
                     Provincial Dental Clinic Management System
                 </h1> <br>
-                <p data-pos="['75%', '110%', '75%', '12%']" data-duration="700" data-effect="move">
+                <p class="banner1" data-pos="['75%', '110%', '75%', '12%']" data-duration="700" data-effect="move">
                   Provincial Dental Clinic Management System
                 </p> 
             </div>            
@@ -76,6 +76,61 @@
     </div>
   </div>
 </section> -->
+<section id="contact" class="section">
+  <div class="container">
+      <div class="section-header">
+                <h2 class="wow fadeInDown animated">Want to have your own Dental Clinic Account?</h2>
+                <p class="wow fadeInDown animated">Here at PDCMS you can now register your own Clinic online! <br> The requirements needed are listed down below</p>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title mb-0">Contact Us </h4>
+                  <br>
+                  <p>PDCMS.register@gmail.com || (+63) 999 9999 999</p>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Requirements to send:</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Business Permit</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Dentists ID</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Dentist License</td>
+                      <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
+                          <i class="mdi mdi-check"></i>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
+                        </a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+  </div>
+</section>
 <!-- services section  -->
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
@@ -133,8 +188,8 @@
                 <h2 class="wow fadeInDown animated">Gallery</h2>
                 <!-- <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p> -->
             </div>
-    <div class="row no-gutter">
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c1.jpg" class="work-box"> <img src="images/portfolio/c1.jpg" alt="">
+    <div class="row m-5 p-5">
+      <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c1.jpg" class="work-box"> <img src="images/portfolio/c1.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
              <p><span class="icon icon-magnifying-glass"></span></p>
@@ -142,7 +197,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c2.jpg" class="work-box"> <img src="images/portfolio/c2.jpg" alt="">
+      <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c2.jpg" class="work-box"> <img src="images/portfolio/c2.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -150,7 +205,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c3.jpg" class="work-box"> <img src="images/portfolio/c3.jpg" alt="">
+      <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c3.jpg" class="work-box"> <img src="images/portfolio/c3.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -158,7 +213,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c4.jpg" class="work-box"> <img src="images/portfolio/c4.jpg" alt="">
+      <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c4.jpg" class="work-box"> <img src="images/portfolio/c4.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption"> 
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -166,7 +221,7 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c5.jpg" class="work-box"> <img src="images/portfolio/c5.jpg" alt="">
+      <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c5.jpg" class="work-box"> <img src="images/portfolio/c5.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -174,26 +229,10 @@
         </div>
         <!-- overlay --> 
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c6.jpg" class="work-box"> <img src="images/portfolio/c6.jpg" alt="">
+      <div class="col-lg-4 col-md-6 col-sm-6 work"> <a href="images/portfolio/c6.jpg" class="work-box"> <img src="images/portfolio/c6.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <p><span class="icon icon-magnifying-glass"></span></p>
-          </div>
-        </div>
-        <!-- overlay --> 
-        </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c7.jpg" class="work-box"> <img src="images/portfolio/c7.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
-          </div>
-        </div>
-        <!-- overlay --> 
-        </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/c8.jpg" class="work-box"> <img src="images/portfolio/c8.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-             <p><span class="icon icon-magnifying-glass"></span></p>
           </div>
         </div>
         <!-- overlay --> 
@@ -385,100 +424,7 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
 <!-- Testimonials section --> 
 
 <!-- contact section -->
-<section id="contact" class="section">
-  <div class="container">
-      <div class="section-header">
-                <h2 class="wow fadeInDown animated">Want to have your own Dental Clinic Account?</h2>
-                <p class="wow fadeInDown animated">Here at PDCMS you can now register your own Clinic online! <br> The requirements needed are listed down below</p>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title mb-0">Contact Us </h4>
-                  <br>
-                  <p>PDCMS.register@gmail.com || (+63) 999 9999 999</p>
-                </div>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Requirements to send:</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Business Permit</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Dentists ID</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Dentist License</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Drivers License</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Transcript of Record</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Washing Machine</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Water Dispenser</td>
-                      <td>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                          <i class="mdi mdi-check"></i>
-                        </a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-  </div>
-</section>
+
 
 <!-- contact section --> 
 <?php  include 'footer.php'; ?>

@@ -30,7 +30,13 @@ if (isset($_SESSION['user'])) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 
-
+<style>
+  .banner1 {
+    color: black;
+    font-family: monospace;
+    font-style: bold;
+  }
+</style>  
 </head>
 
 <body>
