@@ -27,7 +27,24 @@
   <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" />
 </head>
+<style>
+  #navbarSupportedContent{
+    background: #2255b1 !important;
+  }
 
+  nav.navbar-dark,
+  header.topbar,
+  a.navbar-brand,
+  aside.left-sidebar,
+  #sidebarnav,
+  a.sidebar-link{
+    background: #2255b9 !important;
+  }
+
+  .logo {
+      height: 40px;
+    }
+</style>
 <body>
   <!-- ============================================================== -->
   <!-- Preloader - style you can find in spinners.css -->
@@ -53,6 +70,8 @@
           <!-- ============================================================== -->
           <a class="navbar-brand" href="index.php">
             <!-- Logo icon -->
+            <img src="../images/logo.jpg" alt="" class="logo">
+
             <h2>PDCMS</h2>
           </a>
           <!-- ============================================================== -->

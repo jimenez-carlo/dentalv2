@@ -146,7 +146,7 @@
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic Logo</label>
                     <div class="col-sm-9">
-                      <input type="file" class="form-control" name="image_koto" required accept=".jpeg,.png">
+                      <input type="file" class="form-control" name="image_koto" required accept=".jpg,.jpeg,.png">
                     </div>
                   </div>
 

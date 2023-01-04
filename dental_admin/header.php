@@ -28,12 +28,21 @@
 
 </head>
 <style>
-  #navbarSupportedContent,
+  #navbarSupportedContent{
+    background: #2255a1 !important;
+  }
+  
   nav.navbar-dark,
   header.topbar,
-  a.navbar-brand {
-    background: #2255a4 !important;
+  a.navbar-brand,
+  aside.left-sidebar,
+  #sidebarnav,
+  a.sidebar-link{
+    background: #2255a9 !important;
   }
+  .logo {
+      height: 40px;
+    }
 </style>
 
 <body>
@@ -54,6 +63,7 @@
           <!-- ============================================================== -->
           <a class="navbar-brand" href="index.php">
             <!-- Logo icon -->
+            <img src="../images/logo.jpg" alt="" class="logo">
             <h2>PDCMS</h2>
           </a>
           <!-- ============================================================== -->

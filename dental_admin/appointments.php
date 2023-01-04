@@ -57,19 +57,19 @@
                     <td style="width: 0.1%;display:flex">
                       <a href="view_appointment.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
                       <?php if ((int)$res['status_id'] > 1) { ?>
-                        <button class="btn btn-success me-1" type="button" disabled>Accept </button>
+                        <button class="btn btn-info me-1" type="button" disabled>Accept </button>
                       <?php } else { ?>
-                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-success me-1" type="submit" name="accept" value="<?= $res['id'] ?>">Accept </button></form>
+                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-info me-1" type="submit" name="accept" value="<?= $res['id'] ?>">Accept </button></form>
                       <?php } ?>
                       <?php if ((int)$res['status_id'] > 1) { ?>
-                        <button class="btn btn-danger me-1" type="button" disabled>Reject</button>
+                        <button class="btn btn-info me-1" type="button" disabled>Reject</button>
                       <?php } else { ?>
-                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-danger me-1" type="submit" name="reject" value="<?= $res['id'] ?>">Reject </button></form>
+                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-info me-1" type="submit" name="reject" value="<?= $res['id'] ?>">Reject </button></form>
                       <?php } ?>
                       <?php if ((int)$res['paid_id'] > 1 || in_array((int)$res['status_id'], array(3, 4))) { ?>
-                        <button class="btn btn-warning" type="button" disabled>Paid </button>
+                        <button class="btn btn-info" type="button" disabled>Paid </button>
                       <?php } else { ?>
-                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-warning" type="submit" name="paid" value="<?= $res['id'] ?>">Paid </button></form>
+                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-info" type="submit" name="paid" value="<?= $res['id'] ?>">Paid </button></form>
                       <?php } ?>
 
                     </td>

@@ -31,14 +31,6 @@
                 <input type="hidden" name="id" value="<?= $default->id ?>">
                 <input type="hidden" name="clinic_id" value="<?= $default->clinic_id ?>">
                 <div class="form-group row">
-                        <label class="col-sm-3 text-end control-label col-form-label">User Type</label>
-                        <div class="col-md-9" data-select2-id="11">
-                          <select name="access_id" class="form-select shadow-none">
-                            <option value="3">Dentist</option>
-                            <option value="4">Dental Clerk</option>
-                            </optgroup>
-                          </select>
-                        </div>
                       </div>
                       <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name</label>
