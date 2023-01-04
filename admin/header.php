@@ -25,6 +25,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../assets/libs/quill/dist/quill.snow.css">
 </head>
 
 <body>
@@ -76,17 +77,17 @@
           <!-- toggle and nav items -->
           <!-- ============================================================== -->
           <ul class="navbar-nav float-start me-auto">
-              <!-- <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link waves-effect waves-dark sidebar-link " href="../logout.php" aria-expanded="false"><i class="mdi mdi-power"></i><span class="hide-menu">Log Out</span></a>
               </li> -->
-            </ul>
+          </ul>
           <ul class="navbar-nav float-end">
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->
             <li class="nav-item">
               <a class="nav-link waves-effect waves-dark sidebar-link " href="../logout.php" aria-expanded="false"><i class="mdi mdi-power"></i><span class="hide-menu">Log Out</span></a>
-              </li>
+            </li>
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->

@@ -389,6 +389,13 @@ function paid_appointment($id)
     query("UPDATE `tbl_appointment` set paid_id = 2 where id = $id");
     return success_message("Appointment Paid Successfully!");
 }
+
+function editSettings($data)
+{
+    extract($data);
+    query("UPDATE `tbl_settings` set requirements = '$requirements' where id = 1");
+    return success_message("Yes!");
+}
 // SELECT x.first_name,x.last_name,c.name,b.name `barangay` FROM tbl_userinfo x inner join tbl_city c on c.id = x.municipality inner join tbl_barangay b on b.id = x.barangay;
 
 

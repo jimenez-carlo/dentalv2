@@ -1,12 +1,22 @@
 <?php include 'header.php'; ?>
+
+<?php $settings = get_one("SELECT * from tbl_settings where id = 1"); ?>
 <style>
   .work {
     background: #fff !important;
     padding: 32px;
   }
+
+  ul.primary-nav>li>a.active {
+    text-decoration: underline black 3px;
+  }
+
+  section.active {
+    border: 15px solid cyan;
+  }
 </style>
 <!-- banner text -->
-<div class="banner" id="banner">
+<div class="banner">
   <div class="slider-banner">
     <div data-lazy-background="images/slides/ban.jpg">
       <h1 class="banner1" data-pos="['68%', '-40%', '50%', '12%']" data-duration="700" data-effect="move">
@@ -94,6 +104,7 @@
         <br>
         <p>PDCMS.register@gmail.com || (+63) 999 9999 999</p>
       </div>
+
       <table class="table">
         <thead>
           <tr>
@@ -102,38 +113,21 @@
         </thead>
         <tbody>
           <tr>
+            <td>
+              <?= str_replace("\n", "<br>", $settings->requirements) ?>
+            </td>
+
+          </tr>
+          <!-- <tr>
             <td>Business Permit</td>
             <td>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                <i class="mdi mdi-check"></i>
-              </a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-              </a>
             </td>
-          </tr>
-          <tr>
-            <td>Dentists ID</td>
-            <td>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                <i class="mdi mdi-check"></i>
-              </a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Dentist License</td>
-            <td>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Update">
-                <i class="mdi mdi-check"></i>
-              </a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Delete">
-              </a>
-            </td>
-          </tr>
+          </tr> -->
+
 
         </tbody>
       </table>
+
     </div>
   </div>
 </section>
@@ -432,5 +426,31 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
 <!-- contact section -->
 
 
+<script>
+  const items = document.querySelectorAll("ul.primary-nav>li>a");
+  items.forEach(element => {
+
+    element.addEventListener("click", function() {
+      console.log("clicked");
+      clearActive();
+      element.classList.add("active");
+      console.log(this.getAttribute("href"));
+      document.querySelector(this.getAttribute("href")).classList.add("active");
+    });
+
+  });
+
+  function clearActive() {
+    let items = document.querySelectorAll(".primary-nav ul>li>a");
+    items.forEach(element => {
+      element.classList.remove("active");
+    });
+
+    let sections = document.querySelectorAll("section");
+    sections.forEach(element => {
+      element.classList.remove("active");
+    });
+  }
+</script>
 <!-- contact section -->
 <?php include 'footer.php'; ?>
