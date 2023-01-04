@@ -88,27 +88,27 @@
                     <div class="card-body">
                       <h4 class="card-title">Product Information Entry</h4>
                       <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Product Name</label>
+                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Product Name*</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="fname" name="prod_name" required>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description</label>
+                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description*</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="fname" name="prod_desc" required>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Price</label>
+                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Price*</label>
                         <div class="col-sm-6">
                           <input type="number" class="form-control" id="fname" name="prod_price" required>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Product Image</label>
+                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Product Image*</label>
                         <div class="col-sm-6">
-                          <input type="file" class="form-control" name="image_koto" required accept=".jpeg,.png">
+                          <input type="file" class="form-control" name="image_koto" required accept=".jpg,.jpeg,.png">
                         </div>
 
                       </div>

@@ -86,19 +86,19 @@
                   <h4 class="card-title">Service Information Entry</h4>
                   <br><br>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Service</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Service*</label>
                     <div class="col-sm-6">
                       <input type="text" class="form-control" id="fname" name="srvc_name" required>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description*</label>
                     <div class="col-sm-6">
                       <input type="text" class="form-control" id="fname" name="srvc_desc" required>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Price</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Price*</label>
                     <div class="col-sm-6">
                       <input type="number" class="form-control" id="fname" name="srvc_price" required>
                     </div>

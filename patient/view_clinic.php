@@ -53,9 +53,9 @@
                     <li><i class="fa fa-phone"></i> CONTACT: <?= strtoupper($clinic->contact) ?></li>
                   </ul>
                 </div>
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                   <p style="float:right;margin-right:50px"><i>DENTIST ADMIN: <span style="text-decoration: underline;"><?= strtoupper($clinic->fullname) ?> </i></span></p>
-                </div>
+                </div> -->
               </div>
 
             </div>

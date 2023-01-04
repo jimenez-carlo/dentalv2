@@ -18,7 +18,7 @@
 
   <div class="page-breadcrumb">
     <div class="row">
-      <h4 class="page-title">Welcome Admin</h4>
+      <h4 class="page-title">Welcome Super Admin</h4>
       <div class="ms-auto text-end">
       </div>
     </div>
