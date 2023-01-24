@@ -30,12 +30,18 @@ if (isset($_SESSION['user'])) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 
-
+  <style>
+    .banner1 {
+      color: black;
+      font-family: monospace;
+      font-style: bold;
+    }
+  </style>
 </head>
 
 <body>
   <!-- header section -->
-  <section class="banner" role="banner">
+  <section class="banner" role="banner" id="banner">
     <header id="header">
       <style>
         .logo {
@@ -47,9 +53,9 @@ if (isset($_SESSION['user'])) {
         <nav class="navigation" role="navigation">
           <ul class="primary-nav">
             <li><a href="#banner">Home</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li><a href="#content-3-10">About</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
             <li><a href="#" data-toggle="modal" data-target="#register_modal">Sign Up</a></li>
             <li><a href="#" data-toggle="modal" data-target="#login_modal">Login</a></li>
           </ul>

@@ -93,13 +93,13 @@
 
                   <h4 class="card-title">Clinic Information Entry</h4>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic Name</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic Name*</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="fname" name="clinic_name" required>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">City/Municipality</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">City/Municipality*</label>
                     <div class="col-sm-9">
                       <select name="municipality" id="municipality" class="form-control">
                         <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
@@ -109,7 +109,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay*</label>
                     <div class="col-sm-9">
                       <select name="barangay" id="barangay" class="form-control">
                         <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '015501'") as $res) { ?>
@@ -120,38 +120,38 @@
                   </div>
 
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Username</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Username*</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="fname" name="username" required>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Password</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Password*</label>
                     <div class="col-sm-9">
                       <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required><span>Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">E-mail</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">E-mail*</label>
                     <div class="col-sm-9">
                       <input type="email" class="form-control" id="fname" name="email" required>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Contact No.</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Contact No.*</label>
                     <div class="col-sm-9">
                       <input type="number" pattern="" class="form-control" id="fname" name="contact" required>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic Logo</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic Logo*</label>
                     <div class="col-sm-9">
-                      <input type="file" class="form-control" name="image_koto" required accept=".jpeg,.png">
+                      <input type="file" class="form-control" name="image_koto" required accept=".jpg,.jpeg,.png">
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description*</label>
                     <div class="col-sm-9">
                       <textarea class="form-control" name="description" required></textarea>
                     </div>

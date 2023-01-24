@@ -27,6 +27,23 @@
   <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
 
 </head>
+<style>
+  #navbarSupportedContent{
+    background: #2255a1 !important;
+  }
+  
+  nav.navbar-dark,
+  header.topbar,
+  a.navbar-brand,
+  aside.left-sidebar,
+  #sidebarnav,
+  a.sidebar-link{
+    background: #2255a9 !important;
+  }
+  .logo {
+      height: 40px;
+    }
+</style>
 
 <body>
   <!-- ============================================================== -->
@@ -46,7 +63,8 @@
           <!-- ============================================================== -->
           <a class="navbar-brand" href="index.php">
             <!-- Logo icon -->
-            <h2>PDCMS</h2>
+            <img src="../images/logo.jpg" alt="" class="logo">
+            <h2 class="ms-4">PDCMS</h2>
           </a>
           <!-- ============================================================== -->
           <!-- End Logo -->
@@ -64,6 +82,10 @@
           <!-- toggle and nav items -->
           <!-- ============================================================== -->
           <ul class="navbar-nav float-start me-auto">
+          <li class="nav-item d-none d-lg-block">
+                <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a>
+              </li>
+              
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->
@@ -72,9 +94,9 @@
             <!-- ============================================================== -->
           </ul>
           <ul class="navbar-nav float-end">
-          <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link waves-effect waves-dark sidebar-link " href="../logout.php" aria-expanded="false"><i class="mdi mdi-power"></i><span class="hide-menu">Log Out</span></a>
-              </li>
+            </li>
           </ul>
 
         </div>

@@ -11,19 +11,25 @@
   <!-- ============================================================== -->
   <div class="page-breadcrumb">
     <div class="row">
-      <div class="col-12 d-flex no-block align-items-center">
+      <div class="col-9 d-flex no-block align-items-center">
         <h4 class="page-title">Provincial Dental Clinic</h4>
+
+        <div class="ms-auto text-end">
+        </div>
+      </div>
+      <div class="col-3 d-flex no-block align-items-center">
+        <input type="search" class="form-control" id="cono1" placeholder="Search">
         <div class="ms-auto text-end">
         </div>
       </div>
     </div>
   </div>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" id="clinic_container">
 
       <?php $ctr = 1; ?>
-      <?php foreach (get_list("SELECT c.`image`,c.name as `clinic_name`,m.name as `municipality`,b.name as `barangay`,ui.email,ui.contact,u.id,u.clinic_id from tbl_user u inner join tbl_userinfo ui on ui.id = u.id inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_city m on m.id = ui.municipality inner join tbl_barangay b on b.id = ui.barangay") as $res) { ?>
-        <div class="col-md-3">
+      <?php foreach (get_list("SELECT c.`image`,c.name as `clinic_name`,m.name as `municipality`,b.name as `barangay`,ui.email,ui.contact,u.id,u.clinic_id, group_concat(distinct s.srvc_name) as service_name from tbl_user u inner join tbl_userinfo ui on ui.id = u.id inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_city m on m.id = ui.municipality inner join tbl_barangay b on b.id = ui.barangay left join tbl_service s on s.clinic_id = c.clinic_id group by c.clinic_id") as $res) { ?>
+        <div class="col-md-3" data-searchable="<?= strtolower($res['municipality'] . "," . $res['barangay'] . "," . $res['service_name'] . "," . $res['clinic_name']) ?>">
           <div class="card">
 
             <h4 class="card-title" style="text-align:center;margin:0px;padding:10px;font-weight:bold"><?= strtoupper($res['clinic_name']) ?> #<?= $res['clinic_id'] ?></h4>
@@ -70,4 +76,32 @@
 
 
   $('#table_eto').DataTable();
+
+  var searchField = document.querySelector("input[type='search']");
+  searchField.addEventListener('keypress', function() {
+    var input, filter, container, div, content, i;
+    input = document.getElementById("myInput");
+    container = document.getElementById("clinic_container");
+    div = container.getElementsByTagName("div");
+    for (i = 0; i < div.length; i++) {
+      content = div[i].dataset.searchable;
+      if (content) {
+        if (content.includes(searchField.value)) {
+          div[i].style.display = "";
+        } else {
+          div[i].style.display = "none";
+        }
+      }
+    }
+    // if (searchField.value == '') {
+    //   displayAll();
+    // }
+  });
+
+  // function displayAll() {
+  //   let items = document.querySelectorAll("div[data-searchable]");
+  //   items.forEach(element => {
+  //     element.style.display = "block";
+  //   });
+  // }
 </script>

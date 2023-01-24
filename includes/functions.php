@@ -80,6 +80,12 @@ function registerClinic($data)
         $file_name = 'file_' . date('YmdHis') . "." . end($ext);
         move_uploaded_file($image_koto['tmp_name'], "../images/clinic/" . $file_name);
         $file_name = "$file_name";
+
+
+        $imageFileType = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            return error_message("File Type Not Supported");
+        }
     }
 
     $clinic_id = get_inserted_id("INSERT INTO `tbl_clinic` (name, image, description) values('$clinic_name', '$file_name','$description')");
@@ -169,6 +175,18 @@ function editClinicDetails($data)
     query("UPDATE `tbl_userinfo` set  municipality ='$municipality', barangay = '$barangay',email='$email',contact='$contact' where id = $id");
     query("UPDATE `tbl_clinic` set name = '$clinic_name', image ='$file_name' where clinic_id = $clinic_id");
     return success_message("Clinic Updated Successfully!");
+}
+
+function editUserDetails($data)
+{
+    extract($data);
+    if (!empty(get_one("select * from tbl_user where username = '$username' and id <> '$id'"))) {
+        return error_message("Username Name Already Exist");
+    }
+
+    query("UPDATE `tbl_userinfo` set  first_name ='$first_name', last_name ='$last_name', municipality ='$municipality', barangay = '$barangay',email='$email',contact='$contact' where id = $id");
+    query("UPDATE `tbl_user` set username = '$username', password ='$password' where id = $id");
+    return success_message("Details Updated Successfully!");
 }
 
 function deleteClinic($id)
@@ -370,6 +388,13 @@ function paid_appointment($id)
 {
     query("UPDATE `tbl_appointment` set paid_id = 2 where id = $id");
     return success_message("Appointment Paid Successfully!");
+}
+
+function editSettings($data)
+{
+    extract($data);
+    query("UPDATE `tbl_settings` set requirements = '$requirements' where id = 1");
+    return success_message("Yes!");
 }
 // SELECT x.first_name,x.last_name,c.name,b.name `barangay` FROM tbl_userinfo x inner join tbl_city c on c.id = x.municipality inner join tbl_barangay b on b.id = x.barangay;
 

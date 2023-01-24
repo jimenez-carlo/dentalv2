@@ -86,14 +86,14 @@
                     </div>
                   </div>
 
-                  <div class="form-group row">
+                  <!-- <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Dental Admin:</label>
                     <div class="col-sm-9">
                       <div class="input-group">
                         <input type="text" class="form-control" disabled value="<?= isset($clinic_details->fullname) ? $clinic_details->fullname : '' ?>" />
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Municipality:</label>
