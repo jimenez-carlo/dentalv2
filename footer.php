@@ -20,7 +20,7 @@
                 <input type="password" class="form-control" placeholder="Password" name="password" required>
               </div>
               <div class="container align-items-center justify-content-center">
-              <a href="#">Forgot your password?</a>
+                <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#forgot_password">Forgot your password?</a>
               </div>
             </div>
           </div>
@@ -33,6 +33,87 @@
       </div>
     </div>
   </div>
+
+
+  <form id="my-form" action="https://formspree.io/f/meqweyob" method="POST">
+    <!-- Modal Forgot password -->
+    <div class="modal fade" id="forgot_password" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Forgot Password</h5>
+
+          </div>
+          <div class="modal-body">
+
+            <!-- modify this form HTML and place wherever you want your form -->
+            <div class="bs-example bs-example-form">
+              <div class="form-group input-group" id="username">
+                <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user"></i> Enter Email Address</span>
+                <input type="email" class="form-control" placeholder="Email" name="email" required id="email">
+                <input type="hidden" name="message" id="message" value="<?= "reset password link: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]reset_password.php?id=" ?>">
+              </div>
+
+              <p id="my-form-status"></p>
+            </div>
+
+            <!-- Place this script at the end of the body tag -->
+            <script>
+              var form = document.getElementById("my-form");
+
+              async function handleSubmit(event) {
+                event.preventDefault();
+                let x = document.getElementById("email").value;
+                let y = document.getElementById("message").value;
+
+                let id = 0;
+                $.get("forgot.php?email=" + x, function(result) {
+                  id = parseInt(result);
+
+                  var status = document.getElementById("my-form-status");
+                  var data = new FormData();
+                  let x = document.getElementById("email").value;
+                  let y = document.getElementById("message").value;
+                  data.append("email", x);
+                  data.append("message", y + id);
+                  fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                      'Accept': 'application/json'
+                    }
+                  }).then(response => {
+                    if (response.ok) {
+                      status.innerHTML = "Link sent please check your email!";
+                      form.reset()
+                    } else {
+                      response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                          status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                        } else {
+                          status.innerHTML = "Oops! There was a problem submitting your form"
+                        }
+                      })
+                    }
+                  }).catch(error => {
+                    status.innerHTML = "Oops! There was a problem submitting your form"
+                  });
+
+                });
+              }
+              form.addEventListener("submit", handleSubmit)
+            </script>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" id="my-form-button" class="btn btn-primary">Send Email</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#login_modal">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 
   <!-- Modal signup -->
   <div class="modal fade" id="register_modal" tabindex="-1" role="dialog">
@@ -69,20 +150,20 @@
             </div>
             <div class="row">
               <div class="form-group col-md-6" id="username">
-              <label for="inputEmail4">City/Municipality*</label>
-                  <select name="municipality" id="municipality" class="form-control">
-                    <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
-                      <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
-                    <?php } ?>
-                  </select>
+                <label for="inputEmail4">City/Municipality*</label>
+                <select name="municipality" id="municipality" class="form-control">
+                  <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
+                    <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
+                  <?php } ?>
+                </select>
               </div>
               <div class="form-group col-md-6" id="username">
-              <label for="inputEmail4">Barangay*</label>
-                  <select name="barangay" id="barangay" class="form-control">
-                    <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '015501'") as $res) { ?>
-                      <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
-                    <?php } ?>
-                  </select>
+                <label for="inputEmail4">Barangay*</label>
+                <select name="barangay" id="barangay" class="form-control">
+                  <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '015501'") as $res) { ?>
+                    <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
+                  <?php } ?>
+                </select>
               </div>
             </div>
             <div class="row">
@@ -92,7 +173,7 @@
               </div>
               <div class="form-group col-md-6" id="username">
                 <label for="inputEmail4">Contact No.*</label>
-                <input type="number" class="form-control" name="contact"  required>
+                <input type="number" class="form-control" name="contact" required>
               </div>
             </div>
         </div>
@@ -120,11 +201,11 @@
   <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
   <script type="text/javascript">
     $(document).on("change", "#municipality", function() {
-    let value = $(this).val();
-    $.get("dropdown.php?city=" + value, function(result) {
-      $("#barangay").html(result);
+      let value = $(this).val();
+      $.get("dropdown.php?city=" + value, function(result) {
+        $("#barangay").html(result);
+      });
     });
-  });
     $(document).ready(function() {
       $('.slider-banner').DrSlider({
         'transition': 'fade',
