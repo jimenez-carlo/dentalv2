@@ -119,7 +119,7 @@
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="clinics.php" aria-expanded="false"><i class="mdi mdi-tooth"></i><span class="hide-menu">Manage Clinics</span></a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="settings.php" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Edit Requirements</span></a>
+              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="settings.php" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Association Members</span></a>
             </li>
           </ul>
         </nav>

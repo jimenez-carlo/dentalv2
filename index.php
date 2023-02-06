@@ -19,10 +19,10 @@
 <div class="banner">
   <div class="slider-banner">
     <div data-lazy-background="images/slides/ban.jpg">
-      <h1 class="banner1" data-pos="['68%', '-40%', '50%', '12%']" data-duration="700" data-effect="move">
+      <h1 class="banner1" data-pos="['68%', '-40%', '10%', '12%']" data-duration="700" data-effect="move">
         Provincial Dental Clinic Management System
       </h1> <br>
-      <p class="banner1" data-pos="['75%', '110%', '75%', '12%']" data-duration="700" data-effect="move">
+      <p class="banner1" data-pos="['75%', '110%', '40%', '12%']" data-duration="700" data-effect="move">
         Provincial Dental Clinic Management System
       </p>
     </div>
@@ -95,17 +95,17 @@
 <section id="contact" class="section">
   <div class="container">
     <div class="section-header">
-      <h2 class="wow fadeInDown animated">Want to have your own Dental Clinic Account?</h2>
-      <p class="wow fadeInDown animated">Here at PDCMS you can now register your own Clinic online! <br> The requirements needed are listed down below</p>
+      <h3 class="wow fadeInDown animated">Already a member of the Association and wants to have your own Dental Clinic Account? Click <u><a href="#">Here</a></u></h3>
+      <p class="wow fadeInDown animated">Here at PDCMS you can now register your own Clinic online! <br><b> Not yet a member of the Association?</b> Click <u> <a href="#">Here</a></u></p>
     </div>
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title mb-0">Contact Us </h4>
+        <h3 class="card-title mb-0">For Inquiries Please Contact Us</h3>
         <br>
-        <p>PDCMS.register@gmail.com || (+63) 999 9999 999</p>
+        <h5 >PDCMS.register@gmail.com || (+63) 916 3016 891</h5>
       </div>
 
-      <table class="table">
+      <!-- <table class="table">
         <thead>
           <tr>
             <th scope="col">Requirements to send:</th>
@@ -118,15 +118,8 @@
             </td>
 
           </tr>
-          <!-- <tr>
-            <td>Business Permit</td>
-            <td>
-            </td>
-          </tr> -->
-
-
         </tbody>
-      </table>
+      </table> -->
 
     </div>
   </div>
@@ -148,9 +141,7 @@
         </div>
         <div class="editContent">
           <strong>Personalized Care</strong>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-          <strong>Specialist Driven</strong>
-          <p>Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <p>Our company provides a comprehensive dental clinic management system for provincial dental clinics. Our mission is to streamline clinic operations and improve patient care by offering a solution that is efficient, user-friendly, and accessible.<br>With our cutting-edge technology, dentists and clinic staff can manage appointments, patient records, billing, and other important tasks with ease.<br>Our goal is to empower provincial dental clinics with the tools they need to provide high-quality care to their communities.</p>
         </div>
         <a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
       </div>

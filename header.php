@@ -33,7 +33,7 @@ if (isset($_SESSION['user'])) {
   <style>
     .banner1 {
       color: black;
-      font-family: monospace;
+      font-family: Lato, sans-serif;
       font-style: bold;
     }
   </style>
