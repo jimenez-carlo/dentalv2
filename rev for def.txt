@@ -1,0 +1,32 @@
+landing
+ membership
+  -prc no
+  -name
+  -address
+  -file attach
+  -qr
+
+ dental clinic request
+  -email
+  -file attach
+   -business permit
+   -nbi
+   -birth cert
+   -prc (id)
+
+super admin
+ create clinic
+  -first name
+  -last name
+  -prc no
+
+dental admin/dental clerk/dentist
+ add date created
+ -calendar appointment
+ view appointment separate cart & details
+ print appointment details
+
+patient
+ view appointment separate cart & details
+ checkout
+  -select dentist
