@@ -1,3 +1,148 @@
+  <!-- Modal signup -->
+  <div class="modal fade" id="register_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <?= (isset($_POST['registeruser'])) ? registerUser($_POST) : ''; ?>
+
+          <h4 class="modal-title">Sign Up</h5>
+        </div>
+        <div class="modal-body">
+          <form method="post" name="landing_signup" onsubmit="return confirm('Are you sure?');">
+            <div id="signup_result"></div>
+            <div class="row">
+              <div class="form-group col-md-6" id="username">
+                <label for="inputEmail4">First Name*</label>
+                <input type="text" class="form-control" name="first_name" required>
+              </div>
+              <div class="form-group col-md-6" id="username">
+                <label for="inputEmail4">Last Name*</label>
+                <input type="text" class="form-control" name="last_name" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6" id="username">
+                <label for="inputEmail4">Username*</label>
+                <input type="text" class="form-control" name="username" required>
+              </div>
+              <div class="form-group col-md-6" id="username">
+                <label for="inputEmail4">Password*</label>
+                <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required><span>Include atleast 8 characters, a number, an upper and lower case letter.</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6" id="username">
+                <label for="inputEmail4">City/Municipality*</label>
+                <select name="municipality" id="municipality" class="form-control">
+                  <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
+                    <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+              <div class="form-group col-md-6" id="username">
+                <label for="inputEmail4">Barangay*</label>
+                <select name="barangay" id="barangay" class="form-control">
+                  <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '015501'") as $res) { ?>
+                    <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6" id="username">
+                <label for="inputEmail4">E-mail*</label>
+                <input type="email" class="form-control" name="email" required>
+              </div>
+              <div class="form-group col-md-6" id="username">
+                <label for="inputEmail4">Contact No.*</label>
+                <input type="number" class="form-control" name="contact" required>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="registeruser" class="btn btn-primary">Sign Up</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal login -->
+  <div class="modal fade" id="membership_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Membership</h5>
+        </div>
+        <form method="post" enctype="multipart/form-data" onsubmit="return confirm('Are you sure?');">
+          <div class="modal-body">
+            <?php if (isset($_POST['membership'])) membershipUser(array_merge($_POST, $_FILES)); ?>
+
+            <div class="bs-example bs-example-form">
+
+
+              <div class="row">
+                <div class="form-group col-md-6" id="username">
+                  <div class="row">
+                    <div class="form-group col-md-12" id="username">
+                      <label for="inputEmail4">PRC No</label>
+                      <input type="number" class="form-control" placeholder="PRC No" name="prc_no" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6" id="username">
+                      <label for="inputEmail4">First Name</label>
+                      <input type="text" class="form-control" placeholder="First Name" name="first_name" required>
+                    </div>
+                    <div class="form-group col-md-6" id="username">
+                      <label for="inputEmail4">Last Name</label>
+                      <input type="text" class="form-control" placeholder="Last name" name="last_name" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6" id="username">
+                      <label for="inputEmail4">City/Municipality*</label>
+                      <select name="municipality2" id="municipality2" class="form-control">
+                        <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
+                          <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-6" id="username">
+                      <label for="inputEmail4">Barangay*</label>
+                      <select name="barangay2" id="barangay2" class="form-control">
+                        <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '015501'") as $res) { ?>
+                          <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-12" id="username">
+                      <label for="inputEmail4"> Attach Receipt</label>
+                      <input type="file" class="form-control" name="attachment" required accept=".jpg,.jpeg,.png">
+                    </div>
+
+                  </div>
+                </div>
+                <div class="form-group col-md-6" id="username">
+                  <img src="images/qr.jpg" alt="" style="height: auto;width: 360px;object-fit: contain;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" name="membership" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Modal login -->
   <div class="modal fade" id="login_modal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
@@ -115,76 +260,7 @@
     </div>
   </form>
 
-  <!-- Modal signup -->
-  <div class="modal fade" id="register_modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <?= (isset($_POST['registeruser'])) ? registerUser($_POST) : ''; ?>
 
-          <h4 class="modal-title">Sign Up</h5>
-        </div>
-        <div class="modal-body">
-          <form method="post" name="landing_signup" onsubmit="return confirm('Are you sure?');">
-            <div id="signup_result"></div>
-            <div class="row">
-              <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">First Name*</label>
-                <input type="text" class="form-control" name="first_name" required>
-              </div>
-              <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Last Name*</label>
-                <input type="text" class="form-control" name="last_name" required>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Username*</label>
-                <input type="text" class="form-control" name="username" required>
-              </div>
-              <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Password*</label>
-                <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required><span>Include atleast 8 characters, a number, an upper and lower case letter.</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">City/Municipality*</label>
-                <select name="municipality" id="municipality" class="form-control">
-                  <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
-                  <?php } ?>
-                </select>
-              </div>
-              <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Barangay*</label>
-                <select name="barangay" id="barangay" class="form-control">
-                  <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '015501'") as $res) { ?>
-                    <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
-                  <?php } ?>
-                </select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">E-mail*</label>
-                <input type="email" class="form-control" name="email" required>
-              </div>
-              <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Contact No.*</label>
-                <input type="number" class="form-control" name="contact" required>
-              </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" name="registeruser" class="btn btn-primary">Sign Up</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <!-- Footer section -->
   <!-- <footer class="footer">
@@ -206,6 +282,12 @@
         $("#barangay").html(result);
       });
     });
+    $(document).on("change", "#municipality2", function() {
+      let value = $(this).val();
+      $.get("dropdown.php?city=" + value, function(result) {
+        $("#barangay2").html(result);
+      });
+    });
     $(document).ready(function() {
       $('.slider-banner').DrSlider({
         'transition': 'fade',
@@ -214,6 +296,7 @@
       });
 
       <?= isset($_GET['show_modal']) ? '$("#login_modal").modal("show")' : " " ?>
+      <?= isset($_GET['show_modal2']) ? '$("#membership_modal").modal("show")' : " " ?>
     });
   </script>
   </body>

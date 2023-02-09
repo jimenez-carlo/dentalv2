@@ -105,6 +105,9 @@
                 </div>
                 <div class="card-body border-top">
                   <p>
+
+
+                    <?= convertTime($res['srvc_time']) ?><br>
                     <?= ucfirst($res['srvc_desc']) ?>
                   </p>
                 </div>
@@ -116,6 +119,7 @@
                         <input type="hidden" name="price" value="<?= $res['srvc_price'] ?>">
                         <input type="hidden" name="clinic_id" value="<?= $res['clinic_id'] ?>">
                         <input type="hidden" name="name" value="<?= $res['srvc_name'] ?>">
+                        <input type="hidden" name="time" value="<?= $res['srvc_time'] ?>">
                         <div class="input-group-append">
                           <button type="submit" class="btn btn-info" name="service_id" value="<?= $res['id'] ?>">Add To Cart</button>
                         </div>

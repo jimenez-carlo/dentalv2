@@ -35,12 +35,17 @@ $(document).ready(function() {
 	  	});
 	});
 	nav.find('a').on('click', function () {
+		try {
+			
 	  	var $el = $(this)
 	    	id = $el.attr('href');
 		$('html, body').animate({
 			scrollTop: $(id).offset().top - 75
 		}, 500);
 	  return false;
+		} catch (error) {
+			
+		}
 	});
 
 	// Mobile Navigation

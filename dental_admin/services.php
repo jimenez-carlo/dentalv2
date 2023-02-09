@@ -39,6 +39,7 @@
                 <tr>
                   <th>ID</th>
                   <th>Service Name</th>
+                  <th>Service Approx Time(Hours)</th>
                   <th>Description</th>
                   <th>Price</th>
                   <th style="width: 0.1%;">Actions</th>
@@ -46,14 +47,15 @@
               </thead>
               <tbody>
                 <?php $cid = $_SESSION['user']->clinic_id ?>
-                <?php foreach (get_list("SELECT s.id,s.srvc_name,s.srvc_desc,s.srvc_price from tbl_clinic u inner join tbl_service s on s.clinic_id = u.clinic_id where s.clinic_id=$cid") as $res) { ?>
+                <?php foreach (get_list("SELECT s.id,s.srvc_name,s.srvc_desc,s.srvc_price,s.srvc_time from tbl_clinic u inner join tbl_service s on s.clinic_id = u.clinic_id where s.clinic_id=$cid") as $res) { ?>
                   <tr>
                     <td><?= $res['id'] ?></td>
                     <td><?= $res['srvc_name'] ?></td>
+                    <td><?= $res['srvc_time'] ?></td>
                     <td><?= $res['srvc_desc'] ?></td>
                     <td><?= $res['srvc_price'] ?></td>
                     <td style="width: 0.1%;display:flex">
-                    <a href="edit_services.php?id=<?= $res['id'] ?>" class="btn btn-success me-1" type="button">Edit </a>
+                      <a href="edit_services.php?id=<?= $res['id'] ?>" class="btn btn-success me-1" type="button">Edit </a>
                       <form method="post" onsubmit="return confirm('Are you sure?');">
                         <button class="btn btn-danger" type="submit" name="deleteservice" value="<?= $res['id'] ?>">Delete</button>
                       </form>
@@ -89,6 +91,12 @@
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Service*</label>
                     <div class="col-sm-6">
                       <input type="text" class="form-control" id="fname" name="srvc_name" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Service Time*</label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" id="fname" name="srvc_time" required>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -130,4 +138,7 @@
 <?php include 'footer.php'; ?>
 <script>
   $('#table_eto').DataTable();
+  $(document).on('change', '.without_ampm', function() {
+    console.log(this.value);
+  });
 </script>

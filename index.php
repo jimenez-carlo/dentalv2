@@ -14,12 +14,22 @@
   section.active {
     border: 15px solid cyan;
   }
+
+  .primary-img .background .active>img {
+    object-fit: cover !important;
+  }
+
+  .projector>* {
+    margin-top: 8vh;
+    height: 92vh !important;
+  }
 </style>
 <!-- banner text -->
 <div class="banner">
   <div class="slider-banner">
-    <div data-lazy-background="images/slides/ban.jpg">
-      <h1 class="banner1" data-pos="['68%', '-40%', '10%', '12%']" data-duration="700" data-effect="move">
+    <!-- <div data-lazy-background="images/slides/ban.jpg"> -->
+    <div data-lazy-background="images/slides/banner4.png">
+      <h1 class="banner1" data-pos="['68%', '-40%', '5%', '12%']" data-duration="700" data-effect="move">
         Provincial Dental Clinic Management System
       </h1> <br>
       <p class="banner1" data-pos="['75%', '110%', '40%', '12%']" data-duration="700" data-effect="move">
@@ -95,14 +105,14 @@
 <section id="contact" class="section">
   <div class="container">
     <div class="section-header">
-      <h3 class="wow fadeInDown animated">Already a member of the Association and wants to have your own Dental Clinic Account? Click <u><a href="#">Here</a></u></h3>
-      <p class="wow fadeInDown animated">Here at PDCMS you can now register your own Clinic online! <br><b> Not yet a member of the Association?</b> Click <u> <a href="#">Here</a></u></p>
+      <h3 class="wow fadeInDown animated">Already a member of the Association and wants to have your own Dental Clinic Account? Click <u><a href="request.php">Here</a></u></h3>
+      <p class="wow fadeInDown animated">Here at PDCMS you can now register your own Clinic online! <br><b> Not yet a member of the Association?</b> Click <u> <a href="#" data-toggle="modal" data-target="#membership_modal">Here</a></u></p>
     </div>
     <div class="card">
       <div class="card-body">
         <h3 class="card-title mb-0">For Inquiries Please Contact Us</h3>
         <br>
-        <h5 >PDCMS.register@gmail.com || (+63) 916 3016 891</h5>
+        <h5>PDCMS.register@gmail.com || (+63) 916 3016 891</h5>
       </div>
 
       <!-- <table class="table">
@@ -149,28 +159,6 @@
   </div><!-- /.container -->
 </section>
 
-
-<!-- package section -->
-<!-- <section class="video-section">
-    <div class="container"> 
-      <div class="row">  
-              <div id="content24" data-section="content-24" class="data-section"> 
-          <div class="col-md-6">
-          <h3 class="eidtContent">Content Video</h3>
-          <p class="eidtContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-          <p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-          </div>
-        <div class="col-md-6">
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/146742515?badge=0" allowfullscreen=""></iframe>
-          </div>
-        </div> 
-        </div>
-        </div>  
-    </div>
-  </section> -->
-<!-- package section -->
 
 <!-- gallery section -->
 <section id="gallery" class="gallery section">
@@ -231,217 +219,5 @@
     </div>
   </div>
 </section>
-<!-- gallery section -->
-<!-- our team section -->
-<!-- <section id="teams" class="section teams">
-  <div class="container">
-      <div class="section-header">
-                <h2 class="wow fadeInDown animated">Our Team</h2>
-                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
-            </div>
-    <div class="row">
-      <div class="col-md-3 col-sm-6">
-        <div class="person"><img src="images/team-1.jpg" alt="" class="img-responsive">
-          <div class="person-content">
-            <h4>Jonh Dow</h4>
-            <h5 class="role">Doctor</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-          </div>
-          <ul class="social-icons clearfix">
-            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-            <li><a href="#"><span class="fa fa-twitter"></span></a></li> 
-            <li><a href="#"><span class="fa fa-google-plus"></span></a></li> 
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="person"> <img src="images/team-2.jpg" alt="" class="img-responsive">
-          <div class="person-content">
-            <h4>Markus Linn</h4>
-            <h5 class="role">Doctor</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-          </div>
-          <ul class="social-icons clearfix">
-            <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-            <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li> 
-            <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li> 
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="person"> <img src="images/team-3.jpg" alt="" class="img-responsive">
-          <div class="person-content">
-            <h4>Chris Jemes</h4>
-            <h5 class="role">Doctor</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-          </div>
-          <ul class="social-icons clearfix">
-            <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-            <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li> 
-            <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li> 
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="person"> <img src="images/team-4.jpg" alt="" class="img-responsive">
-          <div class="person-content">
-            <h4>Vintes Mars</h4>
-            <h5 class="role">Doctor</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-          </div>
-          <ul class="social-icons clearfix">
-            <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-            <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li> 
-            <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li> 
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- our team section -->
-<!-- <section id="pricing5" data-section="pricing-5" class="data-section">
-    <div class="container">
-          <div class="section-header">
-                <h2 class="wow fadeInDown animated">Pricing</h2>
-                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
-            </div>
-         <div class="row">
-            <div class="col-md-3 col-md-offset-1">
-                <div class="table">
-                    <h3 class="editContent">Basic</h3>
-                    <h2 class="editContent">$13</h2>
-                    <p class="editContent">Per Month</p>
-                    <ul class="table-content">
-                        <li class="editContent"><i class="fa fa-hdd-o"></i> 10 GB Storage</li>
-                        <li class="editContent"><i class="fa fa-pie-chart"></i> 500 GB Bandwidth</li>
-                        <li class="editContent"><i class="fa fa-envelope-o"></i> Email Support</li>
-                        <li class="editContent"><i class="fa fa-cogs"></i> 24x7 Support</li>
-                    </ul>
 
-                    <div class="text-center text-uppercase">
-                        <a href="#" class="btn btn-default-green-transparent-tiny editContent">Signup Now</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="table long-table">
-                    <h3 class="editContent">Premium</h3>
-                    <h2 class="editContent">$23</h2>
-                    <p class="editContent">Per Month</p>
-                    <ul class="table-content">
-                        <li class="editContent"><i class="fa fa-hdd-o"></i> 10 GB Storage</li>
-                        <li class="editContent"><i class="fa fa-pie-chart"></i> 500 GB Bandwidth</li>
-                        <li class="editContent"><i class="fa fa-envelope-o"></i> Email Support</li>
-                        <li class="editContent"><i class="fa fa-cogs"></i> 24x7 Support</li>
-                    </ul>
-
-                    <div class="text-center text-uppercase">
-                        <a href="#" class="btn btn-default-blue-tiny editContent">Signup Now</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-                <div class="table">
-                    <h3 class="editContent">Developer</h3>
-                    <h2 class="editContent">$33</h2>
-                    <p class="editContent">Per Month</p>
-                    <ul class="table-content">
-                        <li class="editContent"><i class="fa fa-hdd-o"></i> 10 GB Storage</li>
-                        <li class="editContent"><i class="fa fa-pie-chart"></i> 500 GB Bandwidth</li>
-                        <li class="editContent"><i class="fa fa-envelope-o"></i> Email Support</li>
-                        <li class="editContent"><i class="fa fa-cogs"></i> 24x7 Support</li>
-                    </ul>
-
-                    <div class="text-center text-uppercase">
-                        <a href="#" class="btn btn-default-green-transparent-tiny editContent">Signup Now</a>
-                    </div>
-                </div>
-
-            </div>
-         </div>
-    </div>
-</section> -->
-<!-- Testimonials section -->
-<!-- <section id="testimonials" class="section testimonials no-padding">
-  <div class="container-fluid">
-    <div class="row no-gutter">
-      <div class="flexslider">
-        <ul class="slides">
-          <li>
-            <div class="col-md-12">
-              <blockquote>
-                <h1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa 
-semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                <p>Chris Mentsl</p>
-              </blockquote>
-            </div>
-          </li>
-          <li>
-            <div class="col-md-12">
-              <blockquote>
-                <h1>"Praesent eget risus vitae massa Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa 
-semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                <p>Kristean velnly</p>
-              </blockquote>
-            </div>
-          </li>
-          <li>
-            <div class="col-md-12">
-              <blockquote>
-                <h1>"Consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa 
-semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                <p>Markus Denny</p>
-              </blockquote>
-            </div>
-          </li>
-          <li>
-            <div class="col-md-12">
-              <blockquote>
-                <h1>"Vitae massa semper aliquam Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa 
-semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                <p>John Doe</p>
-              </blockquote>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- Testimonials section -->
-
-<!-- contact section -->
-
-
-<script>
-  const items = document.querySelectorAll("ul.primary-nav>li>a");
-  items.forEach(element => {
-
-    element.addEventListener("click", function() {
-      console.log("clicked");
-      clearActive();
-      element.classList.add("active");
-      console.log(this.getAttribute("href"));
-      document.querySelector(this.getAttribute("href")).classList.add("active");
-    });
-
-  });
-
-  function clearActive() {
-    let items = document.querySelectorAll(".primary-nav ul>li>a");
-    items.forEach(element => {
-      element.classList.remove("active");
-    });
-
-    let sections = document.querySelectorAll("section");
-    sections.forEach(element => {
-      element.classList.remove("active");
-    });
-  }
-</script>
-<!-- contact section -->
 <?php include 'footer.php'; ?>

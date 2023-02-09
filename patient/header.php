@@ -26,9 +26,35 @@
     <![endif]-->
   <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: [
+          <?php
+          $list = get_list("select * from tbl_appointment a inner join tbl_appointment_items i on i.appointment_id = a.id inner join tbl_clinic c on c.clinic_id = a.clinic_id inner join tbl_service s on s.id = i.service_id where a.patient_id = " . $_SESSION['user']->id);
+          $ctr = 0;
+          ?>
+
+          <?php foreach ($list as $res) { ?> {
+              <?php $ctr++; ?>
+              title: '<?= $res['name'] . " " . $res['srvc_name'] ?>',
+                start: '<?= $res['appointment_date'] ?>',
+                end: '<?= $res['appointment_date'] ?>'
+            }
+            <?= $ctr > count($list) ? '' : ','; ?>
+          <?php          } ?>
+
+        ]
+      });
+      calendar.render();
+    });
+  </script>
 </head>
 <style>
-  #navbarSupportedContent{
+  #navbarSupportedContent {
     background: #2255b1 !important;
   }
 
@@ -37,14 +63,15 @@
   a.navbar-brand,
   aside.left-sidebar,
   #sidebarnav,
-  a.sidebar-link{
+  a.sidebar-link {
     background: #2255b9 !important;
   }
 
   .logo {
-      height: 40px;
-    }
+    height: 40px;
+  }
 </style>
+
 <body>
   <!-- ============================================================== -->
   <!-- Preloader - style you can find in spinners.css -->
@@ -90,9 +117,9 @@
           <!-- toggle and nav items -->
           <!-- ============================================================== -->
           <ul class="navbar-nav float-start me-auto">
-          <li class="nav-item d-none d-lg-block">
-                <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a>
-              </li>
+            <li class="nav-item d-none d-lg-block">
+              <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a>
+            </li>
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->
@@ -101,13 +128,13 @@
             <!-- ============================================================== -->
           </ul>
           <ul class="navbar-nav float-end">
-          <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link waves-effect waves-dark sidebar-link " href="../logout.php" aria-expanded="false"><i class="mdi mdi-power"></i><span class="hide-menu">Log Out</span></a>
-              </li>
+            </li>
           </ul>
-            <!-- ============================================================== -->
-            <!-- User profile and search -->
-            <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- User profile and search -->
+          <!-- ============================================================== -->
           </ul>
         </div>
       </nav>

@@ -54,6 +54,28 @@ function loginUser($data)
     }
 }
 
+function membershipUser($data)
+{
+    extract($data);
+
+    $file_name = "default.png";
+    if (isset($attachment) && !empty($attachment['name'])) {
+        $ext = explode(".", $attachment["name"]);
+        $file_name = 'file_' . date('YmdHis') . "." . end($ext);
+        move_uploaded_file($attachment['tmp_name'], "images/members/" . $file_name);
+        $file_name = "$file_name";
+
+        $imageFileType = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            return error_message("File Type Not Supported");
+        }
+    }
+    query("INSERT INTO `tbl_member` (`prc_no`, `first_name`, `last_name`,`qr`,`barangay_id`,`city_id`,`paid_status_id`) values('$prc_no','$first_name','$last_name','$file_name','$barangay2','$municipality2',1)");
+    echo '<div class="alert alert-success" role="alert">
+                 Request Created!
+                  </div>';
+}
+
 function error_message($message = "Error Something Went Wrong")
 {
     return '<div class="alert alert-danger" role="alert"> ' . $message . ' </div>';
@@ -134,7 +156,7 @@ function editServices($data)
         return error_message("Name Already Exist");
     }
 
-    query("UPDATE `tbl_service` set  srvc_name ='$srvc_name', srvc_desc = '$srvc_desc', srvc_price = '$srvc_price' where id = $id");
+    query("UPDATE `tbl_service` set  srvc_name ='$srvc_name', srvc_desc = '$srvc_desc', srvc_price = '$srvc_price',srvc_time = '$srvc_time' where id = $id");
     return success_message("Service Updated Successfully!");
 }
 
@@ -257,7 +279,7 @@ function addService($data)
     extract($data);
 
     $clinic_id = $_SESSION['user']->clinic_id;
-    query("INSERT INTO `tbl_service` (clinic_id, srvc_name, srvc_desc, srvc_price) values($clinic_id, '$srvc_name', '$srvc_desc', '$srvc_price')");
+    query("INSERT INTO `tbl_service` (clinic_id, srvc_name, srvc_desc, srvc_price, srvc_time) values($clinic_id, '$srvc_name', '$srvc_desc', '$srvc_price','$srvc_time')");
     return success_message();
 }
 
@@ -274,12 +296,13 @@ function add_to_cart($data)
     }
 
     if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'][$service_id] = array('price' => $price, 'qty' => $qty, 'name' => $name);
+        $_SESSION['cart'][$service_id] = array('price' => $price, 'qty' => $qty, 'name' => $name, 'time' => $time);
     } else {
         if (!isset($_SESSION['cart'][$service_id])) {
-            $_SESSION['cart'][$service_id] = array('price' => $price, 'qty' => $qty, 'name' => $name);
+            $_SESSION['cart'][$service_id] = array('price' => $price, 'qty' => $qty, 'name' => $name, 'time' => $time);
         } else {
             $_SESSION['cart'][$service_id]['qty'] = $_SESSION['cart'][$service_id]['qty'] + $qty;
+            $_SESSION['cart'][$service_id]['time'] = $_SESSION['cart'][$service_id]['time'] + $time;
         }
     }
     return success_message("Service Added Successfully!");
@@ -363,7 +386,8 @@ function checkout($data)
     foreach ($cart as $key => $res) {
         $qty = $res['qty'];
         $price = $res['price'];
-        query("INSERT INTO tbl_appointment_items (appointment_id,service_id,qty,price) VALUES($id,$key,'$qty','$price')");
+        $time = $res['time'];
+        query("INSERT INTO tbl_appointment_items (appointment_id,service_id,qty,price,appointment_time) VALUES($id,$key,'$qty','$price','$time')");
     }
     unset($_SESSION['cart'], $_SESSION['clinic_id']);
     return success_message("Checkout Successfully");
@@ -395,6 +419,14 @@ function editSettings($data)
     extract($data);
     query("UPDATE `tbl_settings` set requirements = '$requirements' where id = 1");
     return success_message("Yes!");
+}
+
+function convertTime($data)
+{
+    if ($data < 1) {
+        return $data * 60 . "mins";
+    }
+    return $data . " Hours";
 }
 // SELECT x.first_name,x.last_name,c.name,b.name `barangay` FROM tbl_userinfo x inner join tbl_city c on c.id = x.municipality inner join tbl_barangay b on b.id = x.barangay;
 

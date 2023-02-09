@@ -44,27 +44,33 @@
                         <tr>
                           <th>Service</th>
                           <th style="width: 0.1%;">Qty</th>
+                          <th style="word-break: break-all;">Approx Time</th>
                           <th>Price</th>
                           <th style="width: 0.1%;">Actions</th>
                         </tr>
                       </thead>
                       <?php $tmp = 0 ?>
+                      <?php $tmptime = 0 ?>
                       <tbody>
                         <?php if (isset($_SESSION['cart'])) { ?>
+
                           <?php foreach ($_SESSION['cart'] as $key => $res) { ?>
                             <tr>
                               <td><?= $res['name'] ?></td>
                               <td><input type="number" name="qty[<?= $key ?>]" value="<?= $res['qty'] ?>"></td>
+                              <td style="text-align: right;"><?= convertTime($res['time'] * $res['qty']) ?></td>
                               <td style="text-align:right"><?= number_format($res['price'] * $res['qty'], 2) ?></td>
                               <td>
                                 <button type="submit" name="remove" class="btn btn-info" value="<?= $key ?>">Remove</button>
                               </td>
                             </tr>
                             <?php $tmp += ($res['price'] * $res['qty']); ?>
+                            <?php $tmptime += ($res['time'] * $res['qty']); ?>
                           <?php } ?>
                         <?php } ?>
                         <tr>
                           <td style="font-weight:bold" colspan="2">TOTAL</td>
+                          <td style="text-align:right;font-weight:bold"><?= convertTime($tmptime) ?></td>
                           <td style="text-align:right;font-weight:bold"><?= number_format($tmp, 2) ?></td>
                           <td></td>
                         </tr>
@@ -136,7 +142,7 @@
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Appointment Date:</label>
                     <div class="col-sm-9">
                       <div class="input-group">
-                        <input type="text" name="appointment_date" class="form-control mydatepicker" placeholder="mm-dd-yyyy" value="<?= isset($_POST['appointment_date']) ? $_POST['appointment_date'] : '' ?>" required />
+                        <input type="text" name="appointment_date" class="form-control mydatepicker" placeholder="mm-dd-yyyy" value="<?= isset($_POST['appointment_date']) ? $_POST['appointment_date'] : '' ?>" required min="<?= date('m-d-Y') ?>" />
                       </div>
                     </div>
                   </div>
@@ -175,5 +181,6 @@
   <script>
     jQuery(".mydatepicker").datepicker({
       format: 'mm-dd-yyyy',
+      startDate: '+1d'
     });
   </script>

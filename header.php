@@ -35,6 +35,7 @@ if (isset($_SESSION['user'])) {
       color: black;
       font-family: Lato, sans-serif;
       font-style: bold;
+      color: #fff !important;
     }
   </style>
 </head>

@@ -1,12 +1,21 @@
+
+
+dental admin/dental clerk/dentist
+ -add time
+
+patient
+ -calendar appointment
+
+---------------------------
 landing
- membership
+ membership(click here)
   -prc no
   -name
   -address
   -file attach
-  -qr
+  -qr(fixed picture)
 
- dental clinic request
+ dental clinic request(click here)
   -email
   -file attach
    -business permit
@@ -15,6 +24,8 @@ landing
    -prc (id)
 
 super admin
+ membership
+  -import csv/excel
  create clinic
   -first name
   -last name
@@ -24,9 +35,10 @@ dental admin/dental clerk/dentist
  add date created
  -calendar appointment
  view appointment separate cart & details
+
  print appointment details
 
 patient
- view appointment separate cart & details
  checkout
+  -add time
   -select dentist

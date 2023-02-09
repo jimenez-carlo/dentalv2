@@ -27,16 +27,22 @@
             <div class="modal-body">
               <div class="card-body">
                 <?php $id = $_GET['id']; ?>
-                <?php $default = get_one("select s.id,s.clinic_id,s.srvc_name,s.srvc_desc,s.srvc_price from tbl_service s where s.id = '$id'") ?>
+                <?php $default = get_one("select s.id,s.clinic_id,s.srvc_name,s.srvc_desc,s.srvc_price,s.srvc_time from tbl_service s where s.id = '$id'") ?>
                 <input type="hidden" name="id" value="<?= $default->id ?>">
                 <input type="hidden" name="clinic_id" value="<?= $default->clinic_id ?>">
                 <div class="form-group row">
-                <h4 class="card-title">Service Information Entry</h4>
+                  <h4 class="card-title">Service Information Entry</h4>
                   <br><br>
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Service*</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="fname" name="srvc_name" required value="<?= $default->srvc_name ?>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Service Time*</label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" id="fname" name="srvc_time" required value="<?= $default->srvc_time ?>">
                     </div>
                   </div>
                   <div class="form-group row">

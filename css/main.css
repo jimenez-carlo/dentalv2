@@ -6,6 +6,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open%20Sans:300,400,500,600,700); 
 @import url('https://fonts.googleapis.com/css?family=Lato:700');
+
 p {
 	font-size: 14px;
 	line-height: 22.4px;
@@ -317,17 +318,23 @@ ul li {
 	transform: translateY(0) rotate(-45deg);
 }
 .site-info{
-	color: #383838;
-	background: #ffffff;
-	border-radius: 20px;
-	margin-top: 34px;
-	padding: 15px 0;
+	
+color: #383838;
+	
+background: #ffffff;
+	
+border-radius: 20px;
+	
+margin-top: 34px;
+	
+padding: 15px 0;
 }
 .site-info a{
 	color: #03a9f4;
 }
 .phoneInfo{
-	display: inline-block;
+	
+display: inline-block;
 }
 .timeInfo{
 	
