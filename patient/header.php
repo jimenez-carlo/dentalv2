@@ -26,32 +26,8 @@
     <![endif]-->
   <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" />
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events: [
-          <?php
-          $list = get_list("select * from tbl_appointment a inner join tbl_appointment_items i on i.appointment_id = a.id inner join tbl_clinic c on c.clinic_id = a.clinic_id inner join tbl_service s on s.id = i.service_id where a.patient_id = " . $_SESSION['user']->id);
-          $ctr = 0;
-          ?>
+  <script src='../js/calendar.js'></script>
 
-          <?php foreach ($list as $res) { ?> {
-              <?php $ctr++; ?>
-              title: '<?= $res['name'] . " " . $res['srvc_name'] ?>',
-                start: '<?= $res['appointment_date'] ?>',
-                end: '<?= $res['appointment_date'] ?>'
-            }
-            <?= $ctr > count($list) ? '' : ','; ?>
-          <?php          } ?>
-
-        ]
-      });
-      calendar.render();
-    });
-  </script>
 </head>
 <style>
   #navbarSupportedContent {

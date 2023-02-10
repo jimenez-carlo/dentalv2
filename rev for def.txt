@@ -1,12 +1,3 @@
-
-
-dental admin/dental clerk/dentist
- -add time
-
-patient
- -calendar appointment
-
----------------------------
 landing
  membership(click here)
   -prc no
@@ -32,13 +23,27 @@ super admin
   -prc no
 
 dental admin/dental clerk/dentist
+ -add time
+
+patient
+ -calendar appointment
+
+dental admin/dental clerk/dentist
  add date created
  -calendar appointment
- view appointment separate cart & details
-
- print appointment details
 
 patient
  checkout
   -add time
   -select dentist
+
+
+dental admin/dental clerk/dentist
+ view appointment separate cart & details
+
+---------------------------
+
+
+
+
+ print appointment details

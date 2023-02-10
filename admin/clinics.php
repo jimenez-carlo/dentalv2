@@ -57,7 +57,7 @@
                     <td><?= $res['email'] ?></td>
                     <td><?= $res['contact'] ?></td>
                     <td style="width: 0.1%;display:flex">
-                      <a href="edit.php?id=<?= $res['id'] ?>" class="btn btn-success me-1" type="button">Edit </a>
+                      <a href="edit.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
                       <form method="post" onsubmit="return confirm('Are you sure?');">
                         <button class="btn btn-danger" type="submit" name="delete" value="<?= $res['clinic_id'] ?>">Delete </button>
                       </form>
@@ -156,11 +156,36 @@
                       <textarea class="form-control" name="description" required></textarea>
                     </div>
                   </div>
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">PRC ID</label>
+                    <div class="col-sm-9">
+                      <input type="file" class="form-control" name="prc_id" accept=".jpg,.jpeg,.png">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Business Permit </label>
+                    <div class="col-sm-9">
+                      <input type="file" class="form-control" name="business_permit" accept=".jpg,.jpeg,.png">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">NBI</label>
+                    <div class="col-sm-9">
+                      <input type="file" class="form-control" name="nbi" accept=".jpg,.jpeg,.png">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Birth Certificate</label>
+                    <div class="col-sm-9">
+                      <input type="file" class="form-control" name="birth_certificate" accept=".jpg,.jpeg,.png">
+                    </div>
+                  </div>
                 </div>
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-info" name="register">Submit</button>
               </div>
             </form>

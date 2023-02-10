@@ -26,6 +26,7 @@
     <![endif]-->
   <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../assets/libs/quill/dist/quill.snow.css">
+  <script src='../js/calendar.js'></script>
 </head>
 
 <body>
@@ -77,9 +78,9 @@
           <!-- toggle and nav items -->
           <!-- ============================================================== -->
           <ul class="navbar-nav float-start me-auto">
-          <li class="nav-item d-none d-lg-block">
-                <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a>
-              </li>
+            <li class="nav-item d-none d-lg-block">
+              <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a>
+            </li>
             <!-- <li class="nav-item">
               <a class="nav-link waves-effect waves-dark sidebar-link " href="../logout.php" aria-expanded="false"><i class="mdi mdi-power"></i><span class="hide-menu">Log Out</span></a>
               </li> -->
@@ -119,7 +120,7 @@
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="clinics.php" aria-expanded="false"><i class="mdi mdi-tooth"></i><span class="hide-menu">Manage Clinics</span></a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="settings.php" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Association Members</span></a>
+              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="members.php" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Association Members</span></a>
             </li>
           </ul>
         </nav>

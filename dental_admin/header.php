@@ -25,24 +25,25 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-
+  <script src='../js/calendar.js'></script>
 </head>
 <style>
-  #navbarSupportedContent{
+  #navbarSupportedContent {
     background: #2255a1 !important;
   }
-  
+
   nav.navbar-dark,
   header.topbar,
   a.navbar-brand,
   aside.left-sidebar,
   #sidebarnav,
-  a.sidebar-link{
+  a.sidebar-link {
     background: #2255a9 !important;
   }
+
   .logo {
-      height: 40px;
-    }
+    height: 40px;
+  }
 </style>
 
 <body>
@@ -82,10 +83,10 @@
           <!-- toggle and nav items -->
           <!-- ============================================================== -->
           <ul class="navbar-nav float-start me-auto">
-          <li class="nav-item d-none d-lg-block">
-                <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a>
-              </li>
-              
+            <li class="nav-item d-none d-lg-block">
+              <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a>
+            </li>
+
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->

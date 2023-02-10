@@ -28,13 +28,23 @@
     </div>
   </div>
   <div class="container-fluid">
-    <?= (isset($_POST['cancel'])) ? cancel_appointment($_POST['cancel']) : ''; ?>
+    <?= (isset($_POST['accept'])) ? accept_appointment($_POST['accept']) : ''; ?>
+    <?= (isset($_POST['reject'])) ? reject_appointment($_POST['reject']) : ''; ?>
+    <?= (isset($_POST['paid'])) ? paid_appointment($_POST['paid']) : ''; ?>
+    <?php $id = $_GET['id']  ?>
+    <?php $clinic_details = get_clinic(get_one("SELECT clinic_id from tbl_appointment where id = $id")->clinic_id); ?>
+    <?php $appointment_details = get_one("SELECT DATE_FORMAT(appointment_date,'%m-%d-%Y') as appointment_date, remarks,status_id,paid_id,id,patient_id from tbl_appointment where id = $id"); ?>
+    <?php $patient_details = get_patient((int)$appointment_details->patient_id); ?>
+    <?php $clinic_details = get_clinic(get_one("SELECT clinic_id from tbl_appointment where id = $id")->clinic_id); ?>
+
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
+
+
                 <form method="post">
                   <div class="table-responsive">
                     <table id="table_eto" class="table table-bordered">
@@ -42,29 +52,24 @@
                         <tr>
                           <th>Service</th>
                           <th style="width: 0.1%;">Qty</th>
-                          <th>Approx Time</th>
                           <th>Price</th>
                         </tr>
                       </thead>
                       <?php $tmp = 0 ?>
-                      <?php $tmptime = 0 ?>
-                      <?php $id = $_GET['id']  ?>
+
                       <tbody>
 
                         <?php foreach (get_list("SELECT i.*,s.srvc_name from tbl_appointment_items i inner join tbl_service s on s.id = i.service_id where i.appointment_id = $id") as $key => $res) { ?>
                           <tr>
                             <td><?= $res['srvc_name'] ?></td>
                             <td><?= $res['qty'] ?></td>
-                            <td style="text-align:right"><?= convertTime($res['appointment_time']) ?></td>
                             <td style="text-align:right"><?= number_format($res['price'] * $res['qty'], 2) ?></td>
                           </tr>
                           <?php $tmp += ($res['price'] * $res['qty']); ?>
-                          <?php $tmptime += ($res['appointment_time'] * $res['qty']); ?>
                         <?php } ?>
 
                         <tr>
                           <td style="font-weight:bold" colspan="2">TOTAL</td>
-                          <td style="text-align:right;font-weight:bold"><?= convertTime($tmptime) ?></td>
                           <td style="text-align:right;font-weight:bold"><?= number_format($tmp, 2) ?></td>
                         </tr>
                       </tbody>
@@ -72,8 +77,6 @@
                   </div>
                 </form>
               </div>
-              <?php $clinic_details = get_clinic(get_one("SELECT clinic_id from tbl_appointment where id = $id")->clinic_id); ?>
-              <?php $appointment_details = get_one("SELECT DATE_FORMAT(appointment_date,'%m-%d-%Y') as appointment_date, remarks,status_id,paid_id,id from tbl_appointment where id = $id"); ?>
 
 
               <div class="col-md-6">
@@ -86,7 +89,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Dentist:</label>
                     <div class="col-sm-9">
@@ -120,53 +122,6 @@
                     </div>
                   </div>
 
-
-                  <!-- <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Dental Admin:</label>
-                    <div class="col-sm-9">
-                      <div class="input-group">
-                        <input type="text" class="form-control" disabled value="<?= isset($clinic_details->fullname) ? $clinic_details->fullname : '' ?>" />
-                      </div>
-                    </div>
-                  </div> -->
-
-                  <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Municipality:</label>
-                    <div class="col-sm-9">
-                      <div class="input-group">
-                        <input type="text" class="form-control" disabled value="<?= isset($clinic_details->municipality) ? $clinic_details->municipality : '' ?>" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay:</label>
-                    <div class="col-sm-9">
-                      <div class="input-group">
-                        <input type="text" class="form-control" disabled value="<?= isset($clinic_details->barangay) ? $clinic_details->barangay : '' ?>" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Email:</label>
-                    <div class="col-sm-9">
-                      <div class="input-group">
-                        <input type="text" class="form-control" disabled value="<?= isset($clinic_details->email) ? $clinic_details->email : '' ?>" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Contact:</label>
-                    <div class="col-sm-9">
-                      <div class="input-group">
-                        <input type="text" class="form-control" disabled value="<?= isset($clinic_details->contact) ? $clinic_details->contact : '' ?>" />
-                      </div>
-                    </div>
-                  </div>
-
-
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Appointment Date:</label>
                     <div class="col-sm-9">
@@ -185,7 +140,59 @@
                     </div>
                   </div>
 
-                  <button class="btn btn-info w-100" type="submit" name="cancel" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> CANCEL</button>
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Name (Patient):</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <input type="text" class="form-control" disabled value="<?= strtoupper($patient_details->first_name . " " . $patient_details->last_name) ?>" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Contact (Patient):</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <input type="text" class="form-control" disabled value="<?= $patient_details->contact ?>" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Email (Patient):</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <input type="text" class="form-control" disabled value="<?= $patient_details->email ?>" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Municipality (Patient):</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <input type="text" class="form-control" disabled value="<?= get_municipality($patient_details->municipality) ?>" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay (Patient):</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <input type="text" class="form-control" disabled value="<?= get_barangay($patient_details->barangay) ?>" />
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="text-center">
+                    <button class="btn btn-info" style="width:30%" type="submit" name="accept" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> ACCEPT</button>
+                    <button class="btn btn-info" style="width:30%" type="submit" name="paid" value="<?= $appointment_details->id ?>" <?= ($appointment_details->paid_id > 1) ? 'disabled' : '' ?>> PAID</button>
+                    <button class="btn btn-info" style="width:30%" type="submit" name="reject" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> REJECT</button>
+                  </div>
                 </form>
               </div>
             </div>
@@ -208,8 +215,3 @@
 
 
   <?php include 'footer.php'; ?>
-  <script>
-    jQuery(".mydatepicker").datepicker({
-      format: 'mm-dd-yyyy',
-    });
-  </script>

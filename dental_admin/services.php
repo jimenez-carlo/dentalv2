@@ -42,18 +42,20 @@
                   <th>Service Approx Time(Hours)</th>
                   <th>Description</th>
                   <th>Price</th>
+                  <th>Date Created</th>
                   <th style="width: 0.1%;">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <?php $cid = $_SESSION['user']->clinic_id ?>
-                <?php foreach (get_list("SELECT s.id,s.srvc_name,s.srvc_desc,s.srvc_price,s.srvc_time from tbl_clinic u inner join tbl_service s on s.clinic_id = u.clinic_id where s.clinic_id=$cid") as $res) { ?>
+                <?php foreach (get_list("SELECT s.id,s.srvc_name,s.srvc_desc,s.srvc_price,s.created_date,s.srvc_time from tbl_clinic u inner join tbl_service s on s.clinic_id = u.clinic_id where s.clinic_id=$cid") as $res) { ?>
                   <tr>
                     <td><?= $res['id'] ?></td>
                     <td><?= $res['srvc_name'] ?></td>
                     <td><?= $res['srvc_time'] ?></td>
                     <td><?= $res['srvc_desc'] ?></td>
                     <td><?= $res['srvc_price'] ?></td>
+                    <td><?= date_format(date_create($res['created_date']), "Y-m-d") ?></td>
                     <td style="width: 0.1%;display:flex">
                       <a href="edit_services.php?id=<?= $res['id'] ?>" class="btn btn-success me-1" type="button">Edit </a>
                       <form method="post" onsubmit="return confirm('Are you sure?');">

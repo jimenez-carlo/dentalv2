@@ -1,81 +1,91 @@
-<?php  include 'header.php'; ?>
+<?php include 'header.php'; ?>
 <!-- ============================================================== -->
-    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
-    <style>
-  .img-height {
-    height: 400px;
-    object-fit: contain;
-  }
-</style>
-    <div class="page-wrapper">
-      <!-- ============================================================== -->
-      <!-- Bread crumb and right sidebar toggle -->
-      <!-- ============================================================== -->
-      <div class="page-breadcrumb">
-      <?php $id=$_SESSION['user']->id ?>
-      <?php $default = get_one("select u.id,c.clinic_id,c.image,c.name,ui.first_name,ui.municipality,ui.barangay,c.description,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
-
-        <div class="row">
-            <!-- <h4 class="page-title">Welcome </h4> -->
-            <?php
-            if (isset($_SESSION['user'])) {
-              if ($_SESSION['user']->access_id == 2) {
-                echo "
-                <h4 class='page-title'>Welcome $default->name</h4>
-                ";
-              } else if ($_SESSION['user']->access_id == 3) {
-                echo "
-                <h4 class='page-title'>Welcome $default->first_name</h4>
-                ";
-              } else if ($_SESSION['user']->access_id == 4) {
-                echo "
-                <h4 class='page-title'>Welcome $default->first_name</h4>
-                ";
-              }
-            }
-            ?>
-            <br><br>
-            <div class="ms-auto text-end">
-              
-          </div>
-        </div>
-        <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-          <img src="../images/d1.jpg" alt="" class="img-height">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card">
-          <img src="../images/d2.jpg" alt="" class="img-height">
-        </div>
-      </div>
-    </div>
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+  <style>
+    .img-height {
+      height: 400px;
+      object-fit: contain;
+    }
+  </style>
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="page-breadcrumb">
     <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-          <img src="../images/d3.jpg" alt="" class="img-height">
-        </div>
+      <?php $id = $_SESSION['user']->id ?>
+      <?php $default = get_one("select u.id,ui.first_name,ui.municipality,ui.barangay,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
+      <!-- <h4 class="page-title">Welcome </h4> -->
+      <?php
+      if (isset($_SESSION['user'])) {
+        if ($_SESSION['user']->access_id == 5) {
+          echo "
+                <h4 class='page-title'>Welcome $default->first_name</h4>
+                ";
+        }
+      }
+      ?>
+      <div class="ms-auto text-end">
+        <div id='calendar'></div>
       </div>
-      <div class="col-md-6">
-        <div class="card">
-          <img src="../images/d4.jpg" alt="" class="img-height">
-        </div>
-      </div>
+
     </div>
-      </div>
-            <footer class="footer text-center">
-      </footer>
-      <!-- ============================================================== -->
-      <!-- End footer -->
-      <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
+
   </div>
-<?php  include 'footer.php'; ?>
+  <footer class="footer text-center">
+  </footer>
+  <!-- ============================================================== -->
+  <!-- End footer -->
+  <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      events: [
+        <?php
+        $list = get_list("select * from tbl_appointment a inner join tbl_appointment_items i on i.appointment_id = a.id inner join tbl_clinic c on c.clinic_id = a.clinic_id inner join tbl_service s on s.id = i.service_id inner join tbl_userinfo ui on  ui.id = a.patient_id where a.clinic_id = " . $_SESSION['user']->clinic_id);
+        $ctr = 0;
+        $defaultStartTime = (float)8;
+        $oldDate = '';
+        ?>
+
+        <?php foreach ($list as $res) { ?>
+          <?php $ctr++;
+          if ($oldDate == '') $oldDate = $res['appointment_date'];
+          if ($oldDate != $res['appointment_date']) {
+            $oldDate = $res['appointment_date'];
+            $defaultStartTime = 8;
+          }
+          ?> {
+
+            title: '<?= $res['first_name'] . " " . $res['last_name'] . " - " . $res['srvc_name'] ?>',
+            start: '<?= $oldDate ?>T<?= str_replace('.', ':', strlen($defaultStartTime) > 1 ? $defaultStartTime : "0" . $defaultStartTime) ?>:00',
+            <?php $defaultStartTime = ($oldDate != $res['appointment_date']) ? 8 :  $defaultStartTime + (float) $res['appointment_time'] ?>
+            end: '<?= $res['appointment_date'] ?>T<?= str_replace('.', ':', strlen($defaultStartTime) > 1 ? $defaultStartTime : "0" . $defaultStartTime) ?>:00',
+            allDay: false
+          }
+          <?php $oldDate = $res['appointment_date']; ?>
+          <?= $ctr > count($list) - 1 ? '' : ','; ?>
+
+
+
+
+
+        <?php          } ?>
+
+      ]
+    });
+    calendar.render();
+  });
+</script>
+<?php include 'footer.php'; ?>

@@ -82,11 +82,7 @@
             <td>Logo</td>
             <td> ✔</td>
           </tr>
-          <tr>
-            <td>Description</td>
-            <td>Logo</td>
-            <td> ✔</td>
-          </tr>
+
         </tbody>
       </table>
 

@@ -16,8 +16,8 @@
 
         <div class="ms-auto text-end" style="margin-left: 48.8vw!important">
           <div class="d-flex">
-            <a href="clinics.php" class="btn btn-info col-12" type="button" style="margin-right: 4px;">Back To Clinic List</a>
-            <a href="view_cart.php" class="btn btn-info col-12" type="button">Checkout</a>
+            <a href="clinics.php" class="btn btn-info col-6" type="button" style="margin-right: 4px;">Clinic List</a>
+            <a href="view_cart.php" class="btn btn-info col-6" type="button">Checkout</a>
           </div>
         </div>
       </div>

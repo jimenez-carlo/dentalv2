@@ -87,12 +87,38 @@
                     <input type="file" class="form-control" name="image_koto" accept=".jpg,.jpeg,.png">
                   </div>
                 </div>
+
                 <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description*</label>
                   <div class="col-sm-9">
                     <textarea class="form-control" name="description" required><?= $default->description ?></textarea>
                   </div>
                 </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">PRC ID</label>
+                  <div class="col-sm-9">
+                    <input type="file" class="form-control" name="prc_id" accept=".jpg,.jpeg,.png">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Business Permit </label>
+                  <div class="col-sm-9">
+                    <input type="file" class="form-control" name="business_permit" accept=".jpg,.jpeg,.png">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">NBI</label>
+                  <div class="col-sm-9">
+                    <input type="file" class="form-control" name="nbi" accept=".jpg,.jpeg,.png">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Birth Certificate</label>
+                  <div class="col-sm-9">
+                    <input type="file" class="form-control" name="birth_certificate" accept=".jpg,.jpeg,.png">
+                  </div>
+                </div>
+
               </div>
 
             </div>
