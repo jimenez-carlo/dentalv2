@@ -91,14 +91,31 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Dentist:</label>
                     <div class="col-sm-9">
                       <div class="input-group">
                         <select id="" class="form-control" name="dentist_id">
                           <?php if (isset($clinic_details)) { ?>
-                            <?php foreach (get_list("select u.id,ui.first_name,ui.last_name from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.access_id = 3 and u.clinic_id = " . $_SESSION['clinic_id']) as $res) { ?>
+                            <?php foreach (get_list("select u.id,ui.first_name,ui.last_name from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.access_id in(3,2) and u.clinic_id = " . $_SESSION['clinic_id']) as $res) { ?>
                               <option value="<?= $res['id'] ?>"><?= strtoupper($res['first_name'] . ' - ' . $res['last_name']) ?></option>
+                            <?php } ?>
+                        </select>
+                      <?php } ?>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Mode of Payment:</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <select id="" class="form-control" name="mode_of_payment">
+                          <?php if (isset($clinic_details)) { ?>
+                            <?php foreach (get_list("select * from tbl_mode_of_payment") as $res) { ?>
+                              <option value="<?= $res['id'] ?>"><?= strtoupper($res['name']) ?></option>
                             <?php } ?>
                         </select>
                       <?php } ?>

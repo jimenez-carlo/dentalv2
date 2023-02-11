@@ -23,17 +23,24 @@
     <div class="row">
       <div class="card">
         <div class="card-body">
-          <form class="form-horizontal" method="post" onsubmit="return confirm('Are you sure?');" enctype="multipart/form-data">
+          <form class="form-horizontal" method="post" onsubmit="return confirm('Are you sure?');" enctype="multipart/form-data" id="my-form">
             <div class="modal-body">
               <div class="card-body">
                 <?php $id = $_GET['id']; ?>
-                <?php $default = get_one("select u.id,c.clinic_id,c.image,c.name,ui.municipality,ui.barangay,c.description,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
+                <?php $default = get_one("select u.id,c.clinic_id,c.image,c.name,ui.municipality,ui.barangay,c.description,ui.email,ui.contact,u.username,u.password,c.prc_no from tbl_user u inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
+                <?php $user = get_one("select ui.first_name,ui.last_name  from tbl_userinfo ui inner join tbl_user u on u.id = ui.id  where u.access_id = 2 and u.clinic_id = " . $default->clinic_id) ?>
                 <input type="hidden" name="id" value="<?= $default->id ?>">
                 <input type="hidden" name="clinic_id" value="<?= $default->clinic_id ?>">
                 <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic Name*</label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="fname" name="clinic_name" required value="<?= $default->name ?>">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">PRC No*</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="fname" name="prc_no" required value="<?= $default->prc_no ?>">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -60,19 +67,31 @@
                 <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">Username*</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="fname" name="username" required value="<?= $default->username ?>">
+                    <input type="text" class="form-control" id="username" name="username" required value="<?= $default->username ?>">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">Password*</label>
                   <div class="col-sm-9">
-                    <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required value="<?= $default->password ?>"><span>Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+                    <input type="password" class="form-control" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required value="<?= $default->password ?>"><span>Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name*</label>
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control" id="fname" name="first_name" required value="<?= $user->first_name ?>">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Last Name*</label>
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control" id="fname" name="last_name" required value="<?= $user->last_name ?>">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">E-mail*</label>
                   <div class="col-sm-9">
-                    <input type="email" class="form-control" id="fname" name="email" required value="<?= $default->email ?>">
+                    <input type="email" class="form-control" id="email" name="email" required value="<?= $default->email ?>">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -101,6 +120,12 @@
                   </div>
                 </div>
                 <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Mayors Permit</label>
+                  <div class="col-sm-9">
+                    <input type="file" class="form-control" name="mayors_permit" accept=".jpg,.jpeg,.png">
+                  </div>
+                </div>
+                <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">Business Permit </label>
                   <div class="col-sm-9">
                     <input type="file" class="form-control" name="business_permit" accept=".jpg,.jpeg,.png">
@@ -124,6 +149,7 @@
             </div>
             <div class="modal-footer">
               <a href="clinics.php" type="button" class="btn btn-secondary">Back to List</a>
+              <button type="button" class="btn btn-info" id="send_email">Send Email</button>
               <button type="submit" class="btn btn-info" name="edit">Update</button>
             </div>
           </form>
@@ -157,4 +183,27 @@
       $("#barangay").html(result);
     });
   });
+
+  var form = document.getElementById("my-form");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    let email = document.getElementById("email").value;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    var data = new FormData();
+    let message = "Account Successfully Created Username:" + username + "Password:" + password;
+    data.append("email", email);
+    data.append("message", message);
+    fetch("https://formspree.io/f/meqweyob", {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+  }
+  document.getElementById("send_email").addEventListener("click", handleSubmit)
 </script>

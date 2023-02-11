@@ -47,3 +47,35 @@ dental admin/dental clerk/dentist
 
 
  print appointment details
+mode of payment(braces)
+
+dental admin////
+ -upload picture teeth appointment////
+validate duplicate - fields servicess products edit details//
+
+reject(reschedule)//
+filter services//
+
+validate calendar 8-5 hrs///
+
+SUPER ADMIN
+  dental clinic
+    -rename requirement attachment in clinic account creation NBI -> brgy clearance, brith cert -> DTI
+    -add attachment mayors permit//
+    -add fields in creation of dental clinic accountfirst name, last name,prc//
+    -created date//
+    -clinics send email,first name,lastname upon creation of clinic account (dental clinic account admin)//
+  members
+    -created date//
+
+Dental Admin/Patient - View Appointments Page
+  -appointment filter status//
+  -view rececipt
+    hours computation//
+
+
+SUPER SUPER ADMIN (new user)
+-viewing//
+
+
+include dental admin in dentist picker//

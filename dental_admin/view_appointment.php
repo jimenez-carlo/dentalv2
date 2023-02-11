@@ -30,7 +30,8 @@
   <div class="container-fluid">
     <?= (isset($_POST['accept'])) ? accept_appointment($_POST['accept']) : ''; ?>
     <?= (isset($_POST['reject'])) ? reject_appointment($_POST['reject']) : ''; ?>
-    <?= (isset($_POST['paid'])) ? paid_appointment($_POST['paid']) : ''; ?>
+    <?= (isset($_POST['paid'])) ? paid_appointment(array_merge($_POST, $_FILES)) : ''; ?>
+    <?= (isset($_POST['upload'])) ? uplaod_teethv(array_merge($_POST, $_FILES)) : ''; ?>
     <?php $id = $_GET['id']  ?>
     <?php $clinic_details = get_clinic(get_one("SELECT clinic_id from tbl_appointment where id = $id")->clinic_id); ?>
     <?php $appointment_details = get_one("SELECT DATE_FORMAT(appointment_date,'%m-%d-%Y') as appointment_date, remarks,status_id,paid_id,id,patient_id from tbl_appointment where id = $id"); ?>
@@ -44,12 +45,14 @@
             <div class="row">
 
               <div class="col-md-12">
-                <form method="post" onsubmit="return confirm('Are you sure?');">
+                <form method="post" onsubmit="return confirm('Are you sure?');" enctype="multipart/form-data">
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic:</label>
                     <div class="col-sm-6">
                       <div class="input-group">
                         <input type="text" class="form-control" disabled value="<?= isset($clinic_details->name) ? $clinic_details->name : '' ?>" />
+                        <input type="hidden" value="<?= $clinic_details->clinic_id ?>" name="clinic_id" />
+                        <input type="hidden" value="<?= $clinic_details->id ?>" name="id" />
                       </div>
                     </div>
                   </div>
@@ -59,8 +62,23 @@
                       <div class="input-group">
                         <select id="" class="form-control" name="dentist_id" disabled>
                           <?php if (isset($clinic_details)) { ?>
-                            <?php foreach (get_list("select u.id,ui.first_name,ui.last_name from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.access_id = 3 and u.clinic_id = " . $clinic_details->clinic_id) as $res) { ?>
+                            <?php foreach (get_list("select u.id,ui.first_name,ui.last_name from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.access_id in(3,2) and u.clinic_id = " . $clinic_details->clinic_id) as $res) { ?>
                               <option value="<?= $res['id'] ?>" <?= ($clinic_details->dentist_id ?? 0) == $res['id'] ? 'selected' : ''  ?>><?= strtoupper($res['first_name'] . ' - ' . $res['last_name']) ?></option>
+                            <?php } ?>
+                        </select>
+                      <?php } ?>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Mode of Payment:</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <select id="" class="form-control" name="mode_of_payment" style="width:100px">
+                          <?php if (isset($clinic_details)) { ?>
+                            <?php foreach (get_list("select * from tbl_mode_of_payment") as $res) { ?>
+                              <option value="<?= $res['id'] ?>" <?= ($clinic_details->mode_of_payment ?? 0) == $res['id'] ? 'selected' : ''  ?>><?= strtoupper($res['name']) ?></option>
                             <?php } ?>
                         </select>
                       <?php } ?>
@@ -90,7 +108,7 @@
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Appointment Date:</label>
                     <div class="col-sm-6">
                       <div class="input-group">
-                        <input type="text" name="appointment_date" disabled class="form-control mydatepicker" placeholder="mm-dd-yyyy" value="<?= isset($appointment_details->appointment_date) ? $appointment_details->appointment_date : '' ?>" required />
+                        <input type="text" name="appointment_date" class="form-control mydatepicker" placeholder="mm-dd-yyyy" value="<?= isset($appointment_details->appointment_date) ? $appointment_details->appointment_date : '' ?>" required />
                       </div>
                     </div>
                   </div>
@@ -152,10 +170,21 @@
 
 
 
-                  <div class="text-center">
-                    <button class="btn btn-info" style="width:20%" type="submit" name="accept" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> ACCEPT</button>
-                    <button class="btn btn-info" style="width:20%" type="submit" name="paid" value="<?= $appointment_details->id ?>" <?= ($appointment_details->paid_id > 1) ? 'disabled' : '' ?>> PAID</button>
-                    <button class="btn btn-info" style="width:20%" type="submit" name="reject" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> REJECT</button>
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Teeth:</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <input type="file" class="form-control" name="file_name" />
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" value="<?= $appointment_details->id ?>" name="id">
+
+                  <div class=" text-center">
+                    <button class="btn btn-info" style="width:10%" type="submit" name="accept" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> ACCEPT</button>
+                    <button class="btn btn-info" style="width:10%" type="submit" name="paid" value="<?= $appointment_details->id ?>" <?= ($appointment_details->paid_id > 1) ? 'disabled' : '' ?>> PAID</button>
+                    <button class="btn btn-info" style="width:10%" type="submit" name="reject" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> RESCHEDULE</button>
+                    <button class="btn btn-info" style="width:10%" type="submit" name="upload"> UPLOAD</button>
                     <a href="view_receipt.php?id=<?= $appointment_details->id ?>" class="btn btn-secondary" style="width:20%">View Receipt</a>
                   </div>
                 </form>
@@ -178,5 +207,11 @@
   <!-- End Page wrapper  -->
   <!-- ============================================================== -->
 
-
   <?php include 'footer.php'; ?>
+
+  <script>
+    jQuery(".mydatepicker").datepicker({
+      format: 'mm-dd-yyyy',
+      startDate: '+1d'
+    });
+  </script>

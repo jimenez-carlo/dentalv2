@@ -33,9 +33,8 @@
     <?= (isset($_POST['paid'])) ? paid_appointment($_POST['paid']) : ''; ?>
     <?php $id = $_GET['id']  ?>
     <?php $clinic_details = get_clinic(get_one("SELECT clinic_id from tbl_appointment where id = $id")->clinic_id); ?>
-    <?php $appointment_details = get_one("SELECT DATE_FORMAT(appointment_date,'%m-%d-%Y') as appointment_date, remarks,status_id,paid_id,id,patient_id from tbl_appointment where id = $id"); ?>
+    <?php $appointment_details = get_one("SELECT DATE_FORMAT(appointment_date,'%m-%d-%Y') as appointment_date, remarks,status_id,paid_id,id,patient_id,image from tbl_appointment where id = $id"); ?>
     <?php $patient_details = get_patient((int)$appointment_details->patient_id); ?>
-    <?php $clinic_details = get_clinic(get_one("SELECT clinic_id from tbl_appointment where id = $id")->clinic_id); ?>
 
     <div class="row">
       <div class="col-md-12">
@@ -52,10 +51,12 @@
                         <tr>
                           <th>Service</th>
                           <th style="width: 0.1%;">Qty</th>
+                          <th>Approx Time</th>
                           <th>Price</th>
                         </tr>
                       </thead>
                       <?php $tmp = 0 ?>
+                      <?php $tmptime = 0 ?>
 
                       <tbody>
 
@@ -63,19 +64,24 @@
                           <tr>
                             <td><?= $res['srvc_name'] ?></td>
                             <td><?= $res['qty'] ?></td>
+                            <td style="text-align:right"><?= convertTime($res['appointment_time']) ?></td>
                             <td style="text-align:right"><?= number_format($res['price'] * $res['qty'], 2) ?></td>
                           </tr>
                           <?php $tmp += ($res['price'] * $res['qty']); ?>
+                          <?php $tmptime += ($res['appointment_time'] * $res['qty']); ?>
                         <?php } ?>
 
                         <tr>
                           <td style="font-weight:bold" colspan="2">TOTAL</td>
+                          <td style="text-align:right;font-weight:bold"><?= convertTime($tmptime) ?></td>
                           <td style="text-align:right;font-weight:bold"><?= number_format($tmp, 2) ?></td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </form>
+                <p>Patient Teeth Image</p>
+                <img src="../images/teeth/<?= $appointment_details->image ?>" alt="" style="witdh:200px;height:200px">
               </div>
 
 

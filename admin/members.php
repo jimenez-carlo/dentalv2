@@ -42,6 +42,7 @@
                   <th>Municipality</th>
                   <th>Barangay</th>
                   <th>Status</th>
+                  <th>Date Created</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -55,14 +56,20 @@
                     <td><?= $res['city'] ?></td>
                     <td><?= $res['barangay'] ?></td>
                     <td><?= $res['status'] ?></td>
+                    <td><?= date_format(date_create($res['date_created']), "Y-m-d") ?></td>
                     <td style="width: 0.1%;display:flex">
-                      <a href="edit_member.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
-                      <form method="post" onsubmit="return confirm('Are you sure?');" style="margin-right:4px">
-                        <button class="btn btn-info" type="submit" name="approve" value="<?= $res['id'] ?>" <?= ($res['paid_status_id'] == 1) ? '' : 'disabled' ?>>Approve </button>
-                      </form>
-                      <form method="post" onsubmit="return confirm('Are you sure?');">
-                        <button class="btn btn-danger" type="submit" name="delete" value="<?= $res['id'] ?>">Delete </button>
-                      </form>
+                      <?php if ($_SESSION['user']->access_id == 1) { ?>
+                        <a href="edit_member.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
+                        <form method="post" onsubmit="return confirm('Are you sure?');" style="margin-right:4px">
+                          <button class="btn btn-info" type="submit" name="approve" value="<?= $res['id'] ?>" <?= ($res['paid_status_id'] == 1) ? '' : 'disabled' ?>>Approve </button>
+                        </form>
+                        <form method="post" onsubmit="return confirm('Are you sure?');">
+                          <button class="btn btn-danger" type="submit" name="delete" value="<?= $res['id'] ?>">Delete </button>
+                        </form>
+                      <?php } else { ?>
+                        <a href="edit_member.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
+
+                      <?php } ?>
                     </td>
                   </tr>
                 <?php } ?>

@@ -103,6 +103,21 @@
                   </div>
 
                   <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Mode of Payment:</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <select id="" class="form-control" name="mode_of_payment" style="width: 100px;">
+                          <?php if (isset($clinic_details)) { ?>
+                            <?php foreach (get_list("select * from tbl_mode_of_payment") as $res) { ?>
+                              <option value="<?= $res['id'] ?>" <?= ($clinic_details->mode_of_payment ?? 0) == $res['id'] ? 'selected' : ''  ?>><?= strtoupper($res['name']) ?></option>
+                            <?php } ?>
+                        </select>
+                      <?php } ?>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Status:</label>
                     <div class="col-sm-9">
                       <div class="input-group">
@@ -119,6 +134,7 @@
                       </div>
                     </div>
                   </div>
+
 
 
                   <!-- <div class="form-group row">

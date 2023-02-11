@@ -21,6 +21,7 @@
   </div>
   <div class="container-fluid">
     <?= (isset($_POST['cancel'])) ? cancel_appointment($_POST['cancel']) : ''; ?>
+    <?= (isset($_POST['cancel'])) ? reschedule_appointment($_POST['accept']) : ''; ?>
     <div class="row">
       <div class="col-4">
       </div>
@@ -53,9 +54,11 @@
                     <td style="width: 0.1%;display:flex">
                       <a href="view_appointment.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
                       <?php if ((int)$res['status_id'] > 1) { ?>
-                        <button class="btn btn-danger" type="button" disabled>Cancel </button>
+                        <button class="btn btn-danger" type="button" disabled style="margin-right: 4px;">Cancel </button>
+                        <button class="btn btn-danger" type="button" <?= $res['status_id'] == 3 ? '' : 'disabled' ?>>Accept </button>
                       <?php } else { ?>
-                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-danger" type="submit" name="cancel" value="<?= $res['id'] ?>">Cancel </button></form>
+                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-danger" type="submit" name="cancel" value="<?= $res['id'] ?>" style="margin-right: 4px;">Cancel </button></form>
+                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-danger" type="submit" name="accept" value="<?= $res['id'] ?>" <?= $res['status_id'] == 3 ? '' : 'disabled' ?>>Accept </button></form>
                       <?php } ?>
 
                     </td>

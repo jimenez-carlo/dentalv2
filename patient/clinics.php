@@ -19,16 +19,25 @@
       </div>
       <div class="col-3 d-flex no-block align-items-center">
         <input type="search" class="form-control" id="cono1" placeholder="Search">
+
         <div class="ms-auto text-end">
         </div>
       </div>
     </div>
   </div>
   <div class="container-fluid">
+    <div style="margin-bottom:20px">
+      <a href="clinics.php?" class="btn btn-secondary" style="word-break: break-all; "> All</a>
+      <?php foreach (get_list("select distinct srvc_name from tbl_service limit 4") as $res) { ?>
+        <a href="clinics.php?category=<?= $res['srvc_name'] ?>" class="btn btn-secondary" style="word-break: break-all; "> <?= $res['srvc_name'] ?></a>
+      <?php } ?>
+    </div>
+
     <div class="row" id="clinic_container">
 
       <?php $ctr = 1; ?>
-      <?php foreach (get_list("SELECT c.`image`,c.name as `clinic_name`,m.name as `municipality`,b.name as `barangay`,ui.email,ui.contact,u.id,u.clinic_id, group_concat(distinct s.srvc_name) as service_name from tbl_user u inner join tbl_userinfo ui on ui.id = u.id inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_city m on m.id = ui.municipality inner join tbl_barangay b on b.id = ui.barangay left join tbl_service s on s.clinic_id = c.clinic_id group by c.clinic_id") as $res) { ?>
+      <?php $where = isset($_GET['category']) ? ' s.srvc_name LIKE "%' . $_GET['category'] . '%"' : ' 1=1' ?>
+      <?php foreach (get_list("SELECT c.`image`,c.name as `clinic_name`,m.name as `municipality`,b.name as `barangay`,ui.email,ui.contact,u.id,u.clinic_id, group_concat(distinct s.srvc_name) as service_name from tbl_user u inner join tbl_userinfo ui on ui.id = u.id inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_city m on m.id = ui.municipality inner join tbl_barangay b on b.id = ui.barangay left join tbl_service s on s.clinic_id = c.clinic_id where  $where group by c.clinic_id") as $res) { ?>
         <div class="col-md-3" data-searchable="<?= strtolower($res['municipality'] . "," . $res['barangay'] . "," . $res['service_name'] . "," . $res['clinic_name']) ?>">
           <div class="card">
 

@@ -26,7 +26,7 @@ CREATE TABLE `tbl_access` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `tbl_access` (
 
 LOCK TABLES `tbl_access` WRITE;
 /*!40000 ALTER TABLE `tbl_access` DISABLE KEYS */;
-INSERT INTO `tbl_access` VALUES (1,'Super Admin'),(2,'Dental Admin'),(3,'Dentist'),(4,'Dental Clerk'),(5,'Patient');
+INSERT INTO `tbl_access` VALUES (1,'Admin'),(2,'Dental Admin'),(3,'Dentist'),(4,'Dental Clerk'),(5,'Patient'),(6,'Super Admin');
 /*!40000 ALTER TABLE `tbl_access` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,8 +57,11 @@ CREATE TABLE `tbl_appointment` (
   `paid_id` int(11) DEFAULT 1,
   `dentist_id` int(11) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
+  `mode_of_payment` int(11) DEFAULT NULL,
+  `acceptable` int(11) DEFAULT NULL,
+  `dental_admin_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +70,7 @@ CREATE TABLE `tbl_appointment` (
 
 LOCK TABLES `tbl_appointment` WRITE;
 /*!40000 ALTER TABLE `tbl_appointment` DISABLE KEYS */;
-INSERT INTO `tbl_appointment` VALUES (12,5,2,'2023-01-31','','2023-01-10',1,1,NULL,NULL),(13,5,2,'2023-03-01','','2023-02-09',1,1,NULL,NULL),(14,5,2,'2023-02-10','','2023-02-09',1,1,NULL,NULL),(15,7,2,'2023-02-24','','2023-02-10',1,1,3,NULL),(16,7,2,'2023-02-28','','2023-02-10',1,1,3,NULL);
+INSERT INTO `tbl_appointment` VALUES (12,5,2,'2023-01-31','','2023-01-10',3,1,NULL,NULL,NULL,NULL,NULL),(13,5,2,'2023-03-01','','2023-02-09',4,1,NULL,NULL,NULL,NULL,NULL),(14,5,2,'2023-02-10','','2023-02-09',3,1,NULL,NULL,NULL,NULL,NULL),(15,7,2,'2023-02-24','','2023-02-10',3,1,3,NULL,NULL,NULL,NULL),(16,7,2,'2023-02-28','','2023-02-10',2,2,3,'file_20230211135750.png',NULL,NULL,NULL),(17,5,2,'2023-02-28','','2023-02-11',1,1,3,NULL,1,NULL,NULL),(18,5,2,'2023-03-02','','2023-02-11',1,1,3,NULL,1,NULL,NULL),(19,5,2,'2023-03-08','','2023-02-11',1,1,3,NULL,1,NULL,NULL),(20,5,2,'2023-03-02','','2023-02-11',1,1,3,NULL,1,NULL,NULL),(21,5,2,'2023-03-09','','2023-02-11',1,1,3,NULL,1,NULL,NULL);
 /*!40000 ALTER TABLE `tbl_appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +89,7 @@ CREATE TABLE `tbl_appointment_items` (
   `price` decimal(13,2) DEFAULT NULL,
   `appointment_time` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +98,7 @@ CREATE TABLE `tbl_appointment_items` (
 
 LOCK TABLES `tbl_appointment_items` WRITE;
 /*!40000 ALTER TABLE `tbl_appointment_items` DISABLE KEYS */;
-INSERT INTO `tbl_appointment_items` VALUES (12,12,1,1,50000.00,'1'),(13,12,2,1,400.00,'1'),(14,12,3,2,123.00,'1'),(15,13,1,2,50000.00,'1'),(16,13,2,1,400.00,'1'),(17,14,1,1,50000.00,'1'),(18,14,2,3,400.00,'1'),(19,15,2,2,400.00,'0.3'),(20,16,2,1,400.00,'.3');
+INSERT INTO `tbl_appointment_items` VALUES (12,12,1,1,50000.00,'1'),(13,12,2,1,400.00,'1'),(14,12,3,2,123.00,'1'),(15,13,1,2,50000.00,'1'),(16,13,2,1,400.00,'1'),(17,14,1,1,50000.00,'1'),(18,14,2,3,400.00,'1'),(19,15,2,2,400.00,'0.3'),(20,16,2,1,400.00,'.3'),(21,17,1,9,50000.00,'5'),(22,18,2,1,400.00,'.3'),(23,18,1,9,50000.00,'5'),(24,19,1,9,50000.00,'5'),(25,20,1,89,50000.00,'5'),(26,21,1,99,50000.00,'5');
 /*!40000 ALTER TABLE `tbl_appointment_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +146,7 @@ CREATE TABLE `tbl_appointment_status` (
 
 LOCK TABLES `tbl_appointment_status` WRITE;
 /*!40000 ALTER TABLE `tbl_appointment_status` DISABLE KEYS */;
-INSERT INTO `tbl_appointment_status` VALUES (1,'PENDING'),(2,'ACCEPTED'),(3,'REJECTED'),(4,'CANCELLED');
+INSERT INTO `tbl_appointment_status` VALUES (1,'PENDING'),(2,'ACCEPTED'),(3,'RESCHEDULE'),(4,'CANCELLED');
 /*!40000 ALTER TABLE `tbl_appointment_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,6 +217,9 @@ CREATE TABLE `tbl_clinic` (
   `business_permit` varchar(255) DEFAULT NULL,
   `nbi` varchar(255) DEFAULT NULL,
   `birth_certificate` varchar(255) DEFAULT NULL,
+  `prc_no` varchar(45) DEFAULT NULL,
+  `mayors_permit` varchar(255) DEFAULT NULL,
+  `date_created` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`clinic_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -224,7 +230,7 @@ CREATE TABLE `tbl_clinic` (
 
 LOCK TABLES `tbl_clinic` WRITE;
 /*!40000 ALTER TABLE `tbl_clinic` DISABLE KEYS */;
-INSERT INTO `tbl_clinic` VALUES (2,'clinic2','file_20221203045439.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum in repellat cum dolores quisquam dolorem. Voluptates dolorem quos eaque ipsum a facere, in repudiandae alias, eum tempore optio recusandae architecto.',NULL,NULL,NULL,NULL),(3,'clinic2','file_20221203045439.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum in repellat cum dolores quisquam dolorem. Voluptates dolorem quos eaque ipsum a facere, in repudiandae alias, eum tempore optio recusandae architecto.',NULL,NULL,NULL,NULL);
+INSERT INTO `tbl_clinic` VALUES (2,'clinic3','file_20221203045439.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum in repellat cum dolores quisquam dolorem. Voluptates dolorem quos eaque ipsum a facere, in repudiandae alias, eum tempore optio recusandae architecto.',NULL,NULL,NULL,NULL,NULL,NULL,'2023-02-11 23:40:52'),(3,'clinic2','file_20221203045439.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum in repellat cum dolores quisquam dolorem. Voluptates dolorem quos eaque ipsum a facere, in repudiandae alias, eum tempore optio recusandae architecto.',NULL,NULL,NULL,NULL,NULL,NULL,'2023-02-11 23:40:52');
 /*!40000 ALTER TABLE `tbl_clinic` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +249,7 @@ CREATE TABLE `tbl_member` (
   `qr` varchar(255) DEFAULT NULL,
   `barangay_id` int(11) DEFAULT NULL,
   `city_id` int(11) DEFAULT NULL,
-  `created_date` datetime DEFAULT current_timestamp(),
+  `date_created` datetime DEFAULT current_timestamp(),
   `paid_status_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`,`prc_no`),
   UNIQUE KEY `prc_no` (`prc_no`)
@@ -258,6 +264,30 @@ LOCK TABLES `tbl_member` WRITE;
 /*!40000 ALTER TABLE `tbl_member` DISABLE KEYS */;
 INSERT INTO `tbl_member` VALUES (1,'23232','test','testset','file_20230209171901.jpg',15501001,15501,'2023-02-10 00:19:01',2),(3,'123','first name','last name','default.png',NULL,NULL,'2023-02-10 20:55:13',2),(4,'1232','first name2','last name2','default.png',NULL,NULL,'2023-02-10 20:55:13',2),(5,'1233','first name3','last name3','default.png',NULL,NULL,'2023-02-10 20:55:13',2);
 /*!40000 ALTER TABLE `tbl_member` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_mode_of_payment`
+--
+
+DROP TABLE IF EXISTS `tbl_mode_of_payment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_mode_of_payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_mode_of_payment`
+--
+
+LOCK TABLES `tbl_mode_of_payment` WRITE;
+/*!40000 ALTER TABLE `tbl_mode_of_payment` DISABLE KEYS */;
+INSERT INTO `tbl_mode_of_payment` VALUES (1,'FULLY PAID'),(2,'INSTALLMENT');
+/*!40000 ALTER TABLE `tbl_mode_of_payment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -355,7 +385,7 @@ CREATE TABLE `tbl_user` (
   `password` varchar(255) DEFAULT NULL,
   `clinic_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -364,7 +394,7 @@ CREATE TABLE `tbl_user` (
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
-INSERT INTO `tbl_user` VALUES (1,1,'admin','123',1),(2,2,'clinic2','123456aA',2),(3,3,'dental_admin','123',2),(4,2,'clinic3','123456aA',3),(5,5,'user','123456',NULL),(6,2,'resident','123',4),(7,5,'user2','123',NULL);
+INSERT INTO `tbl_user` VALUES (1,1,'admin','123',1),(2,2,'clinic2','123456aA',2),(3,3,'dental_admin','123',2),(4,2,'clinic3','123456aA',3),(5,5,'user','123',NULL),(6,2,'resident','123',4),(7,5,'user2','123',NULL),(8,6,'president','123',0);
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -384,7 +414,7 @@ CREATE TABLE `tbl_userinfo` (
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -393,7 +423,7 @@ CREATE TABLE `tbl_userinfo` (
 
 LOCK TABLES `tbl_userinfo` WRITE;
 /*!40000 ALTER TABLE `tbl_userinfo` DISABLE KEYS */;
-INSERT INTO `tbl_userinfo` VALUES (2,'015507','015507011','clinic2@gmail.com','999999999','John','Doe'),(3,'','','dentist2@gmail.com','09090909090909','den','tist'),(4,'015511','015511008','clinic3@gmail.com','09123',NULL,NULL),(5,'015509','015509002','flamingojaym@gmail.com','09090909000','user','user'),(6,'015501','015501001','test123@gmail.com','09217635295',NULL,NULL),(7,'015501','015501001','user2@gmail.com','123456789','user2','user2');
+INSERT INTO `tbl_userinfo` VALUES (1,'','','',NULL,'admin','admin'),(2,'015507','015507011','clinic2@gmail.com','999999999','John','Doe'),(3,'','','dentist2@gmail.com','09090909090909','den','tist'),(4,'015511','015511008','clinic3@gmail.com','09123',NULL,NULL),(5,'015509','015509002','flamingojaym@gmail.com','09090909000','user','user'),(6,'015501','015501001','test123@gmail.com','09217635295',NULL,NULL),(7,'015501','015501001','user2@gmail.com','123456789','user2','user2'),(8,'','','',NULL,'president','president');
 /*!40000 ALTER TABLE `tbl_userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -406,4 +436,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-10 22:50:02
+-- Dump completed on 2023-02-12  1:02:49

@@ -42,12 +42,13 @@
                   <th>Barangay</th>
                   <th>Email</th>
                   <th>Contact no#</th>
+                  <th>Date Created</th>
                   <th style="width: 0.1%;">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <?php $ctr = 1; ?>
-                <?php foreach (get_list("SELECT c.`image`,c.name as `clinic_name`,m.name as `municipality`,b.name as `barangay`,ui.email,ui.contact,u.id,u.clinic_id from tbl_user u inner join tbl_userinfo ui on ui.id = u.id inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_city m on m.id = ui.municipality inner join tbl_barangay b on b.id = ui.barangay where u.access_id = 2") as $res) { ?>
+                <?php foreach (get_list("SELECT c.`image`,c.name as `clinic_name`,m.name as `municipality`,b.name as `barangay`,ui.email,ui.contact,u.id,u.clinic_id,c.date_created from tbl_user u inner join tbl_userinfo ui on ui.id = u.id inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_city m on m.id = ui.municipality inner join tbl_barangay b on b.id = ui.barangay where u.access_id = 2") as $res) { ?>
                   <tr>
                     <td><?= $res['clinic_id'] ?></td>
                     <td><img src="../images/clinic/<?= $res['image'] ?>" alt="" width="30px" height="30px"></td>
@@ -56,11 +57,17 @@
                     <td><?= $res['barangay'] ?></td>
                     <td><?= $res['email'] ?></td>
                     <td><?= $res['contact'] ?></td>
+                    <td><?= $res['date_created'] ?></td>
                     <td style="width: 0.1%;display:flex">
-                      <a href="edit.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
-                      <form method="post" onsubmit="return confirm('Are you sure?');">
-                        <button class="btn btn-danger" type="submit" name="delete" value="<?= $res['clinic_id'] ?>">Delete </button>
-                      </form>
+                      <?php if ($_SESSION['user']->access_id == 1) { ?>
+                        <a href="edit.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
+                        <form method="post" onsubmit="return confirm('Are you sure?');">
+                          <button class="btn btn-danger" type="submit" name="delete" value="<?= $res['clinic_id'] ?>">Delete </button>
+                        </form>
+                      <?php } else { ?>
+                        <a href="edit.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
+
+                      <?php } ?>
                     </td>
                   </tr>
                 <?php } ?>
@@ -99,6 +106,12 @@
                     </div>
                   </div>
                   <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">PRC No*</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="fname" name="prc_no" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">City/Municipality*</label>
                     <div class="col-sm-9">
                       <select name="municipality" id="municipality" class="form-control">
@@ -131,6 +144,19 @@
                       <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required><span>Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
                     </div>
                   </div>
+
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name*</label>
+                    <div class="col-sm-9">
+                      <input type="email" class="form-control" id="fname" name="first_name" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Last Name*</label>
+                    <div class="col-sm-9">
+                      <input type="email" class="form-control" id="fname" name="last_name" required>
+                    </div>
+                  </div>
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">E-mail*</label>
                     <div class="col-sm-9">
@@ -161,6 +187,12 @@
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">PRC ID</label>
                     <div class="col-sm-9">
                       <input type="file" class="form-control" name="prc_id" accept=".jpg,.jpeg,.png">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Mayors Permit</label>
+                    <div class="col-sm-9">
+                      <input type="file" class="form-control" name="mayors_permit" accept=".jpg,.jpeg,.png">
                     </div>
                   </div>
                   <div class="form-group row">

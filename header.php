@@ -1,7 +1,7 @@
 <?php include('includes/functions.php') ?>
 <?php
 if (isset($_SESSION['user'])) {
-  if ($_SESSION['user']->access_id == 1) {
+  if ($_SESSION['user']->access_id == 1 || $_SESSION['user']->access_id == 6) {
     header('location:admin');
   } else if ($_SESSION['user']->access_id == 2 || $_SESSION['user']->access_id == 3 || $_SESSION['user']->access_id == 4) {
     header('location:dental_admin');
