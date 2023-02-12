@@ -28,7 +28,7 @@
   <div class="container-fluid">
     <div style="margin-bottom:20px">
       <a href="clinics.php?" class="btn btn-secondary" style="word-break: break-all; "> All</a>
-      <?php foreach (get_list("select distinct srvc_name from tbl_service limit 4") as $res) { ?>
+      <?php foreach (get_list("select distinct srvc_name from tbl_service limit 10") as $res) { ?>
         <a href="clinics.php?category=<?= $res['srvc_name'] ?>" class="btn btn-secondary" style="word-break: break-all; "> <?= $res['srvc_name'] ?></a>
       <?php } ?>
     </div>
@@ -44,10 +44,10 @@
             <h4 class="card-title" style="text-align:center;margin:0px;padding:10px;font-weight:bold"><?= strtoupper($res['clinic_name']) ?> #<?= $res['clinic_id'] ?></h4>
             <img src="../images/clinic/<?= $res['image'] ?>" alt="" class="img-fluid border-top" style="max-height: 150px;object-fit:contain">
             <ul>
-              <li><i class="fa fa-map-marker"></i> <?= strtoupper($res['municipality']) ?></li>
-              <li><i class="fa fa-map-marker"></i> <?= strtoupper($res['barangay']) ?></li>
-              <li><i class="fa fa-envelope"></i> <?= ucfirst($res['email']) ?></li>
-              <li><i class="fa fa-phone"></i> <?= strtoupper($res['contact']) ?></li>
+              <li class="cdetails"><i class="fa fa-map-marker "></i> <?= strtoupper($res['municipality']) ?></li>
+              <li><i class="fa fa-map-marker "></i> <?= strtoupper($res['barangay']) ?></li>
+              <li><i class="fa fa-envelope "></i> <?= ucfirst($res['email']) ?></li>
+              <li><i class="fa fa-phone "></i> <?= strtoupper($res['contact']) ?></li>
             </ul>
             <div class="border-top">
               <div class="card-body">

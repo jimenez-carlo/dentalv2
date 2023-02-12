@@ -46,6 +46,10 @@
   .logo {
     height: 40px;
   }
+
+  .cdetails{
+    list-style-type: none;
+  }
 </style>
 
 <body>

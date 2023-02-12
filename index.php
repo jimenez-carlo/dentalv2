@@ -112,7 +112,7 @@
       <div class="card-body">
         <h3 class="card-title mb-0">For Inquiries Please Contact Us</h3>
         <br>
-        <h5>PDCMS.register@gmail.com || (+63) 916 3016 891</h5>
+        <h5>pdaoffice1908@gmail.com || (+63) 917 6856 800</h5>
       </div>
 
       <!-- <table class="table">

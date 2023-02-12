@@ -41,13 +41,10 @@ patient
 dental admin/dental clerk/dentist
  view appointment separate cart & details
 
----------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
- print appointment details
-mode of payment(braces)
+print appointment details - to follow
+mode of payment(braces) - Partial, logic
 
 dental admin////
  -upload picture teeth appointment////
@@ -79,3 +76,37 @@ SUPER SUPER ADMIN (new user)
 
 
 include dental admin in dentist picker//
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✓admin
+✓clinics
+ ✓edit/delete
+cms
+
+✓dental admin
+ appointment
+  view/change status(accept/reject/pending)
+   paid/unpaid
+✓clinics
+ ✓edit
+
+✓patient
+ ✓clinics
+  ✓service
+   ✓add to cart/checkout
+ appointment
+
+pending/accepted/rejceted
+
+dental admin
+ manage staff
+  edit/delete
+ service
+  edit/delete
+ product
+  edit/delete
+
+dental admin/admin/patient
+ menu logout
+

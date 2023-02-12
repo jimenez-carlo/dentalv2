@@ -57,7 +57,9 @@ function loginUser($data)
 function membershipUser($data)
 {
     extract($data);
-
+    if (!empty(get_one("select * from tbl_member where prc_no = '$prc_no' "))) {
+        return error_message("Service Name Already Exist");
+    }
     $file_name = "default.png";
     if (isset($attachment) && !empty($attachment['name'])) {
         $ext = explode(".", $attachment["name"]);
@@ -228,8 +230,8 @@ function editClinic($data)
     }
 
     query("UPDATE `tbl_user` set  username ='$username', password = '$password' where id = $id");
-    query("UPDATE `tbl_userinfo` set  municipality ='$municipality', barangay = '$barangay',email='$email',contact='$contact','first_name'= '$first_name', 'last_name'='$last_name' where id = $id");
-    query("UPDATE `tbl_clinic` set name = '$clinic_name', image ='$file_name',description = '$description',prc_id = '$file_name',busines_permit = '$file_name_business_permit',nbi = '$file_name_nbi',birth_certificate = '$file_name_birth_certificate', mayors_permit = '$file_name_mayors_permit','prc_no' = '$prc_no' where clinic_id = $clinic_id");
+    query("UPDATE `tbl_userinfo` set  municipality ='$municipality', barangay = '$barangay',email='$email',contact='$contact',first_name= '$first_name', last_name='$last_name' where id = $id");
+    query("UPDATE `tbl_clinic` set name = '$clinic_name', image ='$file_name',description = '$description',prc_id = '$file_name',business_permit = '$file_name_business_permit',nbi = '$file_name_nbi',birth_certificate = '$file_name_birth_certificate', mayors_permit = '$file_name_mayors_permit',prc_no = '$prc_no' where clinic_id = $clinic_id");
     return success_message("Clinic #$clinic_id Updated Successfully!");
 }
 

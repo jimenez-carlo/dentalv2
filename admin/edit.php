@@ -79,13 +79,13 @@
                 <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name*</label>
                   <div class="col-sm-9">
-                    <input type="email" class="form-control" id="fname" name="first_name" required value="<?= $user->first_name ?>">
+                    <input type="text" class="form-control" id="fname" name="first_name" required value="<?= $user->first_name ?>">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">Last Name*</label>
                   <div class="col-sm-9">
-                    <input type="email" class="form-control" id="fname" name="last_name" required value="<?= $user->last_name ?>">
+                    <input type="text" class="form-control" id="fname" name="last_name" required value="<?= $user->last_name ?>">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -120,7 +120,7 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Mayors Permit</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Mayor's Permit</label>
                   <div class="col-sm-9">
                     <input type="file" class="form-control" name="mayors_permit" accept=".jpg,.jpeg,.png">
                   </div>
@@ -132,13 +132,13 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">NBI</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay Clearance</label>
                   <div class="col-sm-9">
                     <input type="file" class="form-control" name="nbi" accept=".jpg,.jpeg,.png">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Birth Certificate</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">DTI</label>
                   <div class="col-sm-9">
                     <input type="file" class="form-control" name="birth_certificate" accept=".jpg,.jpeg,.png">
                   </div>

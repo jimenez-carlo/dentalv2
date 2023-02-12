@@ -45,14 +45,14 @@
 
     <div class="card">
       <div class="card-body">
-        <h3 class="card-title mb-0">Email us @ </h3>
+        <h3 class="card-title mb-0">Email us the following details at: pdaoffice1908@gmail.com </h3>
       </div>
 
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Details:</th>
-            <th scope="col">Requirements to send:</th>
+            <th scope="col"><b>Information details to send:</th>
+            <th scope="col"><b>File images attachments to send:</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -64,22 +64,27 @@
           </tr>
           <tr>
             <td>Clinic Name</td>
+            <td>Clinic Logo</td>
+            <td> ✔</td>
+          </tr>
+          <tr>
+            <td>Clinic Address: Barangay & Municipality</td>
             <td>Business Permit</td>
             <td> ✔</td>
           </tr>
           <tr>
-            <td>Clinic Address: Barangay & municiplaity</td>
-            <td>NBI</td>
+            <td>First name</td>
+            <td>DTI Permit</td>
             <td> ✔</td>
           </tr>
           <tr>
-            <td>First name, Last name</td>
-            <td>Birth Certificate</td>
+            <td>Last name</td>
+            <td>Mayor's Permit</td>
             <td> ✔</td>
           </tr>
           <tr>
-            <td>Description</td>
-            <td>Logo</td>
+            <td>Clinic Slogan</td>
+            <td>Barangay Clearance</td>
             <td> ✔</td>
           </tr>
 
