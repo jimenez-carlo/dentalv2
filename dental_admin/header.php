@@ -12,7 +12,7 @@
   <meta name="robots" content="noindex,nofollow" />
   <title>PDCMS</title>
   <!-- Favicon icon -->
-  <link rel="icon" type="../image/png" sizes="16x16" href="../images/logo.jpg" />
+  <link rel="icon" type="../image/png" sizes="16x16" href="../images/logo.png" />
 
   <!-- Custom CSS -->
   <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet" />
@@ -66,7 +66,7 @@
           <!-- ============================================================== -->
           <a class="navbar-brand" href="index.php">
             <!-- Logo icon -->
-            <img src="../images/logo.jpg" alt="" class="logo">
+            <img src="../images/logo.png" alt="" class="logo">
             <h2 class="ms-4">PDCMS</h2>
           </a>
           <!-- ============================================================== -->

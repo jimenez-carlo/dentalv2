@@ -12,7 +12,7 @@
   <meta name="robots" content="noindex,nofollow" />
   <title>PDCMS</title>
   <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="../images/logo.jpg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/logo.png" />
 
   <!-- Custom CSS -->
   <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet" />
@@ -47,7 +47,7 @@
     height: 40px;
   }
 
-  .cdetails{
+  .cdetails {
     list-style-type: none;
   }
 </style>
@@ -77,7 +77,7 @@
           <!-- ============================================================== -->
           <a class="navbar-brand" href="index.php">
             <!-- Logo icon -->
-            <img src="../images/logo.jpg" alt="" class="logo">
+            <img src="../images/logo.png" alt="" class="logo">
 
             <h2 class="ms-4">PDCMS</h2>
           </a>
@@ -139,6 +139,9 @@
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="appointments.php" aria-expanded="false"><i class="mdi mdi-calendar-multiple-check"></i><span class="hide-menu">Appointments</span></a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="patient_history.php" aria-expanded="false"><i class="mdi mdi-calendar"></i><span class="hide-menu">Patient History</span></a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="edit.php" aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu">Edit Account Details</span></a>

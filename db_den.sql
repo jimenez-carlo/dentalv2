@@ -60,8 +60,10 @@ CREATE TABLE `tbl_appointment` (
   `mode_of_payment` int(11) DEFAULT NULL,
   `acceptable` int(11) DEFAULT NULL,
   `dental_admin_id` int(11) DEFAULT NULL,
+  `paid_amount` float DEFAULT NULL,
+  `change_amount` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +72,7 @@ CREATE TABLE `tbl_appointment` (
 
 LOCK TABLES `tbl_appointment` WRITE;
 /*!40000 ALTER TABLE `tbl_appointment` DISABLE KEYS */;
-INSERT INTO `tbl_appointment` VALUES (12,5,2,'2023-01-31','','2023-01-10',3,1,NULL,NULL,NULL,NULL,NULL),(13,5,2,'2023-03-01','','2023-02-09',4,1,NULL,NULL,NULL,NULL,NULL),(14,5,2,'2023-02-10','','2023-02-09',3,1,NULL,NULL,NULL,NULL,NULL),(15,7,2,'2023-02-24','','2023-02-10',3,1,3,NULL,NULL,NULL,NULL),(16,7,2,'2023-02-28','','2023-02-10',2,2,3,'file_20230211135750.png',NULL,NULL,NULL),(17,5,2,'2023-02-28','','2023-02-11',1,1,3,NULL,1,NULL,NULL),(18,5,2,'2023-03-02','','2023-02-11',1,1,3,NULL,1,NULL,NULL),(19,5,2,'2023-03-08','','2023-02-11',1,1,3,NULL,1,NULL,NULL),(20,5,2,'2023-03-02','','2023-02-11',1,1,3,NULL,1,NULL,NULL),(21,5,2,'2023-03-09','','2023-02-11',1,1,3,NULL,1,NULL,NULL);
+INSERT INTO `tbl_appointment` VALUES (22,14,6,'0000-00-00','','2023-02-12',2,2,13,'file_20230212143840.jpg',2,NULL,NULL,NULL,NULL),(23,14,7,'2023-02-21','','2023-02-12',4,1,11,NULL,1,NULL,NULL,NULL,NULL),(24,14,6,'0000-00-00','','2023-02-12',2,2,10,'file_20230212132713.jpg',1,NULL,NULL,NULL,NULL),(25,14,6,'2023-02-03','','2023-02-12',2,1,10,'file_20230212122940.jpg',1,NULL,NULL,NULL,NULL),(26,15,6,'2023-08-03','Pabunot','2023-02-12',3,1,13,NULL,2,NULL,NULL,NULL,NULL),(27,14,9,'2023-02-25','appointment','2023-02-13',1,1,16,NULL,1,NULL,NULL,NULL,NULL),(28,14,9,'2023-02-25','','2023-02-13',1,1,17,NULL,1,NULL,NULL,NULL,NULL),(29,21,7,'2023-02-28','','2023-02-13',1,1,11,NULL,1,NULL,NULL,NULL,NULL),(30,21,6,'2023-02-28','','2023-02-13',1,2,10,NULL,1,NULL,NULL,50000,49000),(31,21,10,'2023-02-28','','2023-02-13',2,2,19,'file_20230213035815.jpg',1,NULL,NULL,NULL,NULL),(32,20,10,'2023-02-28','','2023-02-13',1,1,19,NULL,1,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tbl_appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +91,7 @@ CREATE TABLE `tbl_appointment_items` (
   `price` decimal(13,2) DEFAULT NULL,
   `appointment_time` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +100,7 @@ CREATE TABLE `tbl_appointment_items` (
 
 LOCK TABLES `tbl_appointment_items` WRITE;
 /*!40000 ALTER TABLE `tbl_appointment_items` DISABLE KEYS */;
-INSERT INTO `tbl_appointment_items` VALUES (12,12,1,1,50000.00,'1'),(13,12,2,1,400.00,'1'),(14,12,3,2,123.00,'1'),(15,13,1,2,50000.00,'1'),(16,13,2,1,400.00,'1'),(17,14,1,1,50000.00,'1'),(18,14,2,3,400.00,'1'),(19,15,2,2,400.00,'0.3'),(20,16,2,1,400.00,'.3'),(21,17,1,9,50000.00,'5'),(22,18,2,1,400.00,'.3'),(23,18,1,9,50000.00,'5'),(24,19,1,9,50000.00,'5'),(25,20,1,89,50000.00,'5'),(26,21,1,99,50000.00,'5');
+INSERT INTO `tbl_appointment_items` VALUES (27,22,15,1,10000.00,'1'),(28,23,19,3,500.00,'0.5'),(29,24,17,1,500.00,'.5'),(30,24,18,1,500.00,'.5'),(31,25,17,1,500.00,'.5'),(32,26,17,1,500.00,'.5'),(33,27,22,1,1000.00,'1'),(34,27,21,2,1000.00,'2'),(35,28,21,1,1000.00,'2'),(36,28,20,1,500.00,'1'),(37,29,19,2,500.00,'0.5'),(38,30,17,1,500.00,'.5'),(39,30,18,1,500.00,'.5'),(40,31,23,1,500.00,'1'),(41,32,23,2,500.00,'1');
 /*!40000 ALTER TABLE `tbl_appointment_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,13 +217,13 @@ CREATE TABLE `tbl_clinic` (
   `description` text DEFAULT NULL,
   `prc_id` varchar(255) DEFAULT NULL,
   `business_permit` varchar(255) DEFAULT NULL,
-  `nbi` varchar(255) DEFAULT NULL,
-  `birth_certificate` varchar(255) DEFAULT NULL,
+  `dti` varchar(255) DEFAULT NULL,
+  `barangay_clearance` varchar(255) DEFAULT NULL,
   `prc_no` varchar(45) DEFAULT NULL,
   `mayors_permit` varchar(255) DEFAULT NULL,
   `date_created` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`clinic_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,8 +232,31 @@ CREATE TABLE `tbl_clinic` (
 
 LOCK TABLES `tbl_clinic` WRITE;
 /*!40000 ALTER TABLE `tbl_clinic` DISABLE KEYS */;
-INSERT INTO `tbl_clinic` VALUES (2,'clinic3','file_20221203045439.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum in repellat cum dolores quisquam dolorem. Voluptates dolorem quos eaque ipsum a facere, in repudiandae alias, eum tempore optio recusandae architecto.',NULL,NULL,NULL,NULL,NULL,NULL,'2023-02-11 23:40:52'),(3,'clinic2','file_20221203045439.jpg','Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum in repellat cum dolores quisquam dolorem. Voluptates dolorem quos eaque ipsum a facere, in repudiandae alias, eum tempore optio recusandae architecto.',NULL,NULL,NULL,NULL,NULL,NULL,'2023-02-11 23:40:52');
+INSERT INTO `tbl_clinic` VALUES (6,'Junio Dental Care','file_20230212122940.jpg','We want to change the world, one smile at a time.','file_20230213013033.png','default.png','default.png','default.png','0123456','file_name_mayors_permit','2023-02-12 19:29:40'),(7,'Galsim Dental Clinic','file_20230212123432.jpg','Mother and Daughter Dentists teamed up to give you the best quality of Dental Services with high deg','default.png','default.png','default.png','default.png','0012345','file_name_mayors_permit','2023-02-12 19:34:32'),(8,'Dentique Tooth Hub','file_20230212123808.jpg','Dentique Tooth Hub Dental Clinic Family! See you all with your BIG SMILE','default.png','default.png','default.png','default.png','0001234','file_name_mayors_permit','2023-02-12 19:38:08'),(9,'Junio Clinic','file_20230213024702.jpg','Smile','default.png','default.png','default.png','default.png','1234512','file_name_mayors_permit','2023-02-13 09:47:02'),(10,'Wendell Dental Clinic','file_20230213033556.jpg','Wendell smile','default.png','default.png','default.png','default.png','012312','file_name_mayors_permit','2023-02-13 10:35:56');
 /*!40000 ALTER TABLE `tbl_clinic` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_dental_record`
+--
+
+DROP TABLE IF EXISTS `tbl_dental_record`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_dental_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `appointment_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_dental_record`
+--
+
+LOCK TABLES `tbl_dental_record` WRITE;
+/*!40000 ALTER TABLE `tbl_dental_record` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_dental_record` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -253,7 +278,7 @@ CREATE TABLE `tbl_member` (
   `paid_status_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`,`prc_no`),
   UNIQUE KEY `prc_no` (`prc_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,7 +287,7 @@ CREATE TABLE `tbl_member` (
 
 LOCK TABLES `tbl_member` WRITE;
 /*!40000 ALTER TABLE `tbl_member` DISABLE KEYS */;
-INSERT INTO `tbl_member` VALUES (1,'23232','test','testset','file_20230209171901.jpg',15501001,15501,'2023-02-10 00:19:01',2),(3,'123','first name','last name','default.png',NULL,NULL,'2023-02-10 20:55:13',2),(4,'1232','first name2','last name2','default.png',NULL,NULL,'2023-02-10 20:55:13',2),(5,'1233','first name3','last name3','default.png',NULL,NULL,'2023-02-10 20:55:13',2);
+INSERT INTO `tbl_member` VALUES (18,'0102030','Johan','Liebert','file_20230212124127.jpg',15522028,15522,'2023-02-12 19:41:27',1),(19,'0012345','Juan','Dela Cruz','default.png',NULL,NULL,'2023-02-13 09:55:31',2),(20,'0012323','John','Doe','default.png',NULL,NULL,'2023-02-13 09:55:31',2),(21,'0012334','Jane','Doe','default.png',NULL,NULL,'2023-02-13 09:55:31',2);
 /*!40000 ALTER TABLE `tbl_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -305,7 +330,7 @@ CREATE TABLE `tbl_product` (
   `prod_price` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -314,7 +339,7 @@ CREATE TABLE `tbl_product` (
 
 LOCK TABLES `tbl_product` WRITE;
 /*!40000 ALTER TABLE `tbl_product` DISABLE KEYS */;
-INSERT INTO `tbl_product` VALUES (1,2,'toothpaste','whitening','130','default.png'),(2,2,'toothbrush','brushx3','100','default.png');
+INSERT INTO `tbl_product` VALUES (3,6,'Toothpaste','Sensodyne','200','file_20230212124355.jpg'),(4,6,'Toothbrush','Oral B','100','file_20230212124411.jpg'),(5,6,'Mouth wash','Listerine','300','file_20230212124432.jpg'),(6,7,'Toothpaste','Sensodyne','200','file_20230212130539.jpg'),(7,9,'Tootpaste','sensodyne','200','file_20230213030422.jpg'),(8,9,'Toothbrush','Oral-B','100','file_20230213030811.jpg');
 /*!40000 ALTER TABLE `tbl_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,7 +359,7 @@ CREATE TABLE `tbl_service` (
   `srvc_time` varchar(45) DEFAULT NULL,
   `created_date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -343,7 +368,7 @@ CREATE TABLE `tbl_service` (
 
 LOCK TABLES `tbl_service` WRITE;
 /*!40000 ALTER TABLE `tbl_service` DISABLE KEYS */;
-INSERT INTO `tbl_service` VALUES (1,2,'Brace Alignment','dentures alignment treatment','50000','5','2023-02-10 21:36:24'),(2,2,'Extraction','bunot','400','.3','2023-02-10 21:36:24'),(3,2,'asd','asd','123','.5','2023-02-10 21:36:24'),(4,2,'asd','asd','123',NULL,'2023-02-10 21:36:24'),(5,2,'asd','test','3434',NULL,'2023-02-10 21:36:24'),(6,2,'asd','test','3434',NULL,'2023-02-10 21:36:24'),(7,2,'test','test','213123',NULL,'2023-02-10 21:36:24'),(8,2,'asdasd','asd','343434',NULL,'2023-02-10 21:36:24'),(9,3,'test','test','123123123',NULL,'2023-02-10 21:36:24'),(10,3,'asdasda','asdasda','22323',NULL,'2023-02-10 21:36:24'),(11,3,'test','test','123123123',NULL,'2023-02-10 21:36:24'),(12,3,'TEST','TEST','23232',NULL,'2023-02-10 21:36:24'),(13,3,'TEST','TEST','23232',NULL,'2023-02-10 21:36:24'),(14,3,'test','test','2323',NULL,'2023-02-10 21:36:24');
+INSERT INTO `tbl_service` VALUES (15,6,'Braces (Teeth Alignment)','Braces','10000','1','2023-02-12 19:47:13'),(16,6,'Braces Adjustment','Adjust','1000','1','2023-02-12 19:48:07'),(17,6,'Extraction','Bunot','500','.5','2023-02-12 19:58:10'),(18,6,'Cleaning','Linis','500','.5','2023-02-12 19:58:32'),(19,7,'Cleaning','Linis','500','.5','2023-02-12 20:08:16'),(20,9,'Cleaning','Linis','500','1','2023-02-13 10:04:46'),(21,9,'Extraction','Bunot ','1000','2','2023-02-13 10:10:15'),(22,9,'Brace Adjustment','bracesss','1000','1','2023-02-13 10:12:46'),(23,10,'Extraction','bunot','500','1','2023-02-13 10:42:59');
 /*!40000 ALTER TABLE `tbl_service` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +410,7 @@ CREATE TABLE `tbl_user` (
   `password` varchar(255) DEFAULT NULL,
   `clinic_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,7 +419,7 @@ CREATE TABLE `tbl_user` (
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
-INSERT INTO `tbl_user` VALUES (1,1,'admin','123',1),(2,2,'clinic2','123456aA',2),(3,3,'dental_admin','123',2),(4,2,'clinic3','123456aA',3),(5,5,'user','123',NULL),(6,2,'resident','123',4),(7,5,'user2','123',NULL),(8,6,'president','123',0);
+INSERT INTO `tbl_user` VALUES (1,1,'admin','123',1),(8,6,'president','123',0),(10,2,'junio','123456aA',6),(11,2,'galsim','123456aA',7),(12,2,'yohanon','123456aA',8),(13,3,'davejunio','123456aA',6),(14,5,'jaymm','123456aA',0),(15,5,'RheaPatient1','123456Aa',NULL),(16,2,'junioclinic','123456aA',9),(17,3,'sarah','123456aA',9),(18,4,'wendell','123456aA',9),(19,2,'wenclinic','123456aA',10),(20,5,'sarahhh','123456aA',NULL),(21,5,'peoro1','123456aA',NULL);
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -414,7 +439,7 @@ CREATE TABLE `tbl_userinfo` (
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -423,7 +448,7 @@ CREATE TABLE `tbl_userinfo` (
 
 LOCK TABLES `tbl_userinfo` WRITE;
 /*!40000 ALTER TABLE `tbl_userinfo` DISABLE KEYS */;
-INSERT INTO `tbl_userinfo` VALUES (1,'','','',NULL,'admin','admin'),(2,'015507','015507011','clinic2@gmail.com','999999999','John','Doe'),(3,'','','dentist2@gmail.com','09090909090909','den','tist'),(4,'015511','015511008','clinic3@gmail.com','09123',NULL,NULL),(5,'015509','015509002','flamingojaym@gmail.com','09090909000','user','user'),(6,'015501','015501001','test123@gmail.com','09217635295',NULL,NULL),(7,'015501','015501001','user2@gmail.com','123456789','user2','user2'),(8,'','','',NULL,'president','president');
+INSERT INTO `tbl_userinfo` VALUES (1,'','','',NULL,'admin','admin'),(8,'','','',NULL,'president','president'),(10,'015511','015511053','flamingojaym@gmail.com','09613324824','Federico','Junio'),(11,'015511','015511074','flamingojaym@gmail.com','09569103123','Araceli','Galsim'),(12,'015511','015511038','flamingojaym@gmail.com','09455832768','Johara','Yohanon'),(13,'','','davefrancisjunio@gmail.com','09613324824','Dave','Junio'),(14,'015511','015511023','flamingojaym@gmail.com','09163016899','JMM','Domingo'),(15,'015511','015511070','rheafrias@gmail.com','09482347501','Rhea','Frias'),(16,'015504','015504001','flamingojaym@gmail.com','09163016899','Francis','Junio'),(17,'','','flamingojaym@gmail.com','09163016894','Sarah','Ferrer'),(18,'','','flamingojaym@gmail.com','09163016897','Wendell','Salosagcol'),(19,'015501','015501001','flamingojaym@gmail.com','09163016899','Wendell','Salosagcol'),(20,'015501','015501001','flamingojaym@gmail.com','09123564573','Sarah','Ferrer'),(21,'015501','015501001','flamingojaym@gmail.com','0912345678','Ryan','Peoro');
 /*!40000 ALTER TABLE `tbl_userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -436,4 +461,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-12  1:02:49
+-- Dump completed on 2023-02-14  3:10:42

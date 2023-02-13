@@ -19,7 +19,7 @@ if (isset($_SESSION['user'])) {
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PDCMS</title>
-  <link rel="icon" type="image/png" sizes="16x16" href="images/logo.jpg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png" />
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/flexslider.css">
   <link rel="stylesheet" href="css/jquery.fancybox.css">
@@ -36,7 +36,7 @@ if (isset($_SESSION['user'])) {
       font-family: Lato, sans-serif;
       font-style: bold;
       color: #fff !important;
-      /* text-shadow: 5px 5px 5px black; */
+      text-shadow: 5px 5px 5px black;
     }
   </style>
 </head>
@@ -48,10 +48,11 @@ if (isset($_SESSION['user'])) {
       <style>
         .logo {
           height: 40px;
+          border-radius:100px;
         }
       </style>
 
-      <div class="header-content clearfix"><img src="images/logo.jpg" alt="" class="logo"><a class="logo" href="index.php"> PDCMS</a>
+      <div class="header-content clearfix"><img src="images/logo.png" alt="" class="logo"><a class="logo" href="index.php"> PDCMS</a>
         <nav class="navigation" role="navigation">
           <ul class="primary-nav">
             <li><a href="#banner">Home</a></li>

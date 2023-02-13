@@ -135,39 +135,39 @@ function registerClinic($data)
     if (isset($prc_id) && !empty($prc_id['name'])) {
         $ext = explode(".", $prc_id["name"]);
         $file_name_prc = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($prc_id['tmp_name'], "../images/prc/" . $file_name_prc);
+        move_uploaded_file($prc_id['tmp_name'], "../images/clinic/prc/" . $file_name_prc);
         $file_name_prc = "$file_name_prc";
     }
-    $file_name_nbi = "default.png";
-    if (isset($nbi) && !empty($nbi['name'])) {
-        $ext = explode(".", $nbi["name"]);
-        $file_name_nbi = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($nbi['tmp_name'], "../images/nbi/" . $file_name_nbi);
-        $file_name_nbi = "$file_name_nbi";
+    $file_name_dti = "default.png";
+    if (isset($dti) && !empty($dti['name'])) {
+        $ext = explode(".", $dti["name"]);
+        $file_name_dti = 'file_' . date('YmdHis') . "." . end($ext);
+        move_uploaded_file($dti['tmp_name'], "../images/clinic/dti/" . $file_name_dti);
+        $file_name_dti = "$file_name_dti";
     }
-    $file_name_birth_certificate = "default.png";
-    if (isset($birth_certificate) && !empty($birth_certificate['name'])) {
-        $ext = explode(".", $birth_certificate["name"]);
-        $file_name_birth_certificate = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($birth_certificate['tmp_name'], "../images/birth_certificate/" . $file_name_birth_certificate);
-        $file_name_birth_certificate = "$file_name_birth_certificate";
+    $file_name_barangay_clearance = "default.png";
+    if (isset($barangay_clearance) && !empty($barangay_clearance['name'])) {
+        $ext = explode(".", $barangay_clearance["name"]);
+        $file_name_barangay_clearance = 'file_' . date('YmdHis') . "." . end($ext);
+        move_uploaded_file($barangay_clearance['tmp_name'], "../images/clinic/barangay_clearance/" . $file_name_barangay_clearance);
+        $file_name_barangay_clearance = "$file_name_barangay_clearance";
     }
     $file_name_business_permit = "default.png";
     if (isset($business_permit) && !empty($business_permit['name'])) {
         $ext = explode(".", $business_permit["name"]);
         $file_name_business_permit = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($business_permit['tmp_name'], "../images/business_permit/" . $file_name_business_permit);
+        move_uploaded_file($business_permit['tmp_name'], "../images/clinic/business_permit/" . $file_name_business_permit);
         $file_name_business_permit = "$file_name_business_permit";
     }
     $file_name_mayors_permit = "default.png";
     if (isset($mayors_permit) && !empty($mayors_permit['name'])) {
         $ext = explode(".", $mayors_permit["name"]);
         $file_name_mayors_permit = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($mayors_permit['tmp_name'], "../images/mayors_permit/" . $file_name_mayors_permit);
+        move_uploaded_file($mayors_permit['tmp_name'], "../images/clinic/mayors_permit/" . $file_name_mayors_permit);
         $file_name_mayors_permit = "$file_name_mayors_permit";
     }
 
-    $clinic_id = get_inserted_id("INSERT INTO `tbl_clinic` (name, image, description,prc_id,business_permit,nbi,birth_certificate,prc_no,mayors_permit) values('$clinic_name', '$file_name','$description','$file_name_prc','$file_name_birth_certificate','$file_name_nbi','$file_name_birth_certificate','$prc_no','file_name_mayors_permit')");
+    $clinic_id = get_inserted_id("INSERT INTO `tbl_clinic` (name, image, description,prc_id,business_permit,dti,barangay_clearance,prc_no,mayors_permit) values('$clinic_name', '$file_name','$description','$file_name_prc','$file_name_barangay_clearance','$file_name_dti','$file_name_barangay_clearance','$prc_no','file_name_mayors_permit')");
     $id = get_inserted_id("INSERT INTO `tbl_user` (access_id, username, password, clinic_id) values('2', '$username', '$password','$clinic_id')");
     query("INSERT INTO `tbl_userinfo` (id, municipality, barangay, email, contact, first_name, last_name) values($id, '$municipality', '$barangay', '$email', '$contact','$first_name','$last_name')");
     return success_message();
@@ -192,7 +192,7 @@ function editClinic($data)
     if (isset($prc_id) && !empty($prc_id['name'])) {
         $ext = explode(".", $prc_id["name"]);
         $file_name_prc = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($prc_id['tmp_name'], "../images/prc/" . $file_name_prc);
+        move_uploaded_file($prc_id['tmp_name'], "../images/clinic/prc/" . $file_name_prc);
         $file_name_prc = "$file_name_prc";
     }
 
@@ -200,38 +200,38 @@ function editClinic($data)
     if (isset($business_permit) && !empty($business_permit['name'])) {
         $ext = explode(".", $business_permit["name"]);
         $file_name_business_permit = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($business_permit['tmp_name'], "../images/business_permit/" . $file_name_business_permit);
+        move_uploaded_file($business_permit['tmp_name'], "../images/clinic/business_permit/" . $file_name_business_permit);
         $file_name_business_permit = "$file_name_business_permit";
     }
 
-    $file_name_nbi = get_one("select * from tbl_clinic where clinic_id = $clinic_id")->nbi;
-    if (isset($nbi) && !empty($nbi['name'])) {
-        $ext = explode(".", $nbi["name"]);
-        $file_name_nbi = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($nbi['tmp_name'], "../images/prc/" . $file_name_nbi);
-        $file_name_nbi = "$file_name_nbi";
+    $file_name_dti = get_one("select * from tbl_clinic where clinic_id = $clinic_id")->dti;
+    if (isset($dti) && !empty($dti['name'])) {
+        $ext = explode(".", $dti["name"]);
+        $file_name_dti = 'file_' . date('YmdHis') . "." . end($ext);
+        move_uploaded_file($dti['tmp_name'], "../images/clinic/dti/" . $file_name_dti);
+        $file_name_dti = "$file_name_dti";
     }
 
-    $file_name_birth_certificate = get_one("select * from tbl_clinic where clinic_id = $clinic_id")->birth_certificate;
-    if (isset($birth_ceritificate) && !empty($birth_ceritificate['name'])) {
-        $ext = explode(".", $birth_ceritificate["name"]);
-        $file_name_birth_certificate = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($birth_ceritificate['tmp_name'], "../images/prc/" . $file_name_birth_certificate);
-        $file_name_birth_certificate = "$file_name_birth_certificate";
+    $file_name_barangay_clearance = get_one("select * from tbl_clinic where clinic_id = $clinic_id")->barangay_clearance;
+    if (isset($barangay_clearance) && !empty($barangay_clearance['name'])) {
+        $ext = explode(".", $barangay_clearance["name"]);
+        $file_name_barangay_clearance = 'file_' . date('YmdHis') . "." . end($ext);
+        move_uploaded_file($barangay_clearance['tmp_name'], "../images/clinic/barangay_clearance/" . $file_name_barangay_clearance);
+        $file_name_barangay_clearance = "$file_name_barangay_clearance";
     }
 
 
-    $file_name_mayors_permit = get_one("select * from tbl_clinic where clinic_id = $clinic_id")->birth_certificate;
+    $file_name_mayors_permit = get_one("select * from tbl_clinic where clinic_id = $clinic_id")->mayors_permit;
     if (isset($mayors_permit) && !empty($mayors_permit['name'])) {
         $ext = explode(".", $mayors_permit["name"]);
         $file_name_mayors_permit = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($mayors_permit['tmp_name'], "../images/mayors_permit/" . $file_name_mayors_permit);
+        move_uploaded_file($mayors_permit['tmp_name'], "../images/clinic/mayors_permit/" . $file_name_mayors_permit);
         $file_name_mayors_permit = "$file_name_mayors_permit";
     }
 
     query("UPDATE `tbl_user` set  username ='$username', password = '$password' where id = $id");
     query("UPDATE `tbl_userinfo` set  municipality ='$municipality', barangay = '$barangay',email='$email',contact='$contact',first_name= '$first_name', last_name='$last_name' where id = $id");
-    query("UPDATE `tbl_clinic` set name = '$clinic_name', image ='$file_name',description = '$description',prc_id = '$file_name',business_permit = '$file_name_business_permit',nbi = '$file_name_nbi',birth_certificate = '$file_name_birth_certificate', mayors_permit = '$file_name_mayors_permit',prc_no = '$prc_no' where clinic_id = $clinic_id");
+    query("UPDATE `tbl_clinic` set name = '$clinic_name', image ='$file_name',description = '$description',prc_id = '$file_name_prc',business_permit = '$file_name_business_permit',dti = '$file_name_dti',barangay_clearance = '$file_name_barangay_clearance', mayors_permit = '$file_name_mayors_permit',prc_no = '$prc_no' where clinic_id = $clinic_id");
     return success_message("Clinic #$clinic_id Updated Successfully!");
 }
 
@@ -374,8 +374,8 @@ function registerUser($data)
 function addProduct($data)
 {
     extract($data);
-
-    if (!empty(get_one("select * from tbl_product where prod_name = '$prod_name'"))) {
+    $clinic_id = $_SESSION['user']->clinic_id;
+    if (!empty(get_one("select * from tbl_product where prod_name = '$prod_name' and clinic_id = '$clinic_id'"))) {
         return error_message("Product Name Already Exist");
     }
 
@@ -387,7 +387,7 @@ function addProduct($data)
         $file_name = "$file_name";
     }
 
-    $clinic_id = $_SESSION['user']->clinic_id;
+    
     query("INSERT INTO `tbl_product` (clinic_id, prod_name, prod_desc, prod_price, image) values($clinic_id, '$prod_name', '$prod_desc', '$prod_price', '$file_name')");
     return success_message();
 }
@@ -396,11 +396,11 @@ function addService($data)
 {
     extract($data);
 
-    if (!empty(get_one("select * from tbl_service where srvc_name = '$username' "))) {
+    $clinic_id = $_SESSION['user']->clinic_id;
+    if (!empty(get_one("select * from tbl_service where srvc_name = '$srvc_name' and clinic_id = '$clinic_id'"))) {
         return error_message("Service Name Already Exist");
     }
 
-    $clinic_id = $_SESSION['user']->clinic_id;
     query("INSERT INTO `tbl_service` (clinic_id, srvc_name, srvc_desc, srvc_price, srvc_time) values($clinic_id, '$srvc_name', '$srvc_desc', '$srvc_price','$srvc_time')");
     return success_message();
 }
@@ -543,8 +543,8 @@ function cancel_appointment($id)
 
 function reschedule_appointment($id)
 {
-    query("UPDATE `tbl_appointment` set status_id = 3 where id = '$id'");
-    return success_message("Appointment Cancelled Successfully!");
+    query("UPDATE `tbl_appointment` set status_id = 2 where id = '$id'");
+    return success_message("Rescheduled Accepted Successfully!");
 }
 
 function approveMember($id)
@@ -557,32 +557,26 @@ function accept_appointment($id)
     query("UPDATE `tbl_appointment` set status_id = 2 where id = $id");
     return success_message("Appointment Accepted Successfully!");
 }
-function reject_appointment($id)
-{
-    query("UPDATE `tbl_appointment` set status_id = 3 where id = $id");
-    return success_message("Appointment Rejected Successfully!");
-}
-function paid_appointment($data)
+function reject_appointment($data)
 {
     extract($data);
-    query("UPDATE `tbl_appointment` set paid_id = 2 where id = $id");
+    $y = date_create($appointment_date);
+    $x = date_format($y, "Y-m-d");
+    query("UPDATE `tbl_appointment` set status_id = 3, appointment_date = '$x' where id = '$id'");
+    return success_message("Appointment Rescheduled Successfully!");
+}
+function paid_appointment($id)
+{
+    query("UPDATE `tbl_appointment` set paid_id = 2 where id = '$id'");
 
-    $filename = get_one("select * from tbl_clinic where clinic_id = $clinic_id")->image;
-    if (isset($file_name) && !empty($file_name['name'])) {
-        $ext = explode(".", $file_name["name"]);
-        $filename = 'file_' . date('YmdHis') . "." . end($ext);
-        move_uploaded_file($file_name['tmp_name'], "../images/teeth/" . $filename);
-        $filename = "$filename";
-    }
-
-    query("update tbl_appointment set image =  '$filename' where id  = $id");
     return success_message("Appointment Paid Successfully!");
 }
 function uplaod_teethv($data)
 {
+    // echo "<pre>";
     extract($data);
-    query("UPDATE `tbl_appointment` set paid_id = 2 where id = $id");
-
+    // print_r($appointment_date);
+    
     $filename = get_one("select * from tbl_clinic where clinic_id = $clinic_id")->image;
     if (isset($file_name) && !empty($file_name['name'])) {
         $ext = explode(".", $file_name["name"]);
@@ -590,9 +584,9 @@ function uplaod_teethv($data)
         move_uploaded_file($file_name['tmp_name'], "../images/teeth/" . $filename);
         $filename = "$filename";
     }
-
-    query("update tbl_appointment set image =  '$filename',appointment_date= '$appointment_date' where id  = $id");
-    return success_message("Appointment Paid Successfully!");
+    // $x = date_format(date_create($appointment_date), "Y/m/d");
+    query("update tbl_appointment set image =  '$filename' where id  = $id");
+    return success_message("Teeth upload Successfully!");
 }
 
 function editSettings($data)

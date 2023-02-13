@@ -51,11 +51,11 @@
               </thead>
               <tbody>
                 <?php $where = !empty($_GET['status']) ? 'and s.id = ' . $_GET['status'] : '' ?>
-                <?php foreach (get_list("SELECT a.id,DATE_FORMAT(a.appointment_date,'%m-%d-%Y') as `appointment_date`,DATE_FORMAT(a.date_created,'%m-%d-%Y') as `date_created`,c.name as `clinic`,b.name as `barangay`,m.name as `municipality`,p.name as `paid_status`,s.name as `status`,s.id as status_id,a.paid_id, concat(ui.first_name, ' ',ui.last_name) as `full_name` from tbl_appointment a inner join tbl_clinic c on c.clinic_id = a.clinic_id inner join tbl_user u on u.clinic_id =a.clinic_id and u.access_id = 2 inner join tbl_userinfo ui on ui.id = u.id inner join tbl_barangay b on b.id = ui.barangay inner join tbl_city m on m.id = ui.municipality inner join tbl_appointment_paid_status p on p.id = a.paid_id inner join tbl_appointment_status s on s.id = a.status_id inner join tbl_userinfo ui2 on ui2.id = a.patient_id where a.clinic_id='" . $_SESSION['user']->clinic_id . "' $where ") as $res) { ?>
+                <?php foreach (get_list("SELECT a.id,DATE_FORMAT(a.appointment_date,'%m-%d-%Y') as `appointment_date`,DATE_FORMAT(a.date_created,'%m-%d-%Y') as `date_created`,c.name as `clinic`,b.name as `barangay`,m.name as `municipality`,p.name as `paid_status`,s.name as `status`,s.id as status_id,a.paid_id, concat(ui2.first_name, ' ',ui2.last_name) as `full_name`,ui2.id as patient_id from tbl_appointment a inner join tbl_clinic c on c.clinic_id = a.clinic_id inner join tbl_user u on u.clinic_id =a.clinic_id and u.access_id = 2 inner join tbl_userinfo ui on ui.id = u.id inner join tbl_barangay b on b.id = ui.barangay inner join tbl_city m on m.id = ui.municipality inner join tbl_appointment_paid_status p on p.id = a.paid_id inner join tbl_appointment_status s on s.id = a.status_id inner join tbl_userinfo ui2 on ui2.id = a.patient_id where a.clinic_id='" . $_SESSION['user']->clinic_id . "' $where ") as $res) { ?>
                   <tr>
                     <td><?= $res['id'] ?></td>
                     <td><?= strtoupper($res['status']) ?></td>
-                    <td><?= strtoupper($res['full_name']) ?></td>
+                    <td><a href="patient_history.php?id=<?= $res['patient_id'] ?>" target="_blank"><?= strtoupper($res['full_name']) ?></a></td>
                     <td><?= strtoupper($res['clinic']) ?></td>
                     <td><?= strtoupper($res['barangay'] . ", " . $res['municipality']) ?></td>
                     <td><?= strtoupper($res['paid_status']) ?></td>
@@ -72,9 +72,11 @@
                       <?php } else { ?>
                       <?php } ?>
                       <?php if ((int)$res['paid_id'] > 1 || in_array((int)$res['status_id'], array(3, 4))) { ?>
-                        <button class="btn btn-info" type="button" disabled>Paid </button>
+                        <a href="pay.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">Pay </a>
+                        <!-- <button class="btn btn-info" type="button" disabled>Paid </button> -->
                       <?php } else { ?>
-                        <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-info" type="submit" name="paid" value="<?= $res['id'] ?>">Paid </button></form>
+                        <a href="pay.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">Pay </a>
+                        <!-- <form method="post" onsubmit="return confirm('Are you sure?');"><button class="btn btn-info" type="submit" name="paid" value="<?= $res['id'] ?>">Paid </button></form> -->
                       <?php } ?>
 
                     </td>

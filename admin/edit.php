@@ -8,11 +8,14 @@
 <div class="page-wrapper">
   <!-- ============================================================== -->
   <!-- Bread crumb and right sidebar toggle -->
+  <?php $id = $_GET['id']; ?>
+  <?php $default = get_one("select u.id,c.clinic_id,c.image,c.name,ui.municipality,ui.barangay,c.description,ui.email,ui.contact,u.username,u.password,c.prc_no,c.prc_id from tbl_user u inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
+  <?php $user = get_one("select ui.first_name,ui.last_name  from tbl_userinfo ui inner join tbl_user u on u.id = ui.id  where u.access_id = 2 and u.clinic_id = " . $default->clinic_id) ?>
   <!-- ============================================================== -->
   <div class="page-breadcrumb">
     <div class="row">
       <div class="col-12 d-flex no-block align-items-center">
-        <h4 class="page-title">Editing Clinic | ID - <?= $_GET['id'] ?></h4>
+        <h4 class="page-title">Viewing Clinic | <?= $default->name ?></h4>
         <div class="ms-auto text-end">
         </div>
       </div>
@@ -26,9 +29,6 @@
           <form class="form-horizontal" method="post" onsubmit="return confirm('Are you sure?');" enctype="multipart/form-data" id="my-form">
             <div class="modal-body">
               <div class="card-body">
-                <?php $id = $_GET['id']; ?>
-                <?php $default = get_one("select u.id,c.clinic_id,c.image,c.name,ui.municipality,ui.barangay,c.description,ui.email,ui.contact,u.username,u.password,c.prc_no from tbl_user u inner join tbl_clinic c on c.clinic_id = u.clinic_id inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
-                <?php $user = get_one("select ui.first_name,ui.last_name  from tbl_userinfo ui inner join tbl_user u on u.id = ui.id  where u.access_id = 2 and u.clinic_id = " . $default->clinic_id) ?>
                 <input type="hidden" name="id" value="<?= $default->id ?>">
                 <input type="hidden" name="clinic_id" value="<?= $default->clinic_id ?>">
                 <div class="form-group row">
@@ -118,6 +118,8 @@
                   <div class="col-sm-9">
                     <input type="file" class="form-control" name="prc_id" accept=".jpg,.jpeg,.png">
                   </div>
+                  
+                <!-- <img src="../images/clinic/prc/<?= $default->prc_id ?>" alt="" style="witdh:200px;height:200px"> -->
                 </div>
                 <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">Mayor's Permit</label>
@@ -132,15 +134,15 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay Clearance</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">DTI Permit</label>
                   <div class="col-sm-9">
-                    <input type="file" class="form-control" name="nbi" accept=".jpg,.jpeg,.png">
+                    <input type="file" class="form-control" name="dti" accept=".jpg,.jpeg,.png">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">DTI</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay Clearance</label>
                   <div class="col-sm-9">
-                    <input type="file" class="form-control" name="birth_certificate" accept=".jpg,.jpeg,.png">
+                    <input type="file" class="form-control" name="barangay_clearance" accept=".jpg,.jpeg,.png">
                   </div>
                 </div>
 

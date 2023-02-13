@@ -29,8 +29,8 @@
   </div>
   <div class="container-fluid">
     <?= (isset($_POST['accept'])) ? accept_appointment($_POST['accept']) : ''; ?>
-    <?= (isset($_POST['reject'])) ? reject_appointment($_POST['reject']) : ''; ?>
-    <?= (isset($_POST['paid'])) ? paid_appointment(array_merge($_POST, $_FILES)) : ''; ?>
+    <?= (isset($_POST['reject'])) ? reject_appointment($_POST) : ''; ?>
+    <?= (isset($_POST['paid'])) ? paid_appointment($_POST['paid']) : ''; ?>
     <?= (isset($_POST['upload'])) ? uplaod_teethv(array_merge($_POST, $_FILES)) : ''; ?>
     <?php $id = $_GET['id']  ?>
     <?php $clinic_details = get_clinic(get_one("SELECT clinic_id from tbl_appointment where id = $id")->clinic_id); ?>
@@ -174,7 +174,7 @@
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Teeth:</label>
                     <div class="col-sm-9">
                       <div class="input-group">
-                        <input type="file" class="form-control" name="file_name" />
+                        <input type="file" class="form-control" name="file_name" accept=".jpg,.jpeg,.png" />
                       </div>
                     </div>
                   </div>
@@ -182,10 +182,11 @@
 
                   <div class=" text-center">
                     <button class="btn btn-info" style="width:10%" type="submit" name="accept" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> ACCEPT</button>
-                    <button class="btn btn-info" style="width:10%" type="submit" name="paid" value="<?= $appointment_details->id ?>" <?= ($appointment_details->paid_id > 1) ? 'disabled' : '' ?>> PAID</button>
+                    <!-- <button class="btn btn-info" style="width:10%" type="submit" name="paid" value="<?= $appointment_details->id ?>" <?= ($appointment_details->paid_id > 1) ? 'disabled' : '' ?>> PAID</button> -->
                     <button class="btn btn-info" style="width:10%" type="submit" name="reject" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> RESCHEDULE</button>
                     <button class="btn btn-info" style="width:10%" type="submit" name="upload"> UPLOAD</button>
                     <a href="view_receipt.php?id=<?= $appointment_details->id ?>" class="btn btn-secondary" style="width:20%">View Receipt</a>
+                    <a href="view_record.php?id=<?= $appointment_details->id ?>" class="btn btn-secondary" style="width:20%">View Patient Chart</a>
                   </div>
                 </form>
               </div>

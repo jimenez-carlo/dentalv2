@@ -42,7 +42,7 @@
                   <th>Barangay</th>
                   <th>Email</th>
                   <th>Contact no#</th>
-                  <th>Date Created</th>
+                  <th>Date Created (YYYY-MM-DD)</th>
                   <th style="width: 0.1%;">Actions</th>
                 </tr>
               </thead>
@@ -148,13 +148,13 @@
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name*</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="fname" name="first_name" required>
+                      <input type="text" class="form-control" id="fname" name="first_name" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Last Name*</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="fname" name="last_name" required>
+                      <input type="text" class="form-control" id="fname" name="last_name" required>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -202,15 +202,15 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">NBI</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">DTI Permit</label>
                     <div class="col-sm-9">
-                      <input type="file" class="form-control" name="nbi" accept=".jpg,.jpeg,.png">
+                      <input type="file" class="form-control" name="dti" accept=".jpg,.jpeg,.png">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Birth Certificate</label>
+                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay Clearance</label>
                     <div class="col-sm-9">
-                      <input type="file" class="form-control" name="birth_certificate" accept=".jpg,.jpeg,.png">
+                      <input type="file" class="form-control" name="barangay_clearance" accept=".jpg,.jpeg,.png">
                     </div>
                   </div>
                 </div>
