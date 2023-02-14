@@ -178,6 +178,135 @@ INSERT INTO `tbl_barangay` VALUES ('015501001','ALLABON','015501','2022-03-14 17
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_chart`
+--
+
+DROP TABLE IF EXISTS `tbl_chart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tbl_chart` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `patient_id` int(11) DEFAULT NULL,
+  `clinic_id` int(11) DEFAULT NULL,
+  `status_1_55` varchar(3) DEFAULT NULL,
+  `status_1_54` varchar(3) DEFAULT NULL,
+  `status_1_53` varchar(3) DEFAULT NULL,
+  `status_1_52` varchar(3) DEFAULT NULL,
+  `status_1_51` varchar(3) DEFAULT NULL,
+  `status_2_55` varchar(3) DEFAULT NULL,
+  `status_2_54` varchar(3) DEFAULT NULL,
+  `status_2_53` varchar(3) DEFAULT NULL,
+  `status_2_52` varchar(3) DEFAULT NULL,
+  `status_1_65` varchar(3) DEFAULT NULL,
+  `status_1_64` varchar(3) DEFAULT NULL,
+  `status_1_63` varchar(3) DEFAULT NULL,
+  `status_1_62` varchar(3) DEFAULT NULL,
+  `status_1_61` varchar(3) DEFAULT NULL,
+  `status_2_65` varchar(3) DEFAULT NULL,
+  `status_2_64` varchar(3) DEFAULT NULL,
+  `status_2_63` varchar(3) DEFAULT NULL,
+  `status_2_62` varchar(3) DEFAULT NULL,
+  `status_2_61` varchar(3) DEFAULT NULL,
+  `status_2_51` varchar(3) DEFAULT NULL,
+  `status_1_18` varchar(3) DEFAULT NULL,
+  `status_1_17` varchar(3) DEFAULT NULL,
+  `status_1_16` varchar(3) DEFAULT NULL,
+  `status_1_15` varchar(3) DEFAULT NULL,
+  `status_1_14` varchar(3) DEFAULT NULL,
+  `status_1_13` varchar(3) DEFAULT NULL,
+  `status_1_12` varchar(3) DEFAULT NULL,
+  `status_1_11` varchar(3) DEFAULT NULL,
+  `status_1_21` varchar(3) DEFAULT NULL,
+  `status_1_22` varchar(3) DEFAULT NULL,
+  `status_1_23` varchar(3) DEFAULT NULL,
+  `status_1_24` varchar(3) DEFAULT NULL,
+  `status_1_25` varchar(3) DEFAULT NULL,
+  `status_1_26` varchar(3) DEFAULT NULL,
+  `status_1_27` varchar(3) DEFAULT NULL,
+  `status_1_28` varchar(3) DEFAULT NULL,
+  `status_2_18` varchar(3) DEFAULT NULL,
+  `status_2_17` varchar(3) DEFAULT NULL,
+  `status_2_16` varchar(3) DEFAULT NULL,
+  `status_2_15` varchar(3) DEFAULT NULL,
+  `status_2_14` varchar(3) DEFAULT NULL,
+  `status_2_13` varchar(3) DEFAULT NULL,
+  `status_2_12` varchar(3) DEFAULT NULL,
+  `status_2_11` varchar(3) DEFAULT NULL,
+  `status_2_21` varchar(3) DEFAULT NULL,
+  `status_2_22` varchar(3) DEFAULT NULL,
+  `status_2_23` varchar(3) DEFAULT NULL,
+  `status_2_24` varchar(3) DEFAULT NULL,
+  `status_2_25` varchar(3) DEFAULT NULL,
+  `status_2_26` varchar(3) DEFAULT NULL,
+  `status_2_27` varchar(3) DEFAULT NULL,
+  `status_2_28` varchar(3) DEFAULT NULL,
+  `status_1_48` varchar(3) DEFAULT NULL,
+  `status_1_47` varchar(3) DEFAULT NULL,
+  `status_1_46` varchar(3) DEFAULT NULL,
+  `status_1_45` varchar(3) DEFAULT NULL,
+  `status_1_44` varchar(3) DEFAULT NULL,
+  `status_1_43` varchar(3) DEFAULT NULL,
+  `status_1_42` varchar(3) DEFAULT NULL,
+  `status_1_41` varchar(3) DEFAULT NULL,
+  `status_1_31` varchar(3) DEFAULT NULL,
+  `status_1_32` varchar(3) DEFAULT NULL,
+  `status_1_33` varchar(3) DEFAULT NULL,
+  `status_1_34` varchar(3) DEFAULT NULL,
+  `status_1_35` varchar(3) DEFAULT NULL,
+  `status_1_36` varchar(3) DEFAULT NULL,
+  `status_1_37` varchar(3) DEFAULT NULL,
+  `status_1_38` varchar(3) DEFAULT NULL,
+  `status_2_48` varchar(3) DEFAULT NULL,
+  `status_2_47` varchar(3) DEFAULT NULL,
+  `status_2_46` varchar(3) DEFAULT NULL,
+  `status_2_45` varchar(3) DEFAULT NULL,
+  `status_2_44` varchar(3) DEFAULT NULL,
+  `status_2_43` varchar(3) DEFAULT NULL,
+  `status_2_42` varchar(3) DEFAULT NULL,
+  `status_2_41` varchar(3) DEFAULT NULL,
+  `status_2_31` varchar(3) DEFAULT NULL,
+  `status_2_32` varchar(3) DEFAULT NULL,
+  `status_2_33` varchar(3) DEFAULT NULL,
+  `status_2_34` varchar(3) DEFAULT NULL,
+  `status_2_35` varchar(3) DEFAULT NULL,
+  `status_2_36` varchar(3) DEFAULT NULL,
+  `status_2_37` varchar(3) DEFAULT NULL,
+  `status_2_38` varchar(3) DEFAULT NULL,
+  `status_1_85` varchar(3) DEFAULT NULL,
+  `status_1_84` varchar(3) DEFAULT NULL,
+  `status_1_83` varchar(3) DEFAULT NULL,
+  `status_1_82` varchar(3) DEFAULT NULL,
+  `status_1_81` varchar(3) DEFAULT NULL,
+  `status_1_71` varchar(3) DEFAULT NULL,
+  `status_1_72` varchar(3) DEFAULT NULL,
+  `status_1_73` varchar(3) DEFAULT NULL,
+  `status_1_74` varchar(3) DEFAULT NULL,
+  `status_1_75` varchar(3) DEFAULT NULL,
+  `status_2_85` varchar(3) DEFAULT NULL,
+  `status_2_84` varchar(3) DEFAULT NULL,
+  `status_2_83` varchar(3) DEFAULT NULL,
+  `status_2_82` varchar(3) DEFAULT NULL,
+  `status_2_81` varchar(3) DEFAULT NULL,
+  `status_2_71` varchar(3) DEFAULT NULL,
+  `status_2_72` varchar(3) DEFAULT NULL,
+  `status_2_73` varchar(3) DEFAULT NULL,
+  `status_2_74` varchar(3) DEFAULT NULL,
+  `status_2_75` varchar(3) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_chart`
+--
+
+LOCK TABLES `tbl_chart` WRITE;
+/*!40000 ALTER TABLE `tbl_chart` DISABLE KEYS */;
+INSERT INTO `tbl_chart` VALUES (12,30,NULL,'','k','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''),(13,26,NULL,'d','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''),(14,22,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(15,14,NULL,'','k','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''),(16,15,NULL,'d','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','');
+/*!40000 ALTER TABLE `tbl_chart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_city`
 --
 
@@ -461,4 +590,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-14  3:10:42
+-- Dump completed on 2023-02-14 21:04:00

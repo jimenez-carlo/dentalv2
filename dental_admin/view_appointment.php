@@ -186,7 +186,7 @@
                     <button class="btn btn-info" style="width:10%" type="submit" name="reject" value="<?= $appointment_details->id ?>" <?= ($appointment_details->status_id > 1) ? 'disabled' : '' ?>> RESCHEDULE</button>
                     <button class="btn btn-info" style="width:10%" type="submit" name="upload"> UPLOAD</button>
                     <a href="view_receipt.php?id=<?= $appointment_details->id ?>" class="btn btn-secondary" style="width:20%">View Receipt</a>
-                    <a href="view_record.php?id=<?= $appointment_details->id ?>" class="btn btn-secondary" style="width:20%">View Patient Chart</a>
+                    <a href="view_record.php?id=<?= $appointment_details->patient_id ?>" class="btn btn-secondary" style="width:20%">View Patient Chart</a>
                   </div>
                 </form>
               </div>
