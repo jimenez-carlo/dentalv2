@@ -36,7 +36,7 @@
 
         <div class="ms-auto text-end">
 
-          <a href="view_appointment.php?id=<?= $_GET['id'] ?>" class="btn btn-info col-12" type="button" style="margin-right: 4px;">Back To Appointment</a>
+          <a href="appointments.php" class="btn btn-info col-12" type="button" style="margin-right: 4px;">Back To Appointment</a>
 
         </div>
       </div>
@@ -46,7 +46,6 @@
     <?php function pay($data)
     {
       extract($data);
-
       if ($total > $paid_amount) {
         return error_message("Paid Ammount Insuficient!");
       }
@@ -56,6 +55,7 @@
     } ?>
     <?= (isset($_POST['pay'])) ? pay($_POST) : ''; ?>
     <?php $main = get_one("select * from tbl_appointment where id = " . $_GET['id']); ?>
+    
     <form method=" post" onsubmit="return confirm('Are you sure?');">
       <div class="row">
         <div class="col-md-12">
@@ -77,7 +77,7 @@
                       <?php $tmptime = 0 ?>
                       <?php $id = $_GET['id']  ?>
                       <tbody>
-
+                        
                         <?php foreach (get_list("SELECT i.*,s.srvc_name from tbl_appointment_items i inner join tbl_service s on s.id = i.service_id where i.appointment_id = $id") as $key => $res) { ?>
                           <tr>
                             <td><?= $res['srvc_name'] ?></td>
@@ -87,18 +87,19 @@
                           </tr>
                           <?php $tmp += ($res['price'] * $res['qty']); ?>
                           <?php $tmptime += ($res['appointment_time'] * $res['qty']); ?>
-                        <?php } ?>
-
-                        <tr>
-                          <td style="font-weight:bold" colspan="2">TOTAL</td>
-                          <td style="text-align:right;font-weight:bold"><?= convertTime($tmptime) ?></td>
-                          <td style="text-align:right;font-weight:bold"><?= number_format($tmp, 2) ?></td>
-                          <input type="hidden" id="total" value="<?= $tmp ?>" name="total">
-                        </tr>
-                        <tr>
-                          <td style="font-weight:bold" colspan="3">PAID AMOUNT</td>
-                          <td style="text-align:right;font-weight:bold"><input type="number" name="paid_amount" id="paid_amount" value="<?= $main->paid_amount ?? 0 ?>" <?= $main->paid_id == 2 ? 'disabled' : '' ?>></td>
-                        </tr>
+                          <?php } ?>
+                          
+                          <tr>
+                            <td style="font-weight:bold" colspan="2">TOTAL</td>
+                            <td style="text-align:right;font-weight:bold"><?= convertTime($tmptime) ?></td>
+                            <td style="text-align:right;font-weight:bold"><?= number_format($tmp, 2) ?></td>
+                            <input type="hidden" id="total" value="<?= $tmp ?>" name="total">
+                          </tr>
+                          <tr>
+                            <td style="font-weight:bold" colspan="3">PAID AMOUNT</td>
+                            <td style="text-align:right;font-weight:bold"><input type="number" name="paid_amount" id="paid_amount" value="<?= $main->paid_amount ?? 0 ?>" <?= $main->paid_id == 2 ? 'disabled' : '' ?>></td>
+                            
+                          </tr>
                         <tr>
                           <td style="font-weight:bold" colspan="3">CHANGE</td>
                           <td style="text-align:right;font-weight:bold" id="change">
@@ -109,11 +110,11 @@
                       </tbody>
                     </table>
                   </div>
-
+                  
                 </div>
                 <script>
                   var paid_amount = document.getElementById('paid_amount');
-
+                  
                   function totalPrice() {
                     var grand_total = 0;
                     var total = document.getElementById('total');
@@ -126,13 +127,13 @@
                   paid_amount.addEventListener("change", () => {
                     totalPrice();
                   });
-                </script>
+                  </script>
                 <?php $clinic_details = get_clinic(get_one("SELECT clinic_id from tbl_appointment where id = $id")->clinic_id); ?>
                 <?php $appointment_details = get_one("SELECT DATE_FORMAT(appointment_date,'%m-%d-%Y') as appointment_date, remarks,status_id,paid_id,id from tbl_appointment where id = $id"); ?>
-
-
+                
+                
                 <div class="col-md-6">
-
+                  
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic:</label>
                     <div class="col-sm-9">
@@ -141,7 +142,8 @@
                       </div>
                     </div>
                   </div>
-
+                  
+                  <input type="hidden" name="id" value="<?= $appointment_details->id ?>">
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Dentist:</label>
                     <div class="col-sm-9">
@@ -257,8 +259,9 @@
                   </div>
                   <div style="display:flex">
 
-                    <button class="btn btn-info w-50" type="submit" name="pay" value="<?= $appointment_details->id ?>" <?= $main->paid_id == 2 ? 'disabled' : '' ?>> Pay</button>
-                    <button class="btn btn-info w-50" type="button" id="print" <?= $main->paid_id == 1 ? 'disabled' : '' ?> onclick="window.print()"> Print</button>
+                    <button class="btn btn-info w-50 me-1" type="submit" name="pay" value="<?= $appointment_details->id ?>" <?= $main->paid_id == 2 ? 'disabled' : '' ?>> Pay</button>
+                    <button class="btn btn-info w-50" type="button" id="print"  onclick="window.print()"> Print</button>
+                    <!-- <?= $main->paid_id == 1 ? 'disabled' : '' ?> -->
                   </div>
                 </div>
               </div>

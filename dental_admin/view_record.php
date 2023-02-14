@@ -21,7 +21,7 @@
 
         <div class="ms-auto text-end">
 
-          <a href="view_appointment.php?id=<?= $_GET['id'] ?>" class="btn btn-info col-12" type="button" style="margin-status: 4px;">Back To Appointment List</a>
+          <a href="appointments.php" class="btn btn-info col-12" type="button" style="margin-status: 4px;">Back To Appointment List</a>
 
         </div>
       </div>
