@@ -36,7 +36,7 @@
 <div class="banner">
   <div class="slider-banner">
     <!-- <div data-lazy-background="images/slides/ban.jpg"> -->
-    <!-- style="opacity:.8" -->
+    <!-- style="opacity:.8" --> 
     <div data-lazy-background="images/slides/banner4.png" >
       <h1 class="banner1" data-pos="['68%', '-40%', '5%', '12%']" data-duration="700" data-effect="move">
         Provincial Dental Clinic Management System

@@ -70,7 +70,7 @@
         position: absolute;
         left: 39%;
         /* margin-status: -3px; */
-        top: 5.5%;
+        top: 4.5%;
       }
     </style>
     <div class="row">
@@ -333,6 +333,8 @@
                     <input type="hidden" value="<?= $_GET['id'] ?>" name="id">
 
                     <button class="btn btn-info" style="width:10%" type="submit" name="update_chart"> UPDATE CHART</button>
+                    <button class="btn btn-info" type="button" id="print"  onclick="window.print()"> Print</button>
+
                     <!-- <div class=" text-center">
                       <a href="view_receipt.php?id=<?= $appointment_details->id ?>" class="btn btn-secondary" style="width:20%">View Receipt</a>
                       <a href="view_receipt.php?id=<?= $appointment_details->id ?>" class="btn btn-secondary" style="width:20%">View Record</a>

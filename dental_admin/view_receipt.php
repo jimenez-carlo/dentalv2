@@ -51,7 +51,7 @@
                         <tr>
                           <th>Service</th>
                           <th style="width: 0.1%;">Qty</th>
-                          <th>Approx Time</th>
+                          <th >Approx Time</th>
                           <th>Price</th>
                         </tr>
                       </thead>

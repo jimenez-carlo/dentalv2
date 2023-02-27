@@ -17,11 +17,6 @@
   <!-- ============================================================== -->
   <div class="page-breadcrumb">
     <div class="row">
-      <?php $id = $_SESSION['user']->id ?>
-      <?php $default = get_one("select u.id,ui.first_name,ui.municipality,ui.barangay,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
-      <!-- <h4 class="page-title">Welcome </h4> -->
-
-      <h4 class='page-title'>Welcome <?= $default->first_name ?></h4>
 
 
 

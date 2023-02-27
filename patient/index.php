@@ -20,15 +20,7 @@
       <?php $id = $_SESSION['user']->id ?>
       <?php $default = get_one("select u.id,ui.first_name,ui.municipality,ui.barangay,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
       <!-- <h4 class="page-title">Welcome </h4> -->
-      <?php
-      if (isset($_SESSION['user'])) {
-        if ($_SESSION['user']->access_id == 5) {
-          echo "
-                <h4 class='page-title'>Welcome $default->first_name</h4>
-                ";
-        }
-      }
-      ?>
+
       <div class="ms-auto text-end">
         <div id='calendar'></div>
       </div>
