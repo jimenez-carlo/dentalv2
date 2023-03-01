@@ -28,7 +28,7 @@
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table id="table_eto" class="table table-bordered">
+            <table id="table_eto" class="table table-bordered table-striped ">
               <thead>
                 <tr>
                   <th>ID</th>
@@ -49,8 +49,10 @@
                     <td><?= strtoupper($res['clinic']) ?></td>
                     <td><?= strtoupper($res['barangay'] . ", " . $res['municipality']) ?></td>
                     <td><?= strtoupper($res['paid_status']) ?></td>
-                    <td><?= $res['appointment_date'] ?></td>
-                    <td><?= $res['date_created'] ?></td>
+
+                    <td><?= convertDate($res['appointment_date'])  ?></td>
+                    <td><?= convertDate($res['date_created']) ?></td>
+
                     <td style="width: 0.1%;display:flex">
                       <a href="view_appointment.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
                       <?php if ((int)$res['status_id'] > 1) { ?>

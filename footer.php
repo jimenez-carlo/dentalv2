@@ -13,27 +13,27 @@
             <div id="signup_result"></div>
             <div class="row">
               <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">First Name*</label>
+                <label for="inputEmail4">First Name<span style="color:red">*</span></label>
                 <input type="text" class="form-control" name="first_name" required>
               </div>
               <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Last Name*</label>
+                <label for="inputEmail4">Last Name<span style="color:red">*</span></label>
                 <input type="text" class="form-control" name="last_name" required>
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Username*</label>
-                <input type="text" class="form-control" name="username" required>
+                <label for="inputEmail4">Username<span style="color:red">*</span></label>
+                <input type="text" class="form-control" name="username" required pattern="(?=.*\d)(?=.*[a-z])(?=.*).{6,}" title="Must contain at least one number and lowercase letter, and at least 6 or more characters">
               </div>
               <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Password*</label>
+                <label for="inputEmail4">Password<span style="color:red">*</span></label>
                 <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required><span>Include atleast 8 characters, a number, an upper and lower case letter.</span>
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">City/Municipality*</label>
+                <label for="inputEmail4">City/Municipality<span style="color:red">*</span></label>
                 <select name="municipality" id="municipality" class="form-control">
                   <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
                     <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
@@ -41,7 +41,7 @@
                 </select>
               </div>
               <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Barangay*</label>
+                <label for="inputEmail4">Barangay<span style="color:red">*</span></label>
                 <select name="barangay" id="barangay" class="form-control">
                   <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '015501'") as $res) { ?>
                     <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
@@ -51,11 +51,11 @@
             </div>
             <div class="row">
               <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">E-mail*</label>
+                <label for="inputEmail4">E-mail<span style="color:red">*</span></label>
                 <input type="email" class="form-control" name="email" required>
               </div>
               <div class="form-group col-md-6" id="username">
-                <label for="inputEmail4">Contact No.*</label>
+                <label for="inputEmail4">Contact No.<span style="color:red">*</span></label>
                 <input type="number" class="form-control" name="contact" required>
               </div>
             </div>
@@ -87,23 +87,23 @@
                 <div class="form-group col-md-6" id="username">
                   <div class="row">
                     <div class="form-group col-md-12" id="username">
-                      <label for="inputEmail4">PRC No</label>
-                      <input type="number" class="form-control" placeholder="PRC No" name="prc_no" required>
+                      <label for="inputEmail4">PRC No<span style="color:red">*</span></label>
+                      <input type="text" class="form-control" placeholder="PRC No" name="prc_no" pattern="[0-9]{7}" required>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class=" row">
                     <div class="form-group col-md-6" id="username">
-                      <label for="inputEmail4">First Name</label>
+                      <label for="inputEmail4">First Name<span style="color:red">*</span></label>
                       <input type="text" class="form-control" placeholder="First Name" name="first_name" required>
                     </div>
                     <div class="form-group col-md-6" id="username">
-                      <label for="inputEmail4">Last Name</label>
+                      <label for="inputEmail4">Last Name<span style="color:red">*</span></label>
                       <input type="text" class="form-control" placeholder="Last name" name="last_name" required>
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-md-6" id="username">
-                      <label for="inputEmail4">City/Municipality*</label>
+                      <label for="inputEmail4">City/Municipality<span style="color:red">*</span></label>
                       <select name="municipality2" id="municipality2" class="form-control">
                         <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
                           <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
@@ -111,7 +111,7 @@
                       </select>
                     </div>
                     <div class="form-group col-md-6" id="username">
-                      <label for="inputEmail4">Barangay*</label>
+                      <label for="inputEmail4">Barangay<span style="color:red">*</span></label>
                       <select name="barangay2" id="barangay2" class="form-control">
                         <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '015501'") as $res) { ?>
                           <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>

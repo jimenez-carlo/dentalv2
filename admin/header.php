@@ -34,6 +34,10 @@
     .logo {
       height: 40px;
     }
+
+    body {
+      font-family: 'Nunito Sans' !important;
+    }
   </style>
   <!-- ============================================================== -->
   <!-- Preloader - style you can find in spinners.css -->
@@ -95,13 +99,15 @@
             <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->
+            <?php $id = $_SESSION['user']->id ?>
+            <?php $default = get_one("select u.id,ui.first_name,ui.municipality,ui.barangay,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
               </a>
               <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-
+                <a class="dropdown-item" href="#"><i class="fa fa-user me-1 ms-1"></i><?= ucfirst($default->first_name); ?></a>
                 <a class="dropdown-item" href="../logout.php"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
               </ul>
             </li>
@@ -126,9 +132,7 @@
             <li class="sidebar-item">
               <a href="#" class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" disabled onMouseOver="this.style.background='unset'">
                 <i class="mdi mdi-view-dashboarasdd"></i>
-                <?php $id = $_SESSION['user']->id ?>
-                <?php $default = get_one("select u.id,ui.first_name,ui.municipality,ui.barangay,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
-                <?= "$default->first_name "; ?>
+                <?= ucfirst($default->first_name) ?>
               </a>
             </li>
             <li class="sidebar-item">

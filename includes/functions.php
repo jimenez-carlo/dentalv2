@@ -86,11 +86,14 @@ function importMembers($data)
     if ($_FILES["file"]["size"] > 0) {
         $file = fopen($filename, "r");
         while (($getData = fgetcsv($file, 10000, ",")) !== FALSE) {
-            query("INSERT into tbl_member (prc_no,first_name,last_name,qr,paid_status_id)  values ('" . $getData[0] . "','" . $getData[1] . "','" . $getData[2] . "','default.png',2)");
+            query("INSERT into tbl_member 
+(prc_no,first_name,last_name,city,barangay,barangay_id,city_id, qr,paid_status_id)  values 
+('" . $getData[0] . "','" . $getData[1] . "','" . $getData[2] . "','" . (!is_numeric($getData[3]) ? $getData[3] : '') . "','" . (!is_numeric($getData[4]) ? $getData[4] : '') . "','" . (is_numeric($getData[3]) ? $getData[3] : '') . "','" . (is_numeric($getData[4]) ? $getData[4] : '') . "','default.png',2)");
         }
 
         fclose($file);
     }
+    query("update tbl_member set barangay = UPPER(barangay), city = UPPER(city)");
     return success_message();
 }
 function error_message($message = "Error Something Went Wrong")
@@ -254,7 +257,7 @@ function editMember($data)
         return error_message("PRC No Already Exist");
     }
 
-    query("UPDATE `tbl_member` set  prc_no ='$username', first_name = '$first_name',  last_name = '$last_name' , barangay_id = '$barangay' , city_id = '$municipality' where id = $id");
+    query("UPDATE `tbl_member` set  prc_no ='$prc_no', first_name = '$first_name',  last_name = '$last_name' , barangay_id = '$barangay' , city_id = '$municipality' where id = $id");
     return success_message("Member Updated Successfully!");
 }
 
@@ -265,7 +268,15 @@ function editServices($data)
         return error_message("Name Already Exist");
     }
 
-    query("UPDATE `tbl_service` set  srvc_name ='$srvc_name', srvc_desc = '$srvc_desc', srvc_price = '$srvc_price',srvc_time = '$srvc_time' where id = $id");
+    $file_name = get_one("select * from tbl_product where id = $id")->image;
+    if (isset($image_koto) && !empty($image_koto['name'])) {
+        $ext = explode(".", $image_koto["name"]);
+        $file_name = 'file_' . date('YmdHis') . "." . end($ext);
+        move_uploaded_file($image_koto['tmp_name'], "../images/services/" . $file_name);
+        $file_name = "$file_name";
+    }
+
+    query("UPDATE `tbl_service` set  srvc_name ='$srvc_name', srvc_desc = '$srvc_desc', srvc_price = '$srvc_price',srvc_time = '$srvc_time',srvc_img ='$file_name' where id = $id");
     return success_message("Service Updated Successfully!");
 }
 
@@ -387,7 +398,7 @@ function addProduct($data)
         $file_name = "$file_name";
     }
 
-    
+
     query("INSERT INTO `tbl_product` (clinic_id, prod_name, prod_desc, prod_price, image) values($clinic_id, '$prod_name', '$prod_desc', '$prod_price', '$file_name')");
     return success_message();
 }
@@ -401,7 +412,16 @@ function addService($data)
         return error_message("Service Name Already Exist");
     }
 
-    query("INSERT INTO `tbl_service` (clinic_id, srvc_name, srvc_desc, srvc_price, srvc_time) values($clinic_id, '$srvc_name', '$srvc_desc', '$srvc_price','$srvc_time')");
+    $file_name = "default.png";
+    if (isset($image_koto) && !empty($image_koto['name'])) {
+        $ext = explode(".", $image_koto["name"]);
+        $file_name = 'file_' . date('YmdHis') . "." . end($ext);
+        move_uploaded_file($image_koto['tmp_name'], "../images/services/" . $file_name);
+        $file_name = "$file_name";
+    }
+
+
+    query("INSERT INTO `tbl_service` (clinic_id, srvc_name, srvc_desc, srvc_price, srvc_time, srvc_img) values($clinic_id, '$srvc_name', '$srvc_desc', '$srvc_price','$srvc_time','$file_name')");
     return success_message();
 }
 
@@ -557,6 +577,11 @@ function accept_appointment($id)
     query("UPDATE `tbl_appointment` set status_id = 2 where id = $id");
     return success_message("Appointment Accepted Successfully!");
 }
+function delete_appointment($id)
+{
+    query("DELETE from `tbl_appointment` where id = $id");
+    return success_message("Appointment Deleted Successfully!");
+}
 function reject_appointment($data)
 {
     extract($data);
@@ -576,7 +601,7 @@ function uplaod_teethv($data)
     // echo "<pre>";
     extract($data);
     // print_r($appointment_date);
-    
+
     $filename = get_one("select * from tbl_clinic where clinic_id = $clinic_id")->image;
     if (isset($file_name) && !empty($file_name['name'])) {
         $ext = explode(".", $file_name["name"]);
@@ -595,7 +620,22 @@ function editSettings($data)
     query("UPDATE `tbl_settings` set requirements = '$requirements' where id = 1");
     return success_message("Yes!");
 }
+function convertDate($date)
+{
 
+    // $tmp = date_create($date . " 00:00:00");
+    // return $tmp;
+    try {
+        return DateTime::createFromFormat("F d, Y", $date);
+    } catch (\Throwable $th) {
+        $tmp =  false;
+        return '';
+    }
+    // if ($tmp) {
+    //     return  date_format($tmp, 'F d, Y');
+    // }
+    // return '';
+}
 function convertTime($data)
 {
     if ($data < 1) {

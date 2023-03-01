@@ -39,7 +39,7 @@
               <div class="col-md-6">
                 <form method="post">
                   <div class="table-responsive">
-                    <table id="table_eto" class="table table-bordered">
+                    <table id="table_eto" class="table table-bordered table-striped ">
                       <thead>
                         <tr>
                           <th>Service</th>

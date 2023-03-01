@@ -6,7 +6,8 @@
     background: #fff !important;
     padding: 32px;
   }
-/* .img{
+
+  /* .img{
   height:200px;
   width:100px;
   border-radius:10px;
@@ -28,16 +29,24 @@
     margin-top: 8vh;
     height: 92vh !important;
   }
+
   /* .btn-outline:hover{
     background:red;
   } */
+  body {
+    font-family: 'Nunito Sans' !important;
+  }
+
+  .banner1 {
+    color: #89eaf9 !important;
+  }
 </style>
 <!-- banner text -->
 <div class="banner">
   <div class="slider-banner">
     <!-- <div data-lazy-background="images/slides/ban.jpg"> -->
-    <!-- style="opacity:.8" --> 
-    <div data-lazy-background="images/slides/banner4.png" >
+    <!-- style="opacity:.8" -->
+    <div data-lazy-background="images/slides/banner4.png">
       <h1 class="banner1" data-pos="['68%', '-40%', '5%', '12%']" data-duration="700" data-effect="move">
         Provincial Dental Clinic Management System
       </h1> <br>
@@ -173,8 +182,8 @@
 <section id="gallery" class="gallery section">
   <div class="container-fluid">
     <div class="section-header">
-    <!-- style="color:red" -->
-      <h2 class="wow fadeInDown animated" >Gallery</h2>
+      <!-- style="color:red" -->
+      <h2 class="wow fadeInDown animated">Gallery</h2>
       <!-- <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p> -->
     </div>
     <div class="row m-5 p-5">

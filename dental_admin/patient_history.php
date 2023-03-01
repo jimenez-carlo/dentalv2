@@ -31,13 +31,11 @@
                 <input type="hidden" name="id" value="<?= $default->id ?>">
                 <div class="form-group row">
                   <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name</label>
-                  <div class="col-sm-9">
+                  <div class="col-sm-4">
                     <input disabled type="text" class="form-control" id="fname" name="first_name" required value="<?= $default->first_name ?>">
                   </div>
-                </div>
-                <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Last Name</label>
-                  <div class="col-sm-9">
+                  <label for="fname" class="col-sm-1 text-end control-label col-form-label">Last Name</label>
+                  <div class="col-sm-4">
                     <input disabled type="text" class="form-control" id="fname" name="last_name" required value="<?= $default->last_name ?>">
                   </div>
                 </div>
@@ -89,7 +87,7 @@
           <?php foreach (get_list("select * from tbl_appointment where patient_id = " . $_GET['id']) as $res) { ?>
             <div class="table-responsive">
               <h5> Appointment ID# <?= $res['id'] ?> - <?= $res['paid_id'] == 1 ? 'UNPAID' : 'PAID' ?> <span style="float:right">Appointment Date:<?= $res['appointment_date'] ?></span></h5>
-              <table id="table_eto" class="table table-bordered">
+              <table id="table_eto" class="table table-bordered table-striped ">
                 <thead>
                   <tr>
                     <th>Service</th>

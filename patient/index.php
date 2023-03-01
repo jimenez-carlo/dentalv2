@@ -38,6 +38,7 @@
 <!-- End Page wrapper  -->
 <!-- ============================================================== -->
 </div>
+<?php include 'footer.php'; ?>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -88,4 +89,3 @@
     calendar.render();
   });
 </script>
-<?php include 'footer.php'; ?>

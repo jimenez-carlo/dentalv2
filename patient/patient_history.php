@@ -28,7 +28,7 @@
           <?php foreach (get_list("select * from tbl_appointment where patient_id = " . $_SESSION['user']->id) as $res) { ?>
             <div class="table-responsive">
               <h5> Appointment ID# <?= $res['id'] ?> - <?= $res['paid_id'] == 1 ? 'UNPAID' : 'PAID' ?> <span style="float:right">Appointment Date:<?= $res['appointment_date'] ?></span></h5>
-              <table id="table_eto" class="table table-bordered">
+              <table id="table_eto" class="table table-bordered table-striped ">
                 <thead>
                   <tr>
                     <th>Service</th>

@@ -31,7 +31,7 @@
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table id="table_eto" class="table table-bordered">
+            <table id="table_eto" class="table table-bordered table-striped ">
               <thead>
                 <tr>
                   <th>Date</th>
@@ -46,7 +46,7 @@
                   <?php foreach (get_list("SELECT a.appointment_date,s.srvc_name,s.srvc_price from tbl_appointment a inner join tbl_appointment_items i on i.appointment_id = a.id inner join tbl_service s on s.id = i.service_id where a.paid_id = 2 and a.clinic_id = " . $_SESSION['user']->clinic_id . $where) as $res) { ?>
                     <tr>
                       <?php $tmp = date_create($res['appointment_date']); ?>
-                      <td><?= date_format($tmp, 'F d Y') ?></td>
+                      <td><?= date_format($tmp, 'F d, Y') ?></td>
                       <td><?= $res['srvc_name'] ?></td>
                       <td><?= $res['srvc_price'] ?></td>
 

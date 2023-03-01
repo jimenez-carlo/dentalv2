@@ -50,6 +50,10 @@
   .cdetails {
     list-style-type: none;
   }
+
+  body {
+    font-family: 'Nunito Sans' !important;
+  }
 </style>
 
 <body>
@@ -112,12 +116,15 @@
               <a class="nav-link waves-effect waves-dark sidebar-link " href="../logout.php" aria-expanded="false"><i class="mdi mdi-power"></i><span class="hide-menu">Log Out</span></a>
             </li> -->
 
+            <?php $id = $_SESSION['user']->id ?>
+            <?php $default = get_one("select u.id,ui.first_name,ui.municipality,ui.barangay,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
               </a>
               <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
 
+                <a class="dropdown-item" href="#"><i class="fa fa-user me-1 ms-1"></i><?= ucfirst($default->first_name); ?></a>
                 <a class="dropdown-item" href="../logout.php"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
               </ul>
             </li>
@@ -144,15 +151,14 @@
             <li class="sidebar-item">
               <a href="#" class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" disabled>
                 <i class="mdi mdi-view-dashboarasdd"></i>
-                <?php $id = $_SESSION['user']->id ?>
-                <?php $default = get_one("select u.id,ui.first_name,ui.municipality,ui.barangay,ui.email,ui.contact,u.username,u.password from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
 
                 <?php
                 if (isset($_SESSION['user'])) {
                   if ($_SESSION['user']->access_id == 5) {
-                    echo "
-              $default->first_name
-                ";
+                    echo
+                    ucfirst(
+                      $default->first_name
+                    );
                   }
                 }
                 ?>

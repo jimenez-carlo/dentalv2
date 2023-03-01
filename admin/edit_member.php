@@ -30,20 +30,20 @@
                 <?php $default = get_one("SELECT c.name as `city`,b.name as `barangay`,s.name as `status`,m.* from tbl_member m left join tbl_barangay b on b.id = m.barangay_id left join tbl_city c on c.id = m.city_id inner join tbl_appointment_status s on s.id = m.paid_status_id  where m.id ='$id'") ?>
                 <input type="hidden" name="id" value="<?= $default->id ?>">
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">PRC No*</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">PRC No<span style="color:red">*</span></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="fname" name="prc_no" required value="<?= $default->prc_no ?>">
                   </div>
                 </div>
 
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name*</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name<span style="color:red">*</span></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="fname" name="first_name" required value="<?= $default->first_name ?>">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Last Name*</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Last Name<span style="color:red">*</span></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="fname" name="last_name" required value="<?= $default->last_name ?>">
                   </div>
@@ -55,7 +55,7 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">City/Municipality*</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">City/Municipality<span style="color:red">*</span></label>
                   <div class="col-sm-9">
                     <select name="municipality" id="municipality" class="form-control">
                       <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="form-group row">
-                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay*</label>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay<span style="color:red">*</span></label>
                   <div class="col-sm-9">
                     <select name="barangay" id="barangay" class="form-control">
                       <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '($default->city_id ?? 015501)'") as $res) { ?>

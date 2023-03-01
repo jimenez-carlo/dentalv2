@@ -32,25 +32,25 @@
                 <input type="hidden" name="clinic_id" value="<?= $default->clinic_id ?>">
                 <h4 class="card-title">Product Information Entry</h4>
                       <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Product Name*</label>
+                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Enter Product Name<span style="color:red">*</span></label>
                         <div class="col-sm-9">
                           <input type="text" class="form-control" id="fname" name="prod_name" required value="<?= $default->prod_name ?>">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description*</label>
+                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Description<span style="color:red">*</span></label>
                         <div class="col-sm-9">
                           <input type="text" class="form-control" id="fname" name="prod_desc" required value="<?= $default->prod_desc ?>">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Price*</label>
+                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Price<span style="color:red">*</span></label>
                         <div class="col-sm-9">
                           <input type="number" class="form-control" id="fname" name="prod_price" required value="<?= $default->prod_price ?>">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Product Image*</label>
+                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Product Image<span style="color:red">*</span></label>
                         <div class="col-sm-9">
                           <input type="file" class="form-control" name="image_koto" accept=".jpg,.jpeg,.png">
                         </div>
