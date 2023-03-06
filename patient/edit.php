@@ -30,61 +30,53 @@
                 <?php $default = get_one("select u.id,ui.municipality,ui.barangay,ui.email,ui.contact,u.username,u.password,ui.first_name,ui.last_name from tbl_user u inner join tbl_userinfo ui on ui.id = u.id where u.id = '$id'") ?>
                 <input type="hidden" name="id" value="<?= $default->id ?>">
                 <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="fname" name="first_name" required value="<?= $default->first_name ?>">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Last Name</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="fname" name="last_name" required value="<?= $default->last_name ?>">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Username</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" id="fname" name="username" required value="<?= $default->username ?>">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Password</label>
-                        <div class="col-sm-9">
-                          <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required value="<?= $default->password ?>"><span>Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">City/Municipality</label>
-                        <div class="col-sm-9">
-                          <select name="municipality" id="municipality" class="form-control">
-                            <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
-                              <option value="<?= $res['id'] ?>" <?= ($default->municipality == $res['id']) ? 'selected' : ''  ?>><?= $res['name'] ?></option>
-                            <?php } ?>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay</label>
-                        <div class="col-sm-9">
-                          <select name="barangay" id="barangay" class="form-control">
-                            <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '$default->municipality'") as $res) { ?>
-                              <option value="<?= $res['id'] ?>" <?= ($default->barangay == $res['id']) ? 'selected' : ''  ?>><?= $res['name'] ?></option>
-                            <?php } ?>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">E-mail</label>
-                        <div class="col-sm-9">
-                          <input type="email" class="form-control" id="fname" name="email" required value="<?= $default->email ?>">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Contact No.</label>
-                        <div class="col-sm-9">
-                          <input type="number" class="form-control" id="fname" name="contact" required value="<?= $default->contact ?>">
-                        </div>
-                      </div>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">First Name</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="fname" name="first_name" required value="<?= $default->first_name ?>">
+                  </div>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Last Name</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="fname" name="last_name" required value="<?= $default->last_name ?>">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Username</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="fname" name="username" required value="<?= $default->username ?>">
+                  </div>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Password</label>
+                  <div class="col-sm-3">
+                    <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required value="<?= $default->password ?>" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">City/Municipality</label>
+                  <div class="col-sm-3">
+                    <select name="municipality" id="municipality" class="form-control">
+                      <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
+                        <option value="<?= $res['id'] ?>" <?= ($default->municipality == $res['id']) ? 'selected' : ''  ?>><?= $res['name'] ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay</label>
+                  <div class="col-sm-3">
+                    <select name="barangay" id="barangay" class="form-control">
+                      <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '$default->municipality'") as $res) { ?>
+                        <option value="<?= $res['id'] ?>" <?= ($default->barangay == $res['id']) ? 'selected' : ''  ?>><?= $res['name'] ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">E-mail</label>
+                  <div class="col-sm-3">
+                    <input type="email" class="form-control" id="fname" name="email" required value="<?= $default->email ?>">
+                  </div>
+                  <label for="fname" class="col-sm-3 text-end control-label col-form-label">Contact No.</label>
+                  <div class="col-sm-3">
+                    <input type="number" class="form-control" id="fname" name="contact" required value="<?= $default->contact ?>">
+                  </div>
+                </div>
               </div>
 
             </div>

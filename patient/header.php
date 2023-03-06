@@ -171,7 +171,13 @@
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="clinics.php" aria-expanded="false"><i class="mdi mdi-tooth"></i><span class="hide-menu">Clinics</span></a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="appointments.php" aria-expanded="false"><i class="mdi mdi-calendar-multiple-check"></i><span class="hide-menu">Appointments</span></a>
+
+              <?php $count = get_one("select count(*) as result from tbl_notification where dentist_id = " . $_SESSION['user']->id)->result ?? 0;
+              if (strpos($_SERVER['REQUEST_URI'], 'appointments') !== false) {
+                query("DELETE from tbl_notification where dentist_id = " . $_SESSION['user']->id);
+              }
+              ?>
+              <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="appointments.php" aria-expanded="false"><i class="mdi mdi-calendar-multiple-check"></i><span class="hide-menu">Appointments (<?= $count ?>)</span></a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="patient_history.php" aria-expanded="false"><i class="mdi mdi-calendar"></i><span class="hide-menu">Patient History</span></a>

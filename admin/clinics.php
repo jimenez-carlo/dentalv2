@@ -62,12 +62,12 @@
                     <td><?= date_format(date_create($res['date_created']), 'F d, Y') ?></td>
                     <td style="width: 0.1%;display:flex">
                       <?php if ($_SESSION['user']->access_id == 1) { ?>
-                        <a href="<?= $_SESSION['user']->access_id == 1 ? 'edit' : 'view' ?>.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
+                        <a href="<?= $_SESSION['user']->access_id == 1 ? 'edit' : 'view' ?>.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button"><?= $_SESSION['user']->access_id == 1 ? 'Edit' : 'View' ?> </a>
                         <form method="post" onsubmit="return confirm('Are you sure?');">
                           <button class="btn btn-danger" type="submit" name="delete" value="<?= $res['clinic_id'] ?>">Delete </button>
                         </form>
                       <?php } else { ?>
-                        <a href="<?= $_SESSION['user']->access_id == 1 ? 'edit' : 'view' ?>.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button">View </a>
+                        <a href="<?= $_SESSION['user']->access_id == 1 ? 'edit' : 'view' ?>.php?id=<?= $res['id'] ?>" class="btn btn-info me-1" type="button"><?= $_SESSION['user']->access_id == 1 ? 'Edit' : 'View' ?> </a>
 
                       <?php } ?>
                     </td>
@@ -103,29 +103,25 @@
                   <h4 class="card-title">Clinic Information Entry</h4>
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Clinic Name<span style="color:red">*</span></label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-3">
                       <input type="text" class="form-control" id="fname" name="clinic_name" required>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">PRC No<span style="color:red">*</span></label>
-                    <div class="col-sm-9">
+                    <label for="fname" class="col-sm-2 text-end control-label col-form-label">PRC No<span style="color:red">*</span></label>
+                    <div class="col-sm-4">
                       <input type="text" class="form-control" id="fname" name="prc_no" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">City/Municipality<span style="color:red">*</span></label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-3">
                       <select name="municipality" id="municipality" class="form-control">
                         <?php foreach (get_list("SELECT * from tbl_city") as $res) { ?>
                           <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
                         <?php } ?>
                       </select>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Barangay<span style="color:red">*</span></label>
-                    <div class="col-sm-9">
+                    <label for="fname" class="col-sm-2 text-end control-label col-form-label">Barangay<span style="color:red">*</span></label>
+                    <div class="col-sm-4">
                       <select name="barangay" id="barangay" class="form-control">
                         <?php foreach (get_list("SELECT * from tbl_barangay where city_id = '015501'") as $res) { ?>
                           <option value="<?= $res['id'] ?>"><?= $res['name'] ?></option>
@@ -136,14 +132,12 @@
 
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">Username<span style="color:red">*</span></label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-3">
                       <input type="text" class="form-control" id="fname" name="username" required pattern="(?=.*\d)(?=.*[a-z])(?=.*).{6,}" title="Must contain at least one number and lowercase letter, and at least 6 or more characters">
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Password<span style="color:red">*</span></label>
-                    <div class="col-sm-9">
-                      <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required><span>Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+                    <label for="fname" class="col-sm-2 text-end control-label col-form-label">Password<span style="color:red">*</span></label>
+                    <div class="col-sm-4">
+                      <input type="password" class="form-control" id="fname" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="validate" required title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                     </div>
                   </div>
 
@@ -159,13 +153,11 @@
                   </div>
                   <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label col-form-label">E-mail<span style="color:red">*</span></label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-3">
                       <input type="email" class="form-control" id="fname" name="email" required>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="fname" class="col-sm-3 text-end control-label col-form-label">Contact No.<span style="color:red">*</span></label>
-                    <div class="col-sm-9">
+                    <label for="fname" class="col-sm-2 text-end control-label col-form-label">Contact No.<span style="color:red">*</span></label>
+                    <div class="col-sm-4">
                       <input type="number" pattern="" class="form-control" id="fname" name="contact" required>
                     </div>
                   </div>

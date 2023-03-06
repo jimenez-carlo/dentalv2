@@ -551,6 +551,11 @@ function checkout($data)
         $time = $res['time'];
         query("INSERT INTO tbl_appointment_items (appointment_id,service_id,qty,price,appointment_time) VALUES($id,$key,'$qty','$price','$time')");
     }
+
+    foreach (get_list("select id from tbl_user where access_id in (1,2,3,4) clinic_id = " . $clinic_id) as $res) {
+        query("INSERT INTO tbl_notification (appointment_id, patient_id,dentist_id,clinic_id) values('$id', '$user->id','$id','$clinic_id')");
+    }
+
     unset($_SESSION['cart'], $_SESSION['clinic_id']);
     return success_message("Checkout Successfully");
 }
@@ -588,6 +593,9 @@ function reject_appointment($data)
     $y = date_create($appointment_date);
     $x = date_format($y, "Y-m-d");
     query("UPDATE `tbl_appointment` set status_id = 3, appointment_date = '$x' where id = '$id'");
+    foreach (get_list("select id from tbl_user where access_id in (1,2,3,4) clinic_id = " . $clinic_id) as $res) {
+        query("INSERT INTO tbl_notification (appointment_id, patient_id,dentist_id,clinic_id) values('$id', '$patient_id','$id','$clinic_id')");
+    }
     return success_message("Appointment Rescheduled Successfully!");
 }
 function paid_appointment($id)

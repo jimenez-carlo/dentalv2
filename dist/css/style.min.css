@@ -30,3 +30,9 @@ th{
     text-transform: uppercase!important;
 font-weight:bold!important;
 }body{      font-family: Lato!important;}
+
+input,select,textarea{
+box-shadow: 2px 0px 5px 6px rgb(51 50 50 / 75%);
+    -webkit-box-shadow: 2px 0px 5px 0px rgb(193 189 189 / 98%);
+    -moz-box-shadow: 2px 0px 5px 6px rgba(51,50,50,0.75);
+}

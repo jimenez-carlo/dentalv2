@@ -95,16 +95,16 @@
                     <div class="vl"></div>
                     <table class="teeth">
                       <tr>
-                        <td><input type="text" name="status_1_55" style="width:20px" value="<?= $data->status_1_55 ?>"></td>
-                        <td><input type="text" name="status_1_54" style="width:20px" value="<?= $data->status_1_54 ?>"></td>
-                        <td><input type="text" name="status_1_53" style="width:20px" value="<?= $data->status_1_53 ?>"></td>
-                        <td><input type="text" name="status_1_52" style="width:20px" value="<?= $data->status_1_52 ?>"></td>
-                        <td><input type="text" name="status_1_51" style="width:20px" value="<?= $data->status_1_51 ?>"></td>
-                        <td><input type="text" name="status_1_61" style="width:20px" value="<?= $data->status_1_61 ?>"></td>
-                        <td><input type="text" name="status_1_62" style="width:20px" value="<?= $data->status_1_62 ?>"></td>
-                        <td><input type="text" name="status_1_63" style="width:20px" value="<?= $data->status_1_63 ?>"></td>
-                        <td><input type="text" name="status_1_64" style="width:20px" value="<?= $data->status_1_64 ?>"></td>
-                        <td><input type="text" name="status_1_65" style="width:20px" value="<?= $data->status_1_65 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_55" style="width:20px" value="<?= $data->status_1_55 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_54" style="width:20px" value="<?= $data->status_1_54 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_53" style="width:20px" value="<?= $data->status_1_53 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_52" style="width:20px" value="<?= $data->status_1_52 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_51" style="width:20px" value="<?= $data->status_1_51 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_61" style="width:20px" value="<?= $data->status_1_61 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_62" style="width:20px" value="<?= $data->status_1_62 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_63" style="width:20px" value="<?= $data->status_1_63 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_64" style="width:20px" value="<?= $data->status_1_64 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_65" style="width:20px" value="<?= $data->status_1_65 ?>"></td>
                       </tr>
                       <tr>
                         <td><input type="text" name="status_2_55" style="width:20px" value="<?= $data->status_2_55 ?>"></td>
@@ -133,22 +133,23 @@
                     </table>
                     <table class="teeth">
                       <tr>
-                        <td><input type="text" name="status_1_18" style="width:20px" value="<?= $data->status_1_18 ?>"></td>
-                        <td><input type="text" name="status_1_17" style="width:20px" value="<?= $data->status_1_17 ?>"></td>
-                        <td><input type="text" name="status_1_16" style="width:20px" value="<?= $data->status_1_16 ?>"></td>
-                        <td><input type="text" name="status_1_15" style="width:20px" value="<?= $data->status_1_15 ?>"></td>
-                        <td><input type="text" name="status_1_14" style="width:20px" value="<?= $data->status_1_14 ?>"></td>
-                        <td><input type="text" name="status_1_13" style="width:20px" value="<?= $data->status_1_13 ?>"></td>
-                        <td><input type="text" name="status_1_12" style="width:20px" value="<?= $data->status_1_12 ?>"></td>
-                        <td><input type="text" name="status_1_11" style="width:20px" value="<?= $data->status_1_11 ?>"></td>
                         <td><input type="text" name="status_1_21" style="width:20px" value="<?= $data->status_1_21 ?>"></td>
-                        <td><input type="text" name="status_1_22" style="width:20px" value="<?= $data->status_1_22 ?>"></td>
-                        <td><input type="text" name="status_1_23" style="width:20px" value="<?= $data->status_1_23 ?>"></td>
-                        <td><input type="text" name="status_1_24" style="width:20px" value="<?= $data->status_1_24 ?>"></td>
-                        <td><input type="text" name="status_1_25" style="width:20px" value="<?= $data->status_1_25 ?>"></td>
-                        <td><input type="text" name="status_1_26" style="width:20px" value="<?= $data->status_1_26 ?>"></td>
-                        <td><input type="text" name="status_1_27" style="width:20px" value="<?= $data->status_1_27 ?>"></td>
-                        <td><input type="text" name="status_1_28" style="width:20px" value="<?= $data->status_1_28 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_18" style="width:20px" value="<?= $data->status_1_18 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_17" style="width:20px" value="<?= $data->status_1_17 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_16" style="width:20px" value="<?= $data->status_1_16 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_15" style="width:20px" value="<?= $data->status_1_15 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_14" style="width:20px" value="<?= $data->status_1_14 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_13" style="width:20px" value="<?= $data->status_1_13 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_12" style="width:20px" value="<?= $data->status_1_12 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_11" style="width:20px" value="<?= $data->status_1_11 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_21" style="width:20px" value="<?= $data->status_1_21 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_22" style="width:20px" value="<?= $data->status_1_22 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_23" style="width:20px" value="<?= $data->status_1_23 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_24" style="width:20px" value="<?= $data->status_1_24 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_25" style="width:20px" value="<?= $data->status_1_25 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_26" style="width:20px" value="<?= $data->status_1_26 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_27" style="width:20px" value="<?= $data->status_1_27 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_28" style="width:20px" value="<?= $data->status_1_28 ?>"></td>
                       </tr>
                       <tr>
                         <td><input type="text" name="status_2_18" style="width:20px" value="<?= $data->status_2_18 ?>"></td>
@@ -207,22 +208,22 @@
                         <td>38</td>
                       </tr>
                       <tr>
-                        <td><input type="text" name="status_1_48" style="width:20px" value="<?= $data->status_1_48 ?>"></td>
-                        <td><input type="text" name="status_1_47" style="width:20px" value="<?= $data->status_1_47 ?>"></td>
-                        <td><input type="text" name="status_1_46" style="width:20px" value="<?= $data->status_1_46 ?>"></td>
-                        <td><input type="text" name="status_1_45" style="width:20px" value="<?= $data->status_1_45 ?>"></td>
-                        <td><input type="text" name="status_1_44" style="width:20px" value="<?= $data->status_1_44 ?>"></td>
-                        <td><input type="text" name="status_1_43" style="width:20px" value="<?= $data->status_1_43 ?>"></td>
-                        <td><input type="text" name="status_1_42" style="width:20px" value="<?= $data->status_1_42 ?>"></td>
-                        <td><input type="text" name="status_1_41" style="width:20px" value="<?= $data->status_1_41 ?>"></td>
-                        <td><input type="text" name="status_1_31" style="width:20px" value="<?= $data->status_1_31 ?>"></td>
-                        <td><input type="text" name="status_1_32" style="width:20px" value="<?= $data->status_1_32 ?>"></td>
-                        <td><input type="text" name="status_1_33" style="width:20px" value="<?= $data->status_1_33 ?>"></td>
-                        <td><input type="text" name="status_1_34" style="width:20px" value="<?= $data->status_1_34 ?>"></td>
-                        <td><input type="text" name="status_1_35" style="width:20px" value="<?= $data->status_1_35 ?>"></td>
-                        <td><input type="text" name="status_1_36" style="width:20px" value="<?= $data->status_1_36 ?>"></td>
-                        <td><input type="text" name="status_1_37" style="width:20px" value="<?= $data->status_1_37 ?>"></td>
-                        <td><input type="text" name="status_1_38" style="width:20px" value="<?= $data->status_1_38 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_48" style="width:20px" value="<?= $data->status_1_48 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_47" style="width:20px" value="<?= $data->status_1_47 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_46" style="width:20px" value="<?= $data->status_1_46 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_45" style="width:20px" value="<?= $data->status_1_45 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_44" style="width:20px" value="<?= $data->status_1_44 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_43" style="width:20px" value="<?= $data->status_1_43 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_42" style="width:20px" value="<?= $data->status_1_42 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_41" style="width:20px" value="<?= $data->status_1_41 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_31" style="width:20px" value="<?= $data->status_1_31 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_32" style="width:20px" value="<?= $data->status_1_32 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_33" style="width:20px" value="<?= $data->status_1_33 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_34" style="width:20px" value="<?= $data->status_1_34 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_35" style="width:20px" value="<?= $data->status_1_35 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_36" style="width:20px" value="<?= $data->status_1_36 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_37" style="width:20px" value="<?= $data->status_1_37 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_38" style="width:20px" value="<?= $data->status_1_38 ?>"></td>
                       </tr>
                       <tr>
                         <td><input type="text" name="status_2_48" style="width:20px" value="<?= $data->status_2_48 ?>"></td>
@@ -257,16 +258,16 @@
                         <td>75</td>
                       </tr>
                       <tr>
-                        <td><input type="text" name="status_1_85" style="width:20px" value="<?= $data->status_1_85 ?>"></td>
-                        <td><input type="text" name="status_1_84" style="width:20px" value="<?= $data->status_1_84 ?>"></td>
-                        <td><input type="text" name="status_1_83" style="width:20px" value="<?= $data->status_1_83 ?>"></td>
-                        <td><input type="text" name="status_1_82" style="width:20px" value="<?= $data->status_1_82 ?>"></td>
-                        <td><input type="text" name="status_1_81" style="width:20px" value="<?= $data->status_1_81 ?>"></td>
-                        <td><input type="text" name="status_1_71" style="width:20px" value="<?= $data->status_1_71 ?>"></td>
-                        <td><input type="text" name="status_1_72" style="width:20px" value="<?= $data->status_1_72 ?>"></td>
-                        <td><input type="text" name="status_1_73" style="width:20px" value="<?= $data->status_1_73 ?>"></td>
-                        <td><input type="text" name="status_1_74" style="width:20px" value="<?= $data->status_1_74 ?>"></td>
-                        <td><input type="text" name="status_1_75" style="width:20px" value="<?= $data->status_1_75 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_85" style="width:20px" value="<?= $data->status_1_85 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_84" style="width:20px" value="<?= $data->status_1_84 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_83" style="width:20px" value="<?= $data->status_1_83 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_82" style="width:20px" value="<?= $data->status_1_82 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_81" style="width:20px" value="<?= $data->status_1_81 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_71" style="width:20px" value="<?= $data->status_1_71 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_72" style="width:20px" value="<?= $data->status_1_72 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_73" style="width:20px" value="<?= $data->status_1_73 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_74" style="width:20px" value="<?= $data->status_1_74 ?>"></td>
+                        <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_75" style="width:20px" value="<?= $data->status_1_75 ?>"></td>
                       </tr>
                       <tr>
                         <td><input type="text" name="status_2_85" style="width:20px" value="<?= $data->status_2_85 ?>"></td>
@@ -331,9 +332,8 @@
                   <div class="col-md-12">
 
                     <input type="hidden" value="<?= $_GET['id'] ?>" name="id">
-
                     <button class="btn btn-info" style="width:10%" type="submit" name="update_chart"> UPDATE CHART</button>
-                    <button class="btn btn-info" type="button" id="print"  onclick="window.print()"> Print</button>
+                    <button class="btn btn-info" type="button" id="print" onclick="window.print()"> Print</button>
 
                     <!-- <div class=" text-center">
                       <a href="view_receipt.php?id=<?= $appointment_details->id ?>" class="btn btn-secondary" style="width:20%">View Receipt</a>
