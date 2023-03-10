@@ -172,10 +172,11 @@
             </li>
             <li class="sidebar-item">
 
-              <?php $count = get_one("select count(*) as result from tbl_notification where dentist_id = " . $_SESSION['user']->id)->result ?? 0;
+              <?php
               if (strpos($_SERVER['REQUEST_URI'], 'appointments') !== false) {
                 query("DELETE from tbl_notification where dentist_id = " . $_SESSION['user']->id);
               }
+              $count = get_one("select count(*) as result from tbl_notification where dentist_id = " . $_SESSION['user']->id)->result ?? 0;
               ?>
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="appointments.php" aria-expanded="false"><i class="mdi mdi-calendar-multiple-check"></i><span class="hide-menu">Appointments (<?= $count ?>)</span></a>
             </li>

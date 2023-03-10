@@ -147,10 +147,11 @@
               <a class="sidebar-link waves-effect waves-dark sidebar-link bg-dark" href="index.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
             </li>
 
-            <?php $count = get_one("select count(*) as result from tbl_notification where dentist_id = " . $_SESSION['user']->id)->result ?? 0;
+            <?php
             if (strpos($_SERVER['REQUEST_URI'], 'appointments') !== false) {
               query("DELETE from tbl_notification where dentist_id = " . $_SESSION['user']->id);
             }
+            $count = get_one("select count(*) as result from tbl_notification where dentist_id = " . $_SESSION['user']->id)->result ?? 0;
             ?>
             <?php
             if (isset($_SESSION['user'])) {

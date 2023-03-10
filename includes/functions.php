@@ -1,5 +1,14 @@
 <?php
 require_once 'db_conn.php';
+
+require_once 'PHPMailer.php';
+require_once 'SMTP.php';
+require_once 'Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 $_SESSION['conn'] = $conn;
 
 function query($sql)
@@ -38,6 +47,46 @@ function get_list($sql)
     // }
 }
 
+function send_mail($email, $message)
+{
+    //Create instance of PHPMailer
+    $mail = new PHPMailer();
+    //Set mailer to use smtp
+    $mail->isSMTP();
+    //Define smtp host
+    $mail->Host = "smtp.gmail.com";
+    //Enable smtp authentication
+    $mail->SMTPAuth = true;
+    //Set smtp encryption type (ssl/tls)
+    $mail->SMTPSecure = "tls";
+    //Port to connect smtp
+    $mail->Port = "587";
+    //Set gmail username
+    $mail->Username = "casa.amarillo1234@gmail.com";
+    //Set gmail password
+    $mail->Password = "tjsqhnlyhokswtjg";
+    //Email subject
+    $mail->Subject = "Casa Amarillo Password";
+    //Set sender email
+    // $mail->setFrom('casa.amarillo1234@gmail.com');
+    $mail->setFrom('PDCMS@gmail.com');
+    //Enable HTML
+    $mail->isHTML(true);
+    //Attachment
+    $mail->addAttachment('');
+    //Email body
+    $mail->Body = $message;
+    //Add recipient
+    $mail->addAddress($email);
+    //Finally send email
+    if ($mail->send()) {
+        // echo "Email Sent..!";
+    } else {
+        // echo "Message could not be sent. Mailer Error: " . "" . "{$mail->ErrorInfo}";
+    }
+    //Closing smtp connection
+    $mail->smtpClose();
+}
 function loginUser($data)
 {
     extract($data);
@@ -173,6 +222,24 @@ function registerClinic($data)
     $clinic_id = get_inserted_id("INSERT INTO `tbl_clinic` (name, image, description,prc_id,business_permit,dti,barangay_clearance,prc_no,mayors_permit) values('$clinic_name', '$file_name','$description','$file_name_prc','$file_name_barangay_clearance','$file_name_dti','$file_name_barangay_clearance','$prc_no','file_name_mayors_permit')");
     $id = get_inserted_id("INSERT INTO `tbl_user` (access_id, username, password, clinic_id) values('2', '$username', '$password','$clinic_id')");
     query("INSERT INTO `tbl_userinfo` (id, municipality, barangay, email, contact, first_name, last_name) values($id, '$municipality', '$barangay', '$email', '$contact','$first_name','$last_name')");
+
+    $message = "<h1>Welcome to PCDMS!</h1>";
+    $message .= "<style>table,tr,td{border:solid 2px black}</style>";
+    $message .= "<table>";
+    $message .= "<tr>";
+    $message .= "<td>Clinic Name</td>";
+    $message .= "<td>PRC No</td>";
+    $message .= "<td>Username</td>";
+    $message .= "<td>Password</td>";
+    $message .= "</tr>";
+    $message .= "<tr>";
+    $message .= "<td>$clinic_name</td>";
+    $message .= "<td>$prc_no</td>";
+    $message .= "<td>$username</td>";
+    $message .= "<td>$password</td>";
+    $message .= "</tr>";
+    $message .= "</table>";
+    send_mail($email, $message);
     return success_message();
 }
 

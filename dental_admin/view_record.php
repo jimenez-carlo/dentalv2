@@ -133,7 +133,6 @@
                     </table>
                     <table class="teeth">
                       <tr>
-                        <td><input type="text" name="status_1_21" style="width:20px" value="<?= $data->status_1_21 ?>"></td>
                         <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_18" style="width:20px" value="<?= $data->status_1_18 ?>"></td>
                         <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_17" style="width:20px" value="<?= $data->status_1_17 ?>"></td>
                         <td><img src="../images/teeth/t55.png" alt="" height="30px"><br><input type="text" name="status_1_16" style="width:20px" value="<?= $data->status_1_16 ?>"></td>
